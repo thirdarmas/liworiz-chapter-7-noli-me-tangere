@@ -5,7 +5,6 @@ Topic: Chapter 7 - Rizal's First Novel: Noli Me Tangere
 
 Group 1 | 3-ITB
 
-
 AGUIRRE, Matthew
 
 ALBERTO, Jandrel Jimwee
