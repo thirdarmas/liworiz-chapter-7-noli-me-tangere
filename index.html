@@ -1,0 +1,1615 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Chapter 7 | Rizal's First Novel</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <style>
+      /* =========================================
+           ROOT
+        ========================================= */
+
+      :root {
+        --paper: #e9dfc9;
+        --paper-light: #f4eddd;
+        --paper-dark: #cdbd9e;
+
+        --ink: #211b16;
+        --ink-soft: #51463b;
+
+        --brown: #624a35;
+        --brown-dark: #3b2b20;
+
+        --gold: #a8834b;
+        --gold-light: #c7a66d;
+
+        --red: #743b32;
+
+        --line: rgba(62, 44, 30, 0.28);
+
+        --shadow: 0 20px 50px rgba(38, 26, 17, 0.18);
+
+        --serif: "Libre Baskerville", Georgia, serif;
+        --display: "Cinzel", Georgia, serif;
+        --mono: "DM Mono", monospace;
+      }
+
+      /* =========================================
+           RESET
+        ========================================= */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100vh;
+
+        color: var(--ink);
+
+        font-family: var(--serif);
+
+        background:
+          radial-gradient(
+            circle at 20% 20%,
+            rgba(255, 255, 255, 0.28),
+            transparent 28%
+          ),
+          radial-gradient(
+            circle at 80% 70%,
+            rgba(102, 72, 42, 0.08),
+            transparent 30%
+          ),
+          linear-gradient(rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.03)),
+          var(--paper);
+
+        overflow-x: hidden;
+      }
+
+      /* =========================================
+           PAPER TEXTURE
+        ========================================= */
+
+      body::before {
+        content: "";
+
+        position: fixed;
+        inset: 0;
+
+        pointer-events: none;
+
+        opacity: 0.2;
+
+        background-image: repeating-linear-gradient(
+          0deg,
+          rgba(80, 54, 34, 0.025) 0px,
+          rgba(80, 54, 34, 0.025) 1px,
+          transparent 1px,
+          transparent 4px
+        );
+
+        z-index: 999;
+      }
+
+      /* =========================================
+           NAVIGATION
+        ========================================= */
+
+      .navbar {
+        position: fixed;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+
+        z-index: 100;
+
+        padding: 18px 6%;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        background: rgba(233, 223, 201, 0.94);
+
+        backdrop-filter: blur(8px);
+
+        border-bottom: 1px solid var(--line);
+      }
+
+      .brand {
+        text-decoration: none;
+
+        color: var(--ink);
+
+        font-family: var(--display);
+
+        font-size: 0.85rem;
+
+        letter-spacing: 0.16em;
+
+        text-transform: uppercase;
+      }
+
+      .brand span {
+        color: var(--red);
+      }
+
+      .nav-links {
+        display: flex;
+
+        align-items: center;
+
+        gap: 28px;
+      }
+
+      .nav-links a {
+        position: relative;
+
+        color: var(--ink-soft);
+
+        text-decoration: none;
+
+        font-family: var(--mono);
+
+        font-size: 0.68rem;
+
+        letter-spacing: 0.1em;
+
+        text-transform: uppercase;
+      }
+
+      .nav-links a::after {
+        content: "";
+
+        position: absolute;
+
+        left: 0;
+        bottom: -7px;
+
+        width: 0;
+        height: 1px;
+
+        background: var(--red);
+
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* =========================================
+           HERO
+        ========================================= */
+
+      .hero {
+        min-height: 100vh;
+
+        padding: 150px 7% 80px;
+
+        display: flex;
+        align-items: center;
+
+        position: relative;
+      }
+
+      .hero::before {
+        content: "N";
+
+        position: absolute;
+
+        right: 4%;
+        top: 5%;
+
+        font-family: var(--display);
+
+        font-size: min(40vw, 520px);
+
+        color: rgba(82, 58, 38, 0.035);
+
+        line-height: 1;
+
+        pointer-events: none;
+      }
+
+      .hero-inner {
+        width: 100%;
+
+        max-width: 1250px;
+
+        margin: auto;
+
+        display: grid;
+
+        grid-template-columns:
+          1.1fr
+          0.9fr;
+
+        gap: 80px;
+
+        align-items: center;
+
+        position: relative;
+
+        z-index: 2;
+      }
+
+      /* =========================================
+           HERO LEFT
+        ========================================= */
+
+      .chapter-label {
+        display: flex;
+
+        align-items: center;
+
+        gap: 14px;
+
+        margin-bottom: 30px;
+      }
+
+      .chapter-number {
+        width: 42px;
+        height: 42px;
+
+        border: 1px solid var(--brown);
+
+        display: grid;
+        place-items: center;
+
+        font-family: var(--display);
+
+        font-size: 0.85rem;
+
+        color: var(--brown);
+      }
+
+      .chapter-label span:last-child {
+        font-family: var(--mono);
+
+        font-size: 0.67rem;
+
+        letter-spacing: 0.2em;
+
+        text-transform: uppercase;
+
+        color: var(--brown);
+      }
+
+      .hero h1 {
+        font-family: var(--display);
+
+        font-size: clamp(3.2rem, 7vw, 7.5rem);
+
+        line-height: 0.94;
+
+        font-weight: 500;
+
+        letter-spacing: -0.035em;
+
+        max-width: 850px;
+      }
+
+      .hero h1 em {
+        display: block;
+
+        font-family: var(--serif);
+
+        font-size: clamp(1.7rem, 3.2vw, 3.3rem);
+
+        line-height: 1.25;
+
+        font-weight: 400;
+
+        margin-top: 22px;
+
+        color: var(--red);
+      }
+
+      .hero-description {
+        max-width: 670px;
+
+        margin-top: 35px;
+
+        font-size: 1rem;
+
+        line-height: 1.9;
+
+        color: var(--ink-soft);
+      }
+
+      /* =========================================
+           HERO BUTTONS
+        ========================================= */
+
+      .hero-actions {
+        display: flex;
+
+        gap: 15px;
+
+        flex-wrap: wrap;
+
+        margin-top: 38px;
+      }
+
+      .btn {
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 10px;
+
+        padding: 14px 20px;
+
+        text-decoration: none;
+
+        font-family: var(--mono);
+
+        font-size: 0.67rem;
+
+        letter-spacing: 0.1em;
+
+        text-transform: uppercase;
+
+        transition:
+          transform 0.25s ease,
+          background 0.25s ease,
+          color 0.25s ease;
+      }
+
+      .btn-primary {
+        background: var(--brown-dark);
+
+        color: var(--paper-light);
+
+        border: 1px solid var(--brown-dark);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+
+        background: var(--red);
+
+        border-color: var(--red);
+      }
+
+      .btn-outline {
+        border: 1px solid var(--brown);
+
+        color: var(--brown);
+      }
+
+      .btn-outline:hover {
+        transform: translateY(-3px);
+
+        background: var(--brown);
+
+        color: var(--paper-light);
+      }
+
+      /* =========================================
+           HERO DOCUMENT
+        ========================================= */
+
+      .hero-document {
+        position: relative;
+
+        width: min(100%, 430px);
+
+        margin: auto;
+      }
+
+      .document-shadow {
+        position: absolute;
+
+        width: 90%;
+        height: 100%;
+
+        left: 8%;
+        top: 6%;
+
+        background: rgba(44, 30, 19, 0.16);
+
+        transform: rotate(4deg);
+
+        filter: blur(5px);
+      }
+
+      .document {
+        position: relative;
+
+        padding: 48px 38px;
+
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.12), rgba(0, 0, 0, 0.025)),
+          var(--paper-light);
+
+        border: 1px solid rgba(62, 44, 30, 0.38);
+
+        box-shadow: var(--shadow);
+
+        transform: rotate(-2deg);
+
+        transition: transform 0.5s ease;
+      }
+
+      .document:hover {
+        transform: rotate(0deg) translateY(-8px);
+      }
+
+      .document::before,
+      .document::after {
+        content: "";
+
+        position: absolute;
+
+        width: 24px;
+        height: 24px;
+
+        border-color: var(--gold);
+
+        opacity: 0.7;
+      }
+
+      .document::before {
+        top: 13px;
+        left: 13px;
+
+        border-top: 1px solid;
+        border-left: 1px solid;
+      }
+
+      .document::after {
+        right: 13px;
+        bottom: 13px;
+
+        border-right: 1px solid;
+        border-bottom: 1px solid;
+      }
+
+      .document-top {
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        padding-bottom: 18px;
+
+        border-bottom: 1px solid var(--line);
+      }
+
+      .document-top span {
+        font-family: var(--mono);
+
+        font-size: 0.58rem;
+
+        letter-spacing: 0.12em;
+
+        text-transform: uppercase;
+
+        color: var(--brown);
+      }
+
+      .document-main {
+        padding: 60px 0;
+      }
+
+      .document-main .small-title {
+        font-family: var(--mono);
+
+        font-size: 0.65rem;
+
+        letter-spacing: 0.18em;
+
+        text-transform: uppercase;
+
+        color: var(--red);
+
+        margin-bottom: 20px;
+      }
+
+      .document-main h2 {
+        font-family: var(--display);
+
+        font-size: 2.7rem;
+
+        line-height: 1.1;
+
+        font-weight: 500;
+      }
+
+      .document-main h2 span {
+        display: block;
+
+        font-family: var(--serif);
+
+        font-style: italic;
+
+        font-size: 1.8rem;
+
+        margin-top: 10px;
+      }
+
+      .document-divider {
+        width: 70px;
+
+        height: 1px;
+
+        background: var(--gold);
+
+        margin: 28px 0;
+      }
+
+      .document-main p {
+        font-size: 0.82rem;
+
+        line-height: 1.8;
+
+        color: var(--ink-soft);
+      }
+
+      .document-footer {
+        padding-top: 18px;
+
+        border-top: 1px solid var(--line);
+
+        display: flex;
+
+        justify-content: space-between;
+
+        font-family: var(--mono);
+
+        font-size: 0.58rem;
+
+        letter-spacing: 0.1em;
+
+        color: var(--brown);
+      }
+
+      /* =========================================
+           INTRODUCTION STRIP
+        ========================================= */
+
+      .intro-strip {
+        border-top: 1px solid var(--line);
+
+        border-bottom: 1px solid var(--line);
+
+        padding: 28px 7%;
+
+        background: rgba(80, 56, 36, 0.035);
+      }
+
+      .intro-strip-inner {
+        max-width: 1250px;
+
+        margin: auto;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        gap: 40px;
+      }
+
+      .intro-strip p {
+        max-width: 700px;
+
+        font-size: 0.88rem;
+
+        line-height: 1.8;
+
+        color: var(--ink-soft);
+      }
+
+      .intro-strip-label {
+        font-family: var(--mono);
+
+        font-size: 0.62rem;
+
+        letter-spacing: 0.18em;
+
+        text-transform: uppercase;
+
+        white-space: nowrap;
+
+        color: var(--red);
+      }
+
+      /* =========================================
+           PARTS SECTION
+        ========================================= */
+
+      .parts {
+        padding: 110px 7%;
+
+        max-width: 1400px;
+
+        margin: auto;
+      }
+
+      .section-heading {
+        display: grid;
+
+        grid-template-columns: auto 1fr;
+
+        gap: 30px;
+
+        align-items: end;
+
+        margin-bottom: 60px;
+      }
+
+      .section-number {
+        font-family: var(--display);
+
+        font-size: 4rem;
+
+        color: rgba(96, 70, 46, 0.16);
+
+        line-height: 1;
+      }
+
+      .section-heading h2 {
+        font-family: var(--display);
+
+        font-size: clamp(2rem, 4vw, 4rem);
+
+        font-weight: 500;
+
+        line-height: 1.05;
+      }
+
+      .section-heading p {
+        grid-column: 2;
+
+        max-width: 700px;
+
+        margin-top: -20px;
+
+        color: var(--ink-soft);
+
+        line-height: 1.8;
+
+        font-size: 0.92rem;
+      }
+
+      /* =========================================
+           PART CARDS
+        ========================================= */
+
+      .parts-grid {
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 20px;
+      }
+
+      .part-card {
+        position: relative;
+
+        padding: 38px;
+
+        min-height: 300px;
+
+        border: 1px solid var(--line);
+
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.2),
+          rgba(90, 65, 40, 0.025)
+        );
+
+        text-decoration: none;
+
+        color: var(--ink);
+
+        overflow: hidden;
+
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease,
+          border-color 0.3s ease;
+      }
+
+      .part-card:hover {
+        transform: translateY(-8px);
+
+        border-color: var(--brown);
+
+        box-shadow: 0 18px 40px rgba(44, 30, 19, 0.12);
+      }
+
+      .part-card::before {
+        content: "";
+
+        position: absolute;
+
+        right: -30px;
+        bottom: -50px;
+
+        width: 170px;
+        height: 170px;
+
+        border: 1px solid rgba(99, 74, 47, 0.13);
+
+        border-radius: 50%;
+      }
+
+      .part-card::after {
+        content: "";
+
+        position: absolute;
+
+        right: 35px;
+        bottom: 35px;
+
+        width: 85px;
+        height: 85px;
+
+        border: 1px solid rgba(99, 74, 47, 0.1);
+
+        border-radius: 50%;
+      }
+
+      .part-meta {
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        margin-bottom: 50px;
+      }
+
+      .part-number {
+        font-family: var(--display);
+
+        font-size: 2rem;
+
+        color: var(--red);
+      }
+
+      .part-icon {
+        font-size: 1.25rem;
+
+        color: var(--brown);
+
+        opacity: 0.7;
+      }
+
+      .part-card h3 {
+        font-family: var(--display);
+
+        font-size: 1.65rem;
+
+        line-height: 1.2;
+
+        font-weight: 500;
+
+        max-width: 500px;
+      }
+
+      .part-card p {
+        margin-top: 15px;
+
+        max-width: 520px;
+
+        color: var(--ink-soft);
+
+        font-size: 0.83rem;
+
+        line-height: 1.8;
+      }
+
+      .part-link {
+        position: absolute;
+
+        bottom: 32px;
+        right: 35px;
+
+        font-family: var(--mono);
+
+        font-size: 0.62rem;
+
+        letter-spacing: 0.13em;
+
+        text-transform: uppercase;
+
+        color: var(--red);
+      }
+
+      /* =========================================
+           GROUP SECTION
+        ========================================= */
+
+      .group-section {
+        padding: 100px 7%;
+
+        background: var(--brown-dark);
+
+        color: var(--paper-light);
+
+        position: relative;
+
+        overflow: hidden;
+      }
+
+      .group-section::before {
+        content: "1887";
+
+        position: absolute;
+
+        right: -20px;
+        bottom: -90px;
+
+        font-family: var(--display);
+
+        font-size: 17rem;
+
+        color: rgba(255, 255, 255, 0.025);
+
+        line-height: 1;
+      }
+
+      .group-inner {
+        max-width: 1250px;
+
+        margin: auto;
+
+        position: relative;
+
+        z-index: 2;
+      }
+
+      .group-label {
+        font-family: var(--mono);
+
+        font-size: 0.63rem;
+
+        letter-spacing: 0.18em;
+
+        text-transform: uppercase;
+
+        color: var(--gold-light);
+
+        margin-bottom: 22px;
+      }
+
+      .group-title {
+        font-family: var(--display);
+
+        font-size: clamp(2.5rem, 5vw, 5rem);
+
+        font-weight: 500;
+
+        line-height: 1;
+      }
+
+      .group-title em {
+        display: block;
+
+        font-family: var(--serif);
+
+        font-size: 1.2rem;
+
+        margin-top: 18px;
+
+        color: #d5c8b4;
+      }
+
+      .members {
+        display: grid;
+
+        grid-template-columns: repeat(5, 1fr);
+
+        gap: 1px;
+
+        margin-top: 60px;
+
+        border: 1px solid rgba(255, 255, 255, 0.16);
+      }
+
+      .member {
+        padding: 25px 18px;
+
+        border-right: 1px solid rgba(255, 255, 255, 0.16);
+
+        min-height: 130px;
+      }
+
+      .member:last-child {
+        border-right: none;
+      }
+
+      .member-number {
+        font-family: var(--mono);
+
+        font-size: 0.58rem;
+
+        color: var(--gold-light);
+
+        letter-spacing: 0.1em;
+      }
+
+      .member-name {
+        margin-top: 24px;
+
+        font-family: var(--display);
+
+        font-size: 0.83rem;
+
+        line-height: 1.5;
+      }
+
+      /* =========================================
+           FINAL CTA
+        ========================================= */
+
+      .final-section {
+        padding: 130px 7%;
+
+        text-align: center;
+      }
+
+      .final-section .eyebrow {
+        font-family: var(--mono);
+
+        font-size: 0.62rem;
+
+        letter-spacing: 0.2em;
+
+        text-transform: uppercase;
+
+        color: var(--red);
+      }
+
+      .final-section h2 {
+        max-width: 900px;
+
+        margin: 22px auto;
+
+        font-family: var(--display);
+
+        font-size: clamp(2.4rem, 5vw, 5rem);
+
+        line-height: 1.05;
+
+        font-weight: 500;
+      }
+
+      .final-section p {
+        max-width: 650px;
+
+        margin: auto;
+
+        color: var(--ink-soft);
+
+        line-height: 1.9;
+
+        font-size: 0.9rem;
+      }
+
+      /* =========================================
+           FOOTER
+        ========================================= */
+
+      footer {
+        padding: 25px 7%;
+
+        border-top: 1px solid var(--line);
+
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        gap: 20px;
+
+        font-family: var(--mono);
+
+        font-size: 0.58rem;
+
+        letter-spacing: 0.1em;
+
+        text-transform: uppercase;
+
+        color: var(--brown);
+      }
+
+      .nav-links a,
+      .btn,
+      .part-link {
+        font-size: 0.72rem;
+      }
+
+      .hero-description,
+      .document-main p,
+      .intro-strip p,
+      .section-heading p,
+      .part-card p,
+      .final-section p {
+        font-size: 1rem;
+      }
+
+      .document-top span,
+      .document-main .small-title,
+      .document-footer,
+      .intro-strip-label,
+      .part-meta,
+      .group-label,
+      .member-number,
+      .final-section .eyebrow,
+      footer {
+        font-size: 0.72rem;
+      }
+
+      .member-name {
+        font-size: 1rem;
+      }
+
+      .classroom-toggle {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        z-index: 1000;
+        width: 54px;
+        height: 54px;
+        border: 2px solid var(--gold-light);
+        border-radius: 50%;
+        background: var(--brown-dark);
+        color: var(--paper-light);
+        box-shadow: 0 6px 20px rgba(38, 26, 17, 0.28);
+        font-family: var(--serif);
+        font-size: 1.15rem;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      .classroom-toggle:hover,
+      .classroom-toggle[aria-pressed="true"] {
+        background: var(--red);
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid var(--gold);
+        outline-offset: 4px;
+      }
+
+      body.classroom-mode {
+        font-size: 22px;
+      }
+
+      body.classroom-mode .hero-description,
+      body.classroom-mode .document-main p,
+      body.classroom-mode .intro-strip p,
+      body.classroom-mode .section-heading p,
+      body.classroom-mode .part-card p,
+      body.classroom-mode .final-section p {
+        font-size: 1.25rem;
+        line-height: 1.75;
+      }
+
+      body.classroom-mode .nav-links a,
+      body.classroom-mode .btn,
+      body.classroom-mode .part-link,
+      body.classroom-mode .document-top span,
+      body.classroom-mode .document-main .small-title,
+      body.classroom-mode .document-footer,
+      body.classroom-mode .intro-strip-label,
+      body.classroom-mode .part-meta,
+      body.classroom-mode .group-label,
+      body.classroom-mode .member-number,
+      body.classroom-mode .final-section .eyebrow,
+      body.classroom-mode footer {
+        font-size: 0.86rem;
+      }
+
+      body.classroom-mode .part-card h3 {
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+      }
+
+      body.classroom-mode .member-name {
+        font-size: 1.15rem;
+      }
+
+      @media (max-width: 600px) {
+        .classroom-toggle {
+          right: 14px;
+          bottom: 14px;
+          width: 48px;
+          height: 48px;
+          font-size: 1rem;
+        }
+      }
+
+      /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+      @media (max-width: 900px) {
+        .nav-links {
+          display: none;
+        }
+
+        .hero-inner {
+          grid-template-columns: 1fr;
+
+          gap: 70px;
+        }
+
+        .hero-document {
+          width: min(100%, 450px);
+        }
+
+        .parts-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .members {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .member {
+          border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+        }
+
+        .member:nth-child(2) {
+          border-right: none;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .hero {
+          padding: 120px 6% 70px;
+        }
+
+        .hero h1 {
+          font-size: 3.2rem;
+        }
+
+        .hero h1 em {
+          font-size: 1.5rem;
+        }
+
+        .document {
+          padding: 35px 25px;
+        }
+
+        .parts {
+          padding: 80px 6%;
+        }
+
+        .section-heading {
+          grid-template-columns: 1fr;
+        }
+
+        .section-heading p {
+          grid-column: 1;
+
+          margin-top: 0;
+        }
+
+        .part-card {
+          min-height: 280px;
+
+          padding: 28px;
+        }
+
+        .intro-strip-inner {
+          align-items: flex-start;
+
+          flex-direction: column;
+
+          gap: 12px;
+        }
+
+        .group-section {
+          padding: 80px 6%;
+        }
+
+        .members {
+          grid-template-columns: 1fr;
+        }
+
+        .member {
+          border-right: none;
+
+          border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+        }
+
+        .member:last-child {
+          border-bottom: none;
+        }
+
+        footer {
+          flex-direction: column;
+
+          text-align: center;
+        }
+      }
+
+      html {
+        font-size: 18px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =========================================
+         NAVIGATION
+    ========================================= -->
+
+    <nav class="navbar">
+      <a href="index.html" class="brand">
+        Life & Works of <span>Rizal</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#parts">The Four Parts</a>
+
+        <a href="#group">Group 1</a>
+
+        <a href="#begin">Begin</a>
+      </div>
+    </nav>
+
+    <button
+      class="classroom-toggle"
+      id="classroomToggle"
+      type="button"
+      aria-pressed="false"
+      aria-label="Enable larger text"
+      title="Toggle larger text"
+    >
+      A+
+    </button>
+
+    <!-- =========================================
+         HERO / COVER
+    ========================================= -->
+
+    <header class="hero" id="begin">
+      <div class="hero-inner">
+        <!-- LEFT -->
+
+        <div class="hero-content">
+          <div class="chapter-label">
+            <div class="chapter-number">VII</div>
+
+            <span> Life and Works of Rizal </span>
+          </div>
+
+          <h1>
+            Rizal's
+            <em>First Novel</em>
+
+            <span style="display: block"> Noli Me Tangere </span>
+          </h1>
+
+          <p class="hero-description">
+            A visual presentation of José Rizal's first novel, its background,
+            story, characters, social meanings, and Rizal's journey through
+            Europe after its publication.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#parts" class="btn btn-primary">
+              Explore Chapter
+
+              <i class="bi bi-arrow-down"></i>
+            </a>
+
+            <a href="#group" class="btn btn-outline"> Meet the Group </a>
+          </div>
+        </div>
+
+        <!-- RIGHT : OLD DOCUMENT -->
+
+        <div class="hero-document">
+          <div class="document-shadow"></div>
+
+          <div class="document">
+            <div class="document-top">
+              <span> Historical Archive </span>
+
+              <span> 1887 </span>
+            </div>
+
+            <div class="document-main">
+              <div class="small-title">Chapter VII</div>
+
+              <h2>
+                Noli
+                <span>Me Tangere</span>
+              </h2>
+
+              <div class="document-divider"></div>
+
+              <p>
+                A novel that exposed the struggles, injustices, and social
+                conditions experienced by Filipinos during Spanish colonial
+                rule.
+              </p>
+            </div>
+
+            <div class="document-footer">
+              <span> José Rizal </span>
+
+              <span> Berlin </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- =========================================
+         INTRODUCTION STRIP
+    ========================================= -->
+
+    <section class="intro-strip"></section>
+
+    <!-- =========================================
+         FOUR PARTS
+    ========================================= -->
+
+    <main id="parts" class="parts">
+      <div class="section-heading">
+        <div class="section-number">01—04</div>
+
+        <div>
+          <h2>The Four Parts</h2>
+        </div>
+
+        <p>
+          Explore the presentation through four connected parts, beginning with
+          the story behind the creation of <em>Noli Me Tangere</em> and ending
+          with Rizal's return to the Philippines.
+        </p>
+      </div>
+
+      <div class="parts-grid">
+        <!-- PART I -->
+
+        <a href="part1.html" class="part-card">
+          <div class="part-meta">
+            <span class="part-number"> I </span>
+
+            <i class="bi bi-feather part-icon"></i>
+          </div>
+
+          <h3>
+            Background of
+            <em>Noli Me Tangere</em>
+          </h3>
+
+          <p>
+            Discover why Rizal wrote the novel, its inspirations, source of
+            funds, the Berlin incident, and its publication.
+          </p>
+
+          <span class="part-link">
+            Aguirre
+            <i class="bi bi-arrow-right"></i>
+          </span>
+        </a>
+
+        <!-- PART II -->
+
+        <a href="part2.html" class="part-card">
+          <div class="part-meta">
+            <span class="part-number"> II </span>
+
+            <i class="bi bi-book part-icon"></i>
+          </div>
+
+          <h3>The Story &amp; The Lost Chapter</h3>
+
+          <p>
+            Follow the basic story of the novel and discover the background and
+            plot of the lost chapter, <em>Elias and Salome</em>.
+          </p>
+
+          <span class="part-link">
+            Andres
+            <i class="bi bi-arrow-right"></i>
+          </span>
+        </a>
+
+        <!-- PART III -->
+
+        <a href="part3.html" class="part-card">
+          <div class="part-meta">
+            <span class="part-number"> III </span>
+
+            <i class="bi bi-people part-icon"></i>
+          </div>
+
+          <h3>Characters &amp; Present Society</h3>
+
+          <p>
+            Explore the central themes of the novel, its relevance today, and
+            what its characters can represent in present society.
+          </p>
+
+          <span class="part-link">
+            Alberto &amp; Armas
+            <i class="bi bi-arrow-right"></i>
+          </span>
+        </a>
+
+        <!-- PART IV -->
+
+        <a href="part4.html" class="part-card">
+          <div class="part-meta">
+            <span class="part-number"> IV </span>
+
+            <i class="bi bi-compass part-icon"></i>
+          </div>
+
+          <h3>Rizal's Tour of Europe</h3>
+
+          <p>
+            Follow Rizal's journey after the publication of the novel — from
+            Germany and Switzerland to Italy, France, Saigon, and finally home.
+          </p>
+
+          <span class="part-link">
+            Aviles
+            <i class="bi bi-arrow-right"></i>
+          </span>
+        </a>
+      </div>
+    </main>
+
+    <!-- =========================================
+         GROUP SECTION
+    ========================================= -->
+
+    <section class="group-section" id="group">
+      <div class="group-inner">
+        <div class="group-label">Life &amp; Works of Rizal</div>
+
+        <h2 class="group-title">
+          Group 1 | 3ITB
+
+          <em>
+            Chapter 7 — Rizal's First Novel:
+            <strong>Noli Me Tangere</strong>
+          </em>
+        </h2>
+
+        <div class="members">
+          <div class="member">
+            <div class="member-number">01</div>
+
+            <div class="member-name">
+              Matthew<br />
+              Aguirre
+            </div>
+          </div>
+
+          <div class="member">
+            <div class="member-number">02</div>
+
+            <div class="member-name">
+              Jandrel Jimwee<br />
+              Alberto
+            </div>
+          </div>
+
+          <div class="member">
+            <div class="member-number">03</div>
+
+            <div class="member-name">
+              Jayvi Al<br />
+              Andres
+            </div>
+          </div>
+
+          <div class="member">
+            <div class="member-number">04</div>
+
+            <div class="member-name">
+              Francisco III<br />
+              Armas
+            </div>
+          </div>
+
+          <div class="member">
+            <div class="member-number">05</div>
+
+            <div class="member-name">
+              Justin Rei<br />
+              Aviles
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         FINAL SECTION
+    ========================================= -->
+
+    <section class="final-section">
+      <div class="eyebrow">Begin the journey</div>
+
+      <h2>
+        Open the pages of
+        <em>Noli Me Tangere.</em>
+      </h2>
+
+      <p>
+        Four parts. One novel. One story of a country confronting the realities
+        of its time.
+      </p>
+
+      <div class="hero-actions" style="justify-content: center">
+        <a href="part1.html" class="btn btn-primary">
+          Start with Part I
+
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer>
+      <span> Chapter VII · Noli Me Tangere </span>
+
+      <span> Group 1 · 3ITB </span>
+
+      <span> Life &amp; Works of Rizal </span>
+    </footer>
+
+    <script>
+      const classroomToggle = document.getElementById("classroomToggle");
+
+      classroomToggle.addEventListener("click", () => {
+        const isEnabled = document.body.classList.toggle("classroom-mode");
+        classroomToggle.setAttribute("aria-pressed", String(isEnabled));
+        classroomToggle.setAttribute(
+          "aria-label",
+          isEnabled
+            ? "Disable larger text"
+            : "Enable larger text",
+        );
+      });
+    </script>
+  </body>
+</html>

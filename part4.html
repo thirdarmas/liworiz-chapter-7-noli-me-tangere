@@ -1,0 +1,2327 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Part IV | Rizal's Tour of Europe</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <style>
+      :root {
+        --paper: #e9dfc9;
+        --paper-light: #f7f0e1;
+        --paper-dark: #cdbd9e;
+
+        --ink: #211b16;
+        --ink-soft: #574a3e;
+
+        --brown: #624a35;
+        --brown-dark: #38281e;
+
+        --red: #743b32;
+        --red-dark: #542923;
+
+        --gold: #a8834b;
+        --gold-light: #c9a86e;
+
+        --line: rgba(62, 44, 30, 0.25);
+
+        --serif: "Libre Baskerville", Georgia, serif;
+        --display: "Cinzel", Georgia, serif;
+        --mono: "DM Mono", monospace;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        color: var(--ink);
+
+        background:
+          radial-gradient(
+            circle at 10% 10%,
+            rgba(255, 255, 255, 0.35),
+            transparent 25%
+          ),
+          radial-gradient(
+            circle at 90% 90%,
+            rgba(80, 50, 25, 0.08),
+            transparent 30%
+          ),
+          var(--paper);
+
+        font-family: var(--serif);
+
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+
+        position: fixed;
+
+        inset: 0;
+
+        pointer-events: none;
+
+        z-index: 999;
+
+        opacity: 0.12;
+
+        background-image: repeating-linear-gradient(
+          0deg,
+          rgba(80, 54, 34, 0.03) 0px,
+          rgba(80, 54, 34, 0.03) 1px,
+          transparent 1px,
+          transparent 4px
+        );
+      }
+
+      /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+      .navbar {
+        position: fixed;
+
+        z-index: 100;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+
+        padding: 18px 6%;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        background: rgba(233, 223, 201, 0.95);
+
+        backdrop-filter: blur(8px);
+
+        border-bottom: 1px solid var(--line);
+      }
+
+      .brand {
+        color: var(--ink);
+
+        text-decoration: none;
+
+        font-family: var(--display);
+
+        font-size: 0.76rem;
+
+        letter-spacing: 0.15em;
+
+        text-transform: uppercase;
+      }
+
+      .brand span {
+        color: var(--red);
+      }
+
+      .nav-links {
+        display: flex;
+
+        gap: 25px;
+      }
+
+      .nav-links a {
+        position: relative;
+
+        color: var(--ink-soft);
+
+        text-decoration: none;
+
+        font-family: var(--mono);
+
+        font-size: 0.6rem;
+
+        letter-spacing: 0.1em;
+
+        text-transform: uppercase;
+      }
+
+      .nav-links a::after {
+        content: "";
+
+        position: absolute;
+
+        left: 0;
+
+        bottom: -7px;
+
+        width: 0;
+
+        height: 1px;
+
+        background: var(--red);
+
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* =========================================================
+           HERO
+        ========================================================= */
+
+      .hero {
+        min-height: 100vh;
+
+        padding: 145px 7% 90px;
+
+        display: flex;
+
+        align-items: center;
+
+        position: relative;
+
+        overflow: hidden;
+      }
+
+      .hero::after {
+        content: "IV";
+
+        position: absolute;
+
+        right: -20px;
+
+        top: 4%;
+
+        font-family: var(--display);
+
+        font-size: min(38vw, 500px);
+
+        color: rgba(85, 60, 39, 0.035);
+
+        line-height: 1;
+
+        pointer-events: none;
+      }
+
+      .hero-inner {
+        width: 100%;
+
+        max-width: 1250px;
+
+        margin: auto;
+
+        position: relative;
+
+        z-index: 2;
+      }
+
+      .chapter-label {
+        display: flex;
+
+        align-items: center;
+
+        gap: 14px;
+
+        margin-bottom: 30px;
+      }
+
+      .chapter-number {
+        width: 45px;
+
+        height: 45px;
+
+        display: grid;
+
+        place-items: center;
+
+        border: 1px solid var(--brown);
+
+        font-family: var(--display);
+
+        font-size: 0.8rem;
+
+        color: var(--brown);
+      }
+
+      .chapter-label span {
+        font-family: var(--mono);
+
+        font-size: 0.6rem;
+
+        letter-spacing: 0.18em;
+
+        text-transform: uppercase;
+
+        color: var(--brown);
+      }
+
+      .hero h1 {
+        max-width: 1050px;
+
+        font-family: var(--display);
+
+        font-size: clamp(3rem, 7vw, 7rem);
+
+        font-weight: 500;
+
+        line-height: 0.94;
+
+        letter-spacing: -0.04em;
+      }
+
+      .hero h1 em {
+        display: block;
+
+        margin-top: 18px;
+
+        color: var(--red);
+
+        font-family: var(--serif);
+
+        font-size: clamp(1.5rem, 3.4vw, 3rem);
+
+        line-height: 1.3;
+
+        font-weight: 400;
+      }
+
+      .hero-description {
+        max-width: 760px;
+
+        margin-top: 32px;
+
+        color: var(--ink-soft);
+
+        font-size: 0.88rem;
+
+        line-height: 1.95;
+      }
+
+      .hero-btn {
+        margin-top: 40px;
+
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+        padding: 15px 24px;
+
+        border: 1px solid var(--brown);
+
+        background: rgba(255, 255, 255, 0.4);
+
+        backdrop-filter: blur(8px);
+
+        font-family: var(--mono);
+
+        font-size: 0.6rem;
+
+        letter-spacing: 0.12em;
+
+        text-transform: uppercase;
+
+        color: var(--brown-dark);
+
+        text-decoration: none;
+
+        cursor: pointer;
+
+        transition: all 0.3s ease;
+
+        box-shadow: 0 4px 15px rgba(56, 40, 30, 0.08);
+      }
+
+      .hero-btn:hover {
+        background: var(--brown-dark);
+
+        color: var(--paper-light);
+
+        border-color: var(--brown-dark);
+
+        transform: translateY(-2px);
+
+        box-shadow: 0 8px 22px rgba(56, 40, 30, 0.2);
+      }
+
+      .hero-btn i {
+        font-size: 0.85rem;
+
+        color: var(--red);
+
+        transition:
+          transform 0.3s ease,
+          color 0.3s ease;
+      }
+
+      .hero-btn:hover i {
+        color: var(--gold-light);
+
+        transform: translateY(2px);
+      }
+
+      #intro,
+      #journey,
+      #return,
+      #route {
+        scroll-margin-top: 80px;
+      }
+
+      /* =========================================================
+           INTRO
+        ========================================================= */
+
+      .intro {
+        padding: 100px 7%;
+
+        background: rgba(80, 56, 36, 0.045);
+
+        border-top: 1px solid var(--line);
+
+        border-bottom: 1px solid var(--line);
+      }
+
+      .intro-inner {
+        max-width: 1050px;
+
+        margin: auto;
+
+        display: grid;
+
+        grid-template-columns: 0.7fr 1.3fr;
+
+        gap: 70px;
+
+        align-items: center;
+      }
+
+      .intro-date {
+        text-align: center;
+      }
+
+      .intro-date .year {
+        font-family: var(--display);
+
+        font-size: clamp(4rem, 8vw, 7rem);
+
+        line-height: 1;
+
+        color: var(--red);
+      }
+
+      .intro-date p {
+        margin-top: 12px;
+
+        font-family: var(--mono);
+
+        font-size: 0.55rem;
+
+        letter-spacing: 0.14em;
+
+        text-transform: uppercase;
+
+        color: var(--brown);
+      }
+
+      .intro-text h2 {
+        font-family: var(--display);
+
+        font-size: clamp(2rem, 4vw, 3.5rem);
+
+        font-weight: 500;
+      }
+
+      .intro-text p {
+        margin-top: 22px;
+
+        color: var(--ink-soft);
+
+        font-size: 0.82rem;
+
+        line-height: 1.95;
+      }
+
+      /* =========================================================
+           TIMELINE
+        ========================================================= */
+
+      .journey {
+        max-width: 1250px;
+
+        margin: auto;
+
+        padding: 120px 7% 40px;
+      }
+
+      .section-label {
+        display: flex;
+
+        align-items: center;
+
+        gap: 14px;
+
+        color: var(--red);
+
+        font-family: var(--mono);
+
+        font-size: 0.58rem;
+
+        letter-spacing: 0.18em;
+
+        text-transform: uppercase;
+      }
+
+      .section-label::before {
+        content: "";
+
+        width: 40px;
+
+        height: 1px;
+
+        background: var(--red);
+      }
+
+      .section-title {
+        margin-top: 17px;
+
+        font-family: var(--display);
+
+        font-size: clamp(2.2rem, 4.5vw, 4.5rem);
+
+        font-weight: 500;
+
+        line-height: 1.05;
+      }
+
+      .section-intro {
+        max-width: 780px;
+
+        margin-top: 22px;
+
+        color: var(--ink-soft);
+
+        font-size: 0.87rem;
+
+        line-height: 1.9;
+      }
+
+      .timeline {
+        position: relative;
+
+        margin-top: 75px;
+
+        padding-left: 80px;
+      }
+
+      .timeline::before {
+        content: "";
+
+        position: absolute;
+
+        top: 0;
+
+        bottom: 0;
+
+        left: 25px;
+
+        width: 1px;
+
+        background: var(--line);
+      }
+
+      .stop {
+        position: relative;
+
+        margin-bottom: 75px;
+      }
+
+      .stop:last-child {
+        margin-bottom: 0;
+      }
+
+      .stop-marker {
+        position: absolute;
+
+        left: -80px;
+
+        top: 0;
+
+        width: 52px;
+
+        height: 52px;
+
+        display: grid;
+
+        place-items: center;
+
+        border: 1px solid var(--brown);
+
+        background: var(--paper);
+
+        font-family: var(--display);
+
+        font-size: 0.75rem;
+
+        color: var(--brown);
+
+        z-index: 2;
+      }
+
+      .stop-date {
+        font-family: var(--mono);
+
+        font-size: 0.56rem;
+
+        letter-spacing: 0.14em;
+
+        text-transform: uppercase;
+
+        color: var(--red);
+      }
+
+      .stop h3 {
+        margin-top: 10px;
+
+        font-family: var(--display);
+
+        font-size: clamp(1.5rem, 3vw, 2.5rem);
+
+        font-weight: 500;
+      }
+
+      .stop-location {
+        margin-top: 6px;
+
+        color: var(--brown);
+
+        font-family: var(--serif);
+
+        font-size: 0.85rem;
+
+        font-style: italic;
+      }
+
+      .stop-content {
+        margin-top: 25px;
+
+        display: grid;
+
+        grid-template-columns: 1.4fr 0.6fr;
+
+        gap: 30px;
+      }
+
+      .stop-text {
+        padding: 30px;
+
+        background: var(--paper-light);
+
+        border: 1px solid var(--line);
+      }
+
+      .stop-text p {
+        color: var(--ink-soft);
+
+        font-size: 0.73rem;
+
+        line-height: 1.9;
+      }
+
+      .stop-text p + p {
+        margin-top: 15px;
+      }
+
+      .context {
+        padding: 30px;
+
+        border: 1px solid var(--line);
+
+        background: rgba(98, 74, 53, 0.05);
+      }
+
+      .context-label {
+        font-family: var(--mono);
+
+        font-size: 0.52rem;
+
+        letter-spacing: 0.13em;
+
+        text-transform: uppercase;
+
+        color: var(--red);
+      }
+
+      .context h4 {
+        margin-top: 15px;
+
+        font-family: var(--display);
+
+        font-size: 0.95rem;
+
+        font-weight: 500;
+      }
+
+      .context p {
+        margin-top: 12px;
+
+        color: var(--ink-soft);
+
+        font-size: 0.67rem;
+
+        line-height: 1.8;
+      }
+
+      /* =========================================================
+           ROUTE MAP
+        ========================================================= */
+
+      .route {
+        padding: 120px 7%;
+
+        background: var(--brown-dark);
+
+        color: var(--paper-light);
+      }
+
+      .route-inner {
+        max-width: 1250px;
+
+        margin: auto;
+      }
+
+      .route .section-label {
+        color: var(--gold-light);
+      }
+
+      .route .section-label::before {
+        background: var(--gold-light);
+      }
+
+      .route .section-title {
+        color: var(--paper-light);
+      }
+
+      .route-description {
+        max-width: 750px;
+
+        margin-top: 20px;
+
+        color: #cfc2af;
+
+        font-size: 0.8rem;
+
+        line-height: 1.9;
+      }
+
+      .route-map-box {
+        margin-top: 45px;
+
+        border: 2px solid var(--gold);
+
+        border-radius: 3px;
+
+        overflow: hidden;
+
+        background: #e4dac5;
+
+        box-shadow: 0 16px 45px rgba(0, 0, 0, 0.45);
+      }
+
+      .route-map-img {
+        display: block;
+
+        width: 100%;
+
+        height: auto;
+      }
+
+      /* =========================================================
+           SWITZERLAND FEATURE
+        ========================================================= */
+
+      .switzerland {
+        max-width: 1250px;
+
+        margin: auto;
+
+        padding: 120px 7%;
+      }
+
+      .swiss-box {
+        display: grid;
+
+        grid-template-columns: 0.8fr 1.2fr;
+
+        border: 1px solid var(--line);
+
+        background: var(--paper-light);
+      }
+
+      .swiss-title {
+        min-height: 420px;
+
+        padding: 50px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: flex-end;
+
+        background: linear-gradient(
+          145deg,
+          rgba(116, 59, 50, 0.9),
+          rgba(84, 41, 35, 0.96)
+        );
+
+        color: var(--paper-light);
+
+        position: relative;
+
+        overflow: hidden;
+      }
+
+      .swiss-title::before {
+        content: "✠";
+
+        position: absolute;
+
+        right: 20px;
+
+        top: -30px;
+
+        font-size: 15rem;
+
+        color: rgba(255, 255, 255, 0.045);
+      }
+
+      .swiss-title small {
+        font-family: var(--mono);
+
+        font-size: 0.52rem;
+
+        letter-spacing: 0.15em;
+
+        text-transform: uppercase;
+
+        color: #dfc9b9;
+      }
+
+      .swiss-title h2 {
+        margin-top: 20px;
+
+        font-family: var(--display);
+
+        font-size: clamp(2rem, 4vw, 4rem);
+
+        font-weight: 500;
+      }
+
+      .swiss-content {
+        padding: 50px;
+      }
+
+      .swiss-content p {
+        color: var(--ink-soft);
+
+        font-size: 0.76rem;
+
+        line-height: 1.9;
+      }
+
+      .swiss-content p + p {
+        margin-top: 18px;
+      }
+
+      .swiss-facts {
+        margin-top: 35px;
+
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 12px;
+      }
+
+      .fact {
+        padding: 20px;
+
+        border: 1px solid var(--line);
+      }
+
+      .fact strong {
+        display: block;
+
+        font-family: var(--display);
+
+        font-size: 0.85rem;
+
+        font-weight: 500;
+      }
+
+      .fact span {
+        display: block;
+
+        margin-top: 8px;
+
+        color: var(--ink-soft);
+
+        font-family: var(--mono);
+
+        font-size: 0.48rem;
+
+        line-height: 1.6;
+
+        text-transform: uppercase;
+      }
+
+      /* =========================================================
+           IGOROT SECTION
+        ========================================================= */
+
+      .igorot {
+        padding: 120px 7%;
+
+        background: rgba(80, 56, 36, 0.045);
+
+        border-top: 1px solid var(--line);
+
+        border-bottom: 1px solid var(--line);
+      }
+
+      .igorot-inner {
+        max-width: 1100px;
+
+        margin: auto;
+      }
+
+      .igorot-box {
+        padding: 60px;
+
+        border: 1px solid var(--line);
+
+        background: var(--paper-light);
+
+        position: relative;
+      }
+
+      .igorot-box::before {
+        content: "REMEMBER";
+
+        position: absolute;
+
+        right: 30px;
+
+        top: 25px;
+
+        font-family: var(--mono);
+
+        font-size: 0.5rem;
+
+        letter-spacing: 0.15em;
+
+        color: var(--red);
+      }
+
+      .igorot-box h2 {
+        max-width: 750px;
+
+        font-family: var(--display);
+
+        font-size: clamp(2rem, 4vw, 3.8rem);
+
+        font-weight: 500;
+
+        line-height: 1.1;
+      }
+
+      .igorot-box p {
+        max-width: 850px;
+
+        margin-top: 25px;
+
+        color: var(--ink-soft);
+
+        font-size: 0.78rem;
+
+        line-height: 1.95;
+      }
+
+      .warning-note {
+        margin-top: 30px;
+
+        padding: 20px;
+
+        border-left: 3px solid var(--red);
+
+        background: rgba(116, 59, 50, 0.055);
+
+        color: var(--ink-soft);
+
+        font-size: 0.67rem;
+
+        line-height: 1.8;
+      }
+
+      /* =========================================================
+           SAIGON TO MANILA MARITIME BRIDGE & TRANSITION
+        ========================================================= */
+
+      .timeline-bridge {
+        position: relative;
+
+        margin-top: 45px;
+
+        padding-top: 15px;
+      }
+
+      .bridge-marker {
+        position: absolute;
+
+        left: -80px;
+
+        top: 15px;
+
+        width: 52px;
+
+        height: 52px;
+
+        display: grid;
+
+        place-items: center;
+
+        border: 1px dashed var(--gold);
+
+        background: var(--paper-light);
+
+        font-size: 1.15rem;
+
+        color: var(--red);
+
+        z-index: 2;
+
+        border-radius: 50%;
+      }
+
+      .bridge-card {
+        padding: 30px;
+
+        background: var(--paper-light);
+
+        border: 1px solid var(--line);
+
+        position: relative;
+      }
+
+      .bridge-header {
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        gap: 15px;
+
+        flex-wrap: wrap;
+
+        margin-bottom: 12px;
+      }
+
+      .bridge-badge {
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 8px;
+
+        font-family: var(--mono);
+
+        font-size: 0.54rem;
+
+        letter-spacing: 0.16em;
+
+        text-transform: uppercase;
+
+        color: var(--red);
+      }
+
+      .bridge-dates {
+        font-family: var(--mono);
+
+        font-size: 0.54rem;
+
+        letter-spacing: 0.12em;
+
+        text-transform: uppercase;
+
+        color: var(--brown);
+      }
+
+      .bridge-card h4 {
+        font-family: var(--display);
+
+        font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+
+        font-weight: 500;
+
+        color: var(--ink);
+      }
+
+      .bridge-card p {
+        margin-top: 12px;
+
+        color: var(--ink-soft);
+
+        font-size: 0.74rem;
+
+        line-height: 1.9;
+      }
+
+      .bridge-vessels {
+        margin-top: 20px;
+
+        display: grid;
+
+        grid-template-columns: 1fr auto 1fr;
+
+        gap: 15px;
+
+        align-items: center;
+
+        background: rgba(98, 74, 53, 0.05);
+
+        padding: 16px 20px;
+
+        border: 1px solid var(--line);
+      }
+
+      .vessel-item {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 2px;
+      }
+
+      .vessel-label {
+        font-family: var(--mono);
+
+        font-size: 0.46rem;
+
+        letter-spacing: 0.14em;
+
+        text-transform: uppercase;
+
+        color: var(--red);
+      }
+
+      .vessel-item strong {
+        font-family: var(--display);
+
+        font-size: 0.9rem;
+
+        color: var(--brown-dark);
+      }
+
+      .vessel-item small {
+        font-family: var(--mono);
+
+        font-size: 0.48rem;
+
+        color: var(--ink-soft);
+      }
+
+      .vessel-arrow {
+        font-size: 1.1rem;
+
+        color: var(--gold);
+
+        display: grid;
+
+        place-items: center;
+      }
+
+      .timeline-conduit {
+        position: relative;
+
+        margin-top: 35px;
+
+        display: flex;
+
+        justify-content: center;
+      }
+
+      .conduit-seal {
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 8px;
+
+        padding: 10px 20px;
+
+        background: var(--paper-light);
+
+        border: 1px solid var(--brown);
+
+        color: var(--red);
+
+        font-family: var(--mono);
+
+        font-size: 0.54rem;
+
+        letter-spacing: 0.16em;
+
+        text-transform: uppercase;
+      }
+
+      /* =========================================================
+           RETURN HOME
+        ========================================================= */
+
+      .return {
+        max-width: 1250px;
+
+        margin: auto;
+
+        padding: 40px 7% 100px;
+      }
+
+      .return-ornament-top {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 20px;
+
+        margin-bottom: 30px;
+      }
+
+      .ornament-line {
+        flex: 1;
+
+        height: 1px;
+
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(116, 59, 50, 0.35),
+          transparent
+        );
+      }
+
+      .ornament-icon {
+        font-family: var(--mono);
+
+        font-size: 0.54rem;
+
+        letter-spacing: 0.2em;
+
+        text-transform: uppercase;
+
+        color: var(--red);
+      }
+
+      .return-box {
+        padding: 60px;
+
+        background: linear-gradient(145deg, #743b32 0%, #542923 100%), #542923;
+
+        color: var(--paper-light);
+
+        text-align: center;
+
+        position: relative;
+
+        overflow: hidden;
+
+        border: 1px solid rgba(201, 168, 110, 0.35);
+
+        box-shadow: 0 15px 40px rgba(56, 30, 20, 0.2);
+      }
+
+      .return-box::after {
+        content: "MANILA";
+
+        position: absolute;
+
+        left: 50%;
+
+        bottom: -60px;
+
+        transform: translateX(-50%);
+
+        font-family: var(--display);
+
+        font-size: clamp(6rem, 14vw, 12rem);
+
+        color: rgba(255, 255, 255, 0.035);
+
+        white-space: nowrap;
+
+        pointer-events: none;
+      }
+
+      .return-box > * {
+        position: relative;
+
+        z-index: 2;
+      }
+
+      .return-box small {
+        font-family: var(--mono);
+
+        font-size: 0.54rem;
+
+        letter-spacing: 0.17em;
+
+        text-transform: uppercase;
+
+        color: #dfc9b9;
+      }
+
+      .return-box h2 {
+        margin-top: 18px;
+
+        font-family: var(--display);
+
+        font-size: clamp(2.3rem, 5vw, 4.5rem);
+
+        font-weight: 500;
+
+        color: #fff;
+      }
+
+      .return-box p {
+        max-width: 760px;
+
+        margin: 18px auto 0;
+
+        color: #e8dbcf;
+
+        font-size: 0.78rem;
+
+        line-height: 1.95;
+      }
+
+      .return-date {
+        margin-top: 25px;
+
+        font-family: var(--display);
+
+        font-size: 1.4rem;
+
+        color: var(--gold-light);
+
+        letter-spacing: 0.06em;
+      }
+
+      /* =========================================================
+           ENDING
+        ========================================================= */
+
+      .ending {
+        padding: 100px 7%;
+
+        text-align: center;
+
+        border-top: 1px solid var(--line);
+      }
+
+      .ending-inner {
+        max-width: 850px;
+
+        margin: auto;
+      }
+
+      .ending h2 {
+        font-family: var(--display);
+
+        font-size: clamp(2rem, 4vw, 4rem);
+
+        font-weight: 500;
+
+        line-height: 1.1;
+      }
+
+      .ending p {
+        margin-top: 22px;
+
+        color: var(--ink-soft);
+
+        font-size: 0.82rem;
+
+        line-height: 1.9;
+      }
+
+      .actions {
+        margin-top: 35px;
+
+        display: flex;
+
+        justify-content: center;
+
+        gap: 12px;
+
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 10px;
+
+        padding: 14px 20px;
+
+        text-decoration: none;
+
+        font-family: var(--mono);
+
+        font-size: 0.58rem;
+
+        letter-spacing: 0.1em;
+
+        text-transform: uppercase;
+
+        transition: 0.3s;
+      }
+
+      .btn-primary {
+        color: var(--paper-light);
+
+        background: var(--brown-dark);
+
+        border: 1px solid var(--brown-dark);
+      }
+
+      .btn-primary:hover {
+        background: var(--red);
+
+        border-color: var(--red);
+
+        transform: translateY(-3px);
+      }
+
+      .btn-outline {
+        color: var(--brown);
+
+        border: 1px solid var(--brown);
+      }
+
+      .btn-outline:hover {
+        color: var(--paper-light);
+
+        background: var(--brown);
+
+        transform: translateY(-3px);
+      }
+
+      /* =========================================================
+           FOOTER
+        ========================================================= */
+
+      footer {
+        padding: 25px 7%;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        gap: 20px;
+
+        border-top: 1px solid var(--line);
+
+        color: var(--brown);
+
+        font-family: var(--mono);
+
+        font-size: 0.51rem;
+
+        letter-spacing: 0.1em;
+
+        text-transform: uppercase;
+      }
+
+      .nav-links a {
+        font-size: 0.72rem;
+      }
+
+      .chapter-label span,
+      .section-label,
+      .hero-btn,
+      .btn {
+        font-size: 0.72rem;
+      }
+
+      .hero-description,
+      .section-intro,
+      .intro-text p,
+      .stop-text p,
+      .bridge-card p,
+      .swiss-content p,
+      .igorot-box p,
+      .return-box p,
+      .ending p,
+      .route-description {
+        font-size: 1rem;
+      }
+
+      .stop-date,
+      .context-label,
+      .bridge-badge,
+      .bridge-dates,
+      .vessel-label,
+      .vessel-item small,
+      .conduit-seal,
+      .ornament-icon,
+      .return-box small {
+        font-size: 0.72rem;
+      }
+
+      .stop-location,
+      .context p,
+      .warning-note {
+        font-size: 0.95rem;
+      }
+
+      .fact span {
+        font-size: 0.7rem;
+      }
+
+      footer {
+        font-size: 0.68rem;
+      }
+
+      .classroom-toggle {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        z-index: 1000;
+        width: 54px;
+        height: 54px;
+        border: 2px solid var(--gold-light);
+        border-radius: 50%;
+        background: var(--brown-dark);
+        color: var(--paper-light);
+        box-shadow: 0 6px 20px rgba(38, 26, 17, 0.28);
+        font-family: var(--serif);
+        font-size: 1.15rem;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      .classroom-toggle:hover,
+      .classroom-toggle[aria-pressed="true"] {
+        background: var(--red);
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid var(--gold);
+        outline-offset: 4px;
+      }
+
+      body.classroom-mode {
+        font-size: 22px;
+      }
+
+      body.classroom-mode .hero-description,
+      body.classroom-mode .section-intro,
+      body.classroom-mode .intro-text p,
+      body.classroom-mode .stop-text p,
+      body.classroom-mode .context p,
+      body.classroom-mode .bridge-card p,
+      body.classroom-mode .swiss-content p,
+      body.classroom-mode .igorot-box p,
+      body.classroom-mode .warning-note,
+      body.classroom-mode .return-box p,
+      body.classroom-mode .ending p,
+      body.classroom-mode .route-description {
+        font-size: 1.25rem;
+        line-height: 1.75;
+      }
+
+      body.classroom-mode .nav-links a,
+      body.classroom-mode .chapter-label span,
+      body.classroom-mode .section-label,
+      body.classroom-mode .stop-date,
+      body.classroom-mode .context-label,
+      body.classroom-mode .bridge-badge,
+      body.classroom-mode .bridge-dates,
+      body.classroom-mode .vessel-label,
+      body.classroom-mode .vessel-item small,
+      body.classroom-mode .conduit-seal,
+      body.classroom-mode .ornament-icon,
+      body.classroom-mode .return-box small,
+      body.classroom-mode footer {
+        font-size: 0.86rem;
+      }
+
+      body.classroom-mode .fact span,
+      body.classroom-mode .stop-location {
+        font-size: 1rem;
+      }
+
+      body.classroom-mode .hero h1 {
+        font-size: clamp(3.5rem, 8vw, 8rem);
+      }
+
+      body.classroom-mode .hero h1 em {
+        font-size: clamp(1.8rem, 4vw, 3.5rem);
+      }
+
+      body.classroom-mode .stop h3 {
+        font-size: clamp(2rem, 3.5vw, 3rem);
+      }
+
+      @media (max-width: 650px) {
+        .classroom-toggle {
+          right: 14px;
+          bottom: 14px;
+          width: 48px;
+          height: 48px;
+          font-size: 1rem;
+        }
+
+        body.classroom-mode .hero h1 {
+          font-size: clamp(2.8rem, 12vw, 4rem);
+        }
+
+        body.classroom-mode .hero h1 em {
+          font-size: clamp(1.5rem, 7vw, 2.2rem);
+        }
+      }
+
+      /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+      @media (max-width: 900px) {
+        .nav-links {
+          display: none;
+        }
+
+        .intro-inner {
+          grid-template-columns: 1fr;
+
+          gap: 40px;
+
+          text-align: center;
+        }
+
+        .stop-content {
+          grid-template-columns: 1fr;
+        }
+
+        .swiss-box {
+          grid-template-columns: 1fr;
+        }
+
+        .swiss-title {
+          min-height: 300px;
+        }
+
+        .bridge-vessels {
+          grid-template-columns: 1fr;
+
+          text-align: center;
+        }
+
+        .vessel-arrow {
+          transform: rotate(90deg);
+        }
+      }
+
+      @media (max-width: 650px) {
+        .hero {
+          padding: 120px 6% 80px;
+        }
+
+        .hero h1 {
+          font-size: 3rem;
+        }
+
+        .intro,
+        .journey,
+        .switzerland,
+        .return {
+          padding-left: 6%;
+          padding-right: 6%;
+        }
+
+        .timeline {
+          padding-left: 55px;
+        }
+
+        .timeline::before {
+          left: 15px;
+        }
+
+        .stop-marker {
+          left: -55px;
+
+          width: 40px;
+
+          height: 40px;
+        }
+
+        .bridge-marker {
+          left: -55px;
+
+          width: 40px;
+
+          height: 40px;
+
+          font-size: 0.95rem;
+        }
+
+        .bridge-card {
+          padding: 25px 20px;
+        }
+
+        .stop-text,
+        .context,
+        .swiss-content {
+          padding: 25px;
+        }
+
+        .swiss-facts {
+          grid-template-columns: 1fr;
+        }
+
+        .igorot-box {
+          padding: 35px 25px;
+        }
+
+        .return-box {
+          padding: 45px 25px;
+        }
+
+        footer {
+          flex-direction: column;
+
+          text-align: center;
+        }
+      }
+
+      html {
+        font-size: 18px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================= -->
+
+    <nav class="navbar">
+      <a href="index.html" class="brand">
+        Life &amp; Works of
+        <span>Rizal</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html"> Home </a>
+
+        <a href="part1.html"> Part I </a>
+
+        <a href="part2.html"> Part II </a>
+
+        <a href="part3.html"> Part III </a>
+
+        <a href="#journey"> Journey </a>
+
+        <a href="#return"> Return </a>
+
+        <a href="#route"> Route map </a>
+      </div>
+    </nav>
+
+    <button
+      class="classroom-toggle"
+      id="classroomToggle"
+      type="button"
+      aria-pressed="false"
+      aria-label="Enable larger text"
+      title="Toggle larger text"
+    >
+      A+
+    </button>
+
+    <!-- =========================================================
+         HERO
+    ========================================================= -->
+
+    <header class="hero">
+      <div class="hero-inner">
+        <div class="chapter-label">
+          <div class="chapter-number">IV</div>
+
+          <span> Part IV · Rizal's Europe Tour </span>
+        </div>
+
+        <h1>
+          The Europe Tour
+          <em>after Noli Me Tangere.</em>
+        </h1>
+
+        <p class="hero-description">
+          After the publication of
+          <em>Noli Me Tangere</em> in Berlin, José Rizal and Maximo Viola
+          traveled through several parts of Europe before Rizal eventually
+          continued his journey toward the Philippines.
+        </p>
+
+        <a
+          href="#intro"
+          class="hero-btn"
+          id="heroRouteBtn"
+          aria-label="Follow the route to the next section"
+        >
+          <i class="bi bi-compass-fill compass-icon" aria-hidden="true"></i>
+          <span>Follow the route</span>
+          <i class="bi bi-arrow-down arrow-icon" aria-hidden="true"></i>
+        </a>
+      </div>
+    </header>
+
+    <!-- =========================================================
+         INTRO
+    ========================================================= -->
+
+    <section class="intro" id="intro">
+      <div class="intro-inner">
+        <div class="intro-date">
+          <div class="year">1887</div>
+
+          <p>The year of the journey</p>
+        </div>
+
+        <div class="intro-text">
+          <h2>From Berlin, onward.</h2>
+
+          <p>
+            Following the publication of
+            <em>Noli Me Tangere</em>, Rizal and Maximo Viola traveled through
+            several European cities and countries. The journey eventually led
+            Rizal toward Marseille, Saigon, and finally Manila.
+          </p>
+
+          <p>
+            Rather than presenting the trip as one simple line on a map, the
+            journey can be viewed as a series of encounters with different
+            places, cultures, political systems, and historical environments.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         JOURNEY
+    ========================================================= -->
+
+    <section class="journey" id="journey">
+      <div class="section-label">The Journey</div>
+
+      <h2 class="section-title">A European itinerary</h2>
+
+      <p class="section-intro">
+        Each stop provides a different part of Rizal's journey following the
+        publication of his first novel.
+      </p>
+
+      <div class="timeline">
+        <!-- =================================================
+                 DRESDEN
+            ================================================= -->
+
+        <article class="stop">
+          <div class="stop-marker">I</div>
+
+          <div class="stop-date">May 11, 1887</div>
+
+          <h3>Dresden</h3>
+
+          <div class="stop-location">Germany</div>
+
+          <div class="stop-content">
+            <div class="stop-text">
+              <p>
+                On May 11, 1887, Rizal and Maximo Viola left Berlin and headed
+                to Dresden, Germany.
+              </p>
+
+              <p>
+                They were warmly welcomed by Dr. Hans Meyer, the German
+                anthropologist Rizal had met during his earlier visit to
+                Leipzig.
+              </p>
+            </div>
+
+            <div class="context">
+              <div class="context-label">Historical setting</div>
+
+              <h4>Germany in 1887</h4>
+
+              <p>
+                During this period, Otto von Bismarck was Chancellor of the
+                German Empire. Germany was also undergoing industrial, railway,
+                and scientific development.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- =================================================
+                 LEITMERITZ
+            ================================================= -->
+
+        <article class="stop">
+          <div class="stop-marker">II</div>
+
+          <div class="stop-date">Following Dresden</div>
+
+          <h3>Leitmeritz</h3>
+
+          <div class="stop-location">
+            Present-day Litoměřice, Czech Republic
+          </div>
+
+          <div class="stop-content">
+            <div class="stop-text">
+              <p>
+                Rizal and Viola continued to Leitmeritz, where Rizal met
+                Ferdinand Blumentritt.
+              </p>
+
+              <p>
+                Blumentritt is one of Rizal's closest European correspondents
+                and supporters.
+              </p>
+            </div>
+
+            <div class="context">
+              <div class="context-label">A significant meeting</div>
+
+              <h4>Rizal &amp; Blumentritt</h4>
+
+              <p>
+                Their meeting marked an important point in Rizal's relationship
+                with the Austrian scholar and his continuing intellectual
+                exchange with European scholars.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- =================================================
+                 PRAGUE
+            ================================================= -->
+
+        <article class="stop">
+          <div class="stop-marker">III</div>
+
+          <div class="stop-date">Central Europe</div>
+
+          <h3>Prague</h3>
+
+          <div class="stop-location">Bohemia</div>
+
+          <div class="stop-content">
+            <div class="stop-text">
+              <p>
+                Rizal and Viola proceeded to Prague and visited the tomb of
+                Nicolaus Copernicus.
+              </p>
+
+              <p>
+                Copernicus is remembered for proposing the heliocentric model,
+                in which the Earth and other planets revolve around the Sun.
+              </p>
+            </div>
+
+            <div class="context">
+              <div class="context-label">Intellectual history</div>
+
+              <h4>Copernicus</h4>
+
+              <p>
+                The visit connects Rizal's journey with the history of European
+                scientific thought and astronomy.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- =================================================
+                 CENTRAL EUROPE
+            ================================================= -->
+
+        <article class="stop">
+          <div class="stop-marker">IV</div>
+
+          <div class="stop-date">Continuing westward</div>
+
+          <h3>Brno · Vienna · Salzburg · Munich · Nuremberg · Ulm</h3>
+
+          <div class="stop-location">Central Europe</div>
+
+          <div class="stop-content">
+            <div class="stop-text">
+              <p>
+                Rizal and Viola continued their journey through several cities
+                in Central Europe, including Brno, Vienna, Salzburg, Munich,
+                Nuremberg, and Ulm.
+              </p>
+
+              <p>
+                Vienna was the capital of the Austrian half of Austria-Hungary
+                and was an important center of culture, music, and architecture.
+              </p>
+
+              <p>
+                Munich was a major cultural center in the Kingdom of Bavaria,
+                within the German Empire.
+              </p>
+            </div>
+
+            <div class="context">
+              <div class="context-label">Cities &amp; culture</div>
+
+              <h4>Ulm</h4>
+              <p>
+                In Ulm, they climbed the tallest and largest cathedral in
+                Germany.
+              </p>
+              <p>This cathedral is possibly the Ulm Minster.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- =================================================
+                 SWITZERLAND
+            ================================================= -->
+
+        <article class="stop">
+          <div class="stop-marker">V</div>
+
+          <div class="stop-date">First week of June 1887</div>
+
+          <h3>Switzerland</h3>
+
+          <div class="stop-location">
+            Basel · Bern · Lausanne · Leman Lake · Geneva
+          </div>
+
+          <div class="stop-content">
+            <div class="stop-text">
+              <p>
+                Rizal and Viola entered Switzerland during the first week of
+                June 1887. They visited Basel and Bern, passed through Lausanne
+                and Leman Lake, and eventually reached Geneva.
+              </p>
+
+              <p>
+                Rizal was deeply saddened when he received news about Igorot
+                people who had been exhibited at an exposition in Madrid, Spain.
+                According to historical accounts, they faced ridicule and
+                degrading treatment, and reportedly died. Their G-strings or
+                clothing and weapons were used as objects of mockery by the
+                people who viewed that exposition. Indigenous Filipinos were
+                treated as curiosities instead of people deserving respect and
+                dignity.
+              </p>
+
+              <p>
+                Compared with the monarchies they had visited, Switzerland
+                offered a different example of how a European country could
+                organize its government.
+              </p>
+            </div>
+
+            <div class="context">
+              <div class="context-label">Political setting</div>
+
+              <h4>The Swiss Confederation</h4>
+
+              <p>
+                Switzerland was a federal republic in which authority was
+                divided between the federal government and its cantons.
+              </p>
+
+              <p>
+                It was also known for political independence and its
+                multilingual population.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- =================================================
+                 ITALY
+            ================================================= -->
+
+        <article class="stop">
+          <div class="stop-marker">VI</div>
+
+          <div class="stop-date">After Switzerland</div>
+
+          <h3>Italy</h3>
+
+          <div class="stop-location">Venice · Florence · Rome</div>
+
+          <div class="stop-content">
+            <div class="stop-text">
+              <p>
+                Maximo Viola eventually parted ways with Rizal and returned
+                toward Spain while Rizal continued to Italy.
+              </p>
+
+              <p>
+                Rizal visited Venice, Florence, and Rome. He admired the
+                architecture, streets, and historical remains of the country.
+              </p>
+            </div>
+
+            <div class="context">
+              <div class="context-label">Historical setting</div>
+
+              <h4>A recently unified Italy</h4>
+
+              <p>
+                Italy had become a unified kingdom during the nineteenth
+                century, with Rome becoming its capital in 1871.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- =================================================
+                 FRANCE
+            ================================================= -->
+
+        <article class="stop">
+          <div class="stop-marker">VII</div>
+
+          <div class="stop-date">July 3, 1887</div>
+
+          <h3>Marseille</h3>
+
+          <div class="stop-location">France</div>
+
+          <div class="stop-content">
+            <div class="stop-text">
+              <p>
+                After visiting Italy, Rizal traveled to Marseille, France,
+                arriving there on July 3, 1887.
+              </p>
+
+              <p>
+                He boarded the
+                <em>Djemnah</em>, the same ship he had used when he traveled
+                toward Europe five years earlier.
+              </p>
+            </div>
+
+            <div class="context">
+              <div class="context-label">Port city</div>
+
+              <h4>Marseille</h4>
+
+              <p>
+                Marseille was an important Mediterranean port and served as a
+                major point for international sea travel.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- =================================================
+                 SAIGON
+            ================================================= -->
+
+        <article class="stop">
+          <div class="stop-marker">VIII</div>
+
+          <div class="stop-date">July 30, 1887</div>
+
+          <h3>Saigon</h3>
+
+          <div class="stop-location">Present-day Ho Chi Minh City, Vietnam</div>
+
+          <div class="stop-content">
+            <div class="stop-text">
+              <p>
+                Rizal sailed from Marseille toward Saigon, which was under
+                French colonial rule during this period.
+              </p>
+
+              <p>
+                On July 30, 1887, Rizal reached Saigon and boarded the
+                <em>Haiphong</em> to continue his journey toward Manila.
+              </p>
+            </div>
+
+            <div class="context">
+              <div class="context-label">Final stage</div>
+
+              <h4>Toward home</h4>
+
+              <p>
+                From Saigon, Rizal's journey moved toward the Philippines after
+                his European travels.
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         RETURN TO PHILIPPINES
+    ========================================================= -->
+
+    <section class="return" id="return">
+      <div class="return-ornament-top">
+        <div class="ornament-line"></div>
+        <div class="ornament-icon">✦ His Return · August 1887 ✦</div>
+        <div class="ornament-line"></div>
+      </div>
+
+      <div class="return-box">
+        <small> The Journey Home</small>
+
+        <h2>Manila</h2>
+
+        <div class="return-date">August 5, 1887</div>
+
+        <p>
+          On the quiet evening of August 5, 1887, the steamer
+          <em>Haiphong</em> dropped anchor in Manila Bay. After five years of
+          study and struggle across Europe, José Rizal stood once again upon his
+          native soil, bringing with him the revolutionary impact of the newly
+          published <em>Noli Me Tangere</em>.
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ROUTE MAP
+    ========================================================= -->
+
+    <section class="route" id="route">
+      <div class="route-inner">
+        <div class="section-label">The Route</div>
+
+        <h2 class="section-title">From Europe toward home</h2>
+
+        <p class="route-description">
+          Route map of Rizal's European tour following
+          <em>Noli Me Tangere</em> and his return voyage to Manila in 1887.
+        </p>
+
+        <div class="route-map-box">
+          <img
+            src="map.png"
+            alt="Map of José Rizal's route from Europe to Manila in 1887"
+            class="route-map-img"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ENDING
+    ========================================================= -->
+
+    <section class="ending">
+      <div class="ending-inner">
+        <div class="section-label" style="justify-content: center">
+          End of Part IV
+        </div>
+
+        <h2>The journey ends.</h2>
+        <h2>His story continues.</h2>
+
+        <p>
+          Rizal's European journey after the publication of
+          <em>Noli Me Tangere</em>
+          eventually brought him back to the Philippines. His travels became
+          another part of the larger story surrounding his life, ideas, and
+          work.
+        </p>
+
+        <div class="actions">
+          <a href="part3.html" class="btn btn-outline">
+            <i class="bi bi-arrow-left"></i>
+
+            Part III
+          </a>
+
+          <a href="index.html" class="btn btn-primary">
+            Back to Main
+
+            <i class="bi bi-house"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
+    <footer>
+      <span> Chapter VII · Part IV </span>
+
+      <span> Rizal's Tour of Europe </span>
+
+      <span> Group 1 · 3ITB </span>
+    </footer>
+
+    <script>
+      const classroomToggle = document.getElementById("classroomToggle");
+
+      classroomToggle.addEventListener("click", () => {
+        const isEnabled = document.body.classList.toggle("classroom-mode");
+        classroomToggle.setAttribute("aria-pressed", String(isEnabled));
+        classroomToggle.setAttribute(
+          "aria-label",
+          isEnabled
+            ? "Disable larger text"
+            : "Enable larger text",
+        );
+      });
+    </script>
+  </body>
+</html>

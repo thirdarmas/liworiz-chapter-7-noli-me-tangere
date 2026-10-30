@@ -1,0 +1,2136 @@
+/* Changlogs After the story part in What is Noli about added Added more details
+in story cards */
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Part II | Noli Me Tangere — Summary</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <style>
+      /* =========================================================
+           ROOT
+        ========================================================= */
+
+      :root {
+        --paper: #e9dfc9;
+        --paper-light: #f6efdf;
+        --paper-dark: #cdbd9e;
+
+        --ink: #211b16;
+        --ink-soft: #574a3e;
+
+        --brown: #624a35;
+        --brown-dark: #38281e;
+
+        --red: #743b32;
+
+        --gold: #a8834b;
+        --gold-light: #c9a86e;
+
+        --line: rgba(62, 44, 30, 0.25);
+
+        --serif: "Libre Baskerville", Georgia, serif;
+        --display: "Cinzel", Georgia, serif;
+        --mono: "DM Mono", monospace;
+      }
+
+      /* =========================================================
+           RESET
+        ========================================================= */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100vh;
+
+        color: var(--ink);
+
+        font-family: var(--serif);
+
+        background:
+          radial-gradient(
+            circle at 10% 20%,
+            rgba(255, 255, 255, 0.25),
+            transparent 25%
+          ),
+          radial-gradient(
+            circle at 90% 80%,
+            rgba(80, 55, 35, 0.08),
+            transparent 30%
+          ),
+          var(--paper);
+
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+
+        position: fixed;
+
+        inset: 0;
+
+        pointer-events: none;
+
+        z-index: 999;
+
+        opacity: 0.16;
+
+        background-image: repeating-linear-gradient(
+          0deg,
+          rgba(80, 54, 34, 0.025) 0px,
+          rgba(80, 54, 34, 0.025) 1px,
+          transparent 1px,
+          transparent 4px
+        );
+      }
+
+      /* =========================================================
+           NAV
+        ========================================================= */
+
+      .navbar {
+        position: fixed;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+
+        z-index: 100;
+
+        padding: 18px 6%;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        background: rgba(233, 223, 201, 0.94);
+
+        backdrop-filter: blur(8px);
+
+        border-bottom: 1px solid var(--line);
+      }
+
+      .brand {
+        color: var(--ink);
+
+        text-decoration: none;
+
+        font-family: var(--display);
+
+        font-size: 0.78rem;
+
+        letter-spacing: 0.15em;
+
+        text-transform: uppercase;
+      }
+
+      .brand span {
+        color: var(--red);
+      }
+
+      .nav-links {
+        display: flex;
+
+        align-items: center;
+
+        gap: 25px;
+      }
+
+      .nav-links a {
+        position: relative;
+
+        text-decoration: none;
+
+        color: var(--ink-soft);
+
+        font-family: var(--mono);
+
+        font-size: 0.62rem;
+
+        letter-spacing: 0.1em;
+
+        text-transform: uppercase;
+      }
+
+      .nav-links a::after {
+        content: "";
+
+        position: absolute;
+
+        left: 0;
+
+        bottom: -7px;
+
+        width: 0;
+
+        height: 1px;
+
+        background: var(--red);
+
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* =========================================================
+           HERO
+        ========================================================= */
+
+      .hero {
+        min-height: 100vh;
+
+        padding: 145px 7% 100px;
+
+        display: flex;
+
+        align-items: center;
+
+        position: relative;
+
+        overflow: hidden;
+      }
+
+      .hero::after {
+        content: "II";
+
+        position: absolute;
+
+        right: -20px;
+
+        top: 5%;
+
+        font-family: var(--display);
+
+        font-size: min(38vw, 500px);
+
+        color: rgba(85, 60, 39, 0.035);
+
+        line-height: 1;
+
+        pointer-events: none;
+      }
+
+      .hero-inner {
+        max-width: 1250px;
+
+        width: 100%;
+
+        margin: auto;
+
+        display: grid;
+
+        grid-template-columns:
+          1.1fr
+          0.9fr;
+
+        gap: 80px;
+
+        align-items: center;
+
+        position: relative;
+
+        z-index: 2;
+      }
+
+      .chapter-label {
+        display: flex;
+
+        align-items: center;
+
+        gap: 14px;
+
+        margin-bottom: 28px;
+      }
+
+      .chapter-number {
+        width: 44px;
+
+        height: 44px;
+
+        display: grid;
+
+        place-items: center;
+
+        border: 1px solid var(--brown);
+
+        font-family: var(--display);
+
+        font-size: 0.82rem;
+
+        color: var(--brown);
+      }
+
+      .chapter-label span {
+        font-family: var(--mono);
+
+        font-size: 0.61rem;
+
+        letter-spacing: 0.17em;
+
+        text-transform: uppercase;
+
+        color: var(--brown);
+      }
+
+      .hero h1 {
+        font-family: var(--display);
+
+        font-size: clamp(3rem, 6vw, 6.4rem);
+
+        font-weight: 500;
+
+        line-height: 0.95;
+
+        letter-spacing: -0.035em;
+      }
+
+      .hero h1 em {
+        display: block;
+
+        margin-top: 20px;
+
+        color: var(--red);
+
+        font-family: var(--serif);
+
+        font-size: clamp(1.6rem, 3vw, 2.8rem);
+
+        line-height: 1.35;
+
+        font-weight: 400;
+      }
+
+      .hero-text {
+        max-width: 700px;
+
+        margin-top: 30px;
+
+        color: var(--ink-soft);
+
+        font-size: 0.9rem;
+
+        line-height: 1.9;
+      }
+
+      .hero-actions {
+        display: flex;
+
+        gap: 12px;
+
+        flex-wrap: wrap;
+
+        margin-top: 35px;
+      }
+
+      .btn {
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 10px;
+
+        padding: 14px 20px;
+
+        text-decoration: none;
+
+        font-family: var(--mono);
+
+        font-size: 0.61rem;
+
+        letter-spacing: 0.1em;
+
+        text-transform: uppercase;
+
+        transition: 0.3s;
+      }
+
+      .btn-primary {
+        color: var(--paper-light);
+
+        background: var(--brown-dark);
+
+        border: 1px solid var(--brown-dark);
+      }
+
+      .btn-primary:hover {
+        background: var(--red);
+
+        border-color: var(--red);
+
+        transform: translateY(-3px);
+      }
+
+      .btn-outline {
+        color: var(--brown);
+
+        border: 1px solid var(--brown);
+      }
+
+      .btn-outline:hover {
+        background: var(--brown);
+
+        color: var(--paper-light);
+
+        transform: translateY(-3px);
+      }
+
+      /* =========================================================
+           BOOK VISUAL
+        ========================================================= */
+
+      .book-stage {
+        position: relative;
+
+        width: min(100%, 430px);
+
+        margin: auto;
+      }
+
+      .book-shadow {
+        position: absolute;
+
+        width: 90%;
+
+        height: 94%;
+
+        left: 8%;
+
+        top: 7%;
+
+        background: rgba(35, 25, 17, 0.2);
+
+        filter: blur(7px);
+
+        transform: rotate(5deg);
+      }
+
+      .book {
+        position: relative;
+
+        min-height: 540px;
+
+        padding: 40px;
+
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.035)),
+          var(--brown-dark);
+
+        color: var(--paper-light);
+
+        border: 1px solid rgba(255, 255, 255, 0.13);
+
+        transform: rotate(-2deg);
+
+        transition: 0.5s ease;
+
+        box-shadow: 0 30px 60px rgba(40, 28, 18, 0.22);
+      }
+
+      .book:hover {
+        transform: rotate(0deg) translateY(-8px);
+      }
+
+      .book::before {
+        content: "";
+
+        position: absolute;
+
+        inset: 18px;
+
+        border: 1px solid rgba(201, 168, 110, 0.4);
+
+        pointer-events: none;
+      }
+
+      .book-inner {
+        height: 100%;
+
+        min-height: 460px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: space-between;
+
+        position: relative;
+
+        z-index: 2;
+      }
+
+      .book-top {
+        display: flex;
+
+        justify-content: space-between;
+
+        font-family: var(--mono);
+
+        font-size: 0.54rem;
+
+        letter-spacing: 0.12em;
+
+        text-transform: uppercase;
+
+        color: var(--gold-light);
+      }
+
+      .book-center {
+        text-align: center;
+      }
+
+      .book-center small {
+        font-family: var(--mono);
+
+        font-size: 0.56rem;
+
+        letter-spacing: 0.2em;
+
+        text-transform: uppercase;
+
+        color: var(--gold-light);
+      }
+
+      .book-center h2 {
+        margin-top: 22px;
+
+        font-family: var(--display);
+
+        font-size: 3.2rem;
+
+        line-height: 0.95;
+
+        font-weight: 500;
+      }
+
+      .book-center h2 span {
+        display: block;
+
+        margin-top: 8px;
+
+        font-family: var(--serif);
+
+        font-style: italic;
+
+        font-size: 1.55rem;
+      }
+
+      .book-divider {
+        width: 60px;
+
+        height: 1px;
+
+        background: var(--gold);
+
+        margin: 30px auto;
+      }
+
+      .book-center p {
+        max-width: 260px;
+
+        margin: auto;
+
+        color: #d7cbb9;
+
+        font-size: 0.68rem;
+
+        line-height: 1.8;
+      }
+
+      .book-bottom {
+        text-align: center;
+
+        font-family: var(--mono);
+
+        font-size: 0.52rem;
+
+        letter-spacing: 0.14em;
+
+        text-transform: uppercase;
+
+        color: var(--gold-light);
+      }
+
+      /* =========================================================
+           SECTION
+        ========================================================= */
+
+      .section {
+        max-width: 1250px;
+
+        margin: auto;
+
+        padding: 110px 7%;
+      }
+
+      .section-label {
+        display: flex;
+
+        align-items: center;
+
+        gap: 14px;
+
+        margin-bottom: 18px;
+
+        font-family: var(--mono);
+
+        font-size: 0.6rem;
+
+        letter-spacing: 0.18em;
+
+        text-transform: uppercase;
+
+        color: var(--red);
+      }
+
+      .section-label::before {
+        content: "";
+
+        width: 40px;
+
+        height: 1px;
+
+        background: var(--red);
+      }
+
+      .section-title {
+        font-family: var(--display);
+
+        font-weight: 500;
+
+        font-size: clamp(2.2rem, 4.3vw, 4.3rem);
+
+        line-height: 1.05;
+      }
+
+      .section-intro {
+        max-width: 750px;
+
+        margin-top: 22px;
+
+        color: var(--ink-soft);
+
+        font-size: 0.9rem;
+
+        line-height: 1.9;
+      }
+
+      /* =========================================================
+           STORY SUMMARY
+        ========================================================= */
+
+      .story-summary {
+        margin-top: 65px;
+
+        display: grid;
+
+        grid-template-columns:
+          0.75fr
+          1.25fr;
+
+        gap: 25px;
+      }
+
+      .story-statement {
+        padding: 45px;
+
+        background: var(--brown-dark);
+
+        color: var(--paper-light);
+
+        position: relative;
+
+        overflow: hidden;
+      }
+
+      .story-statement::after {
+        content: "N";
+
+        position: absolute;
+
+        right: -30px;
+
+        bottom: -90px;
+
+        font-family: var(--display);
+
+        font-size: 15rem;
+
+        color: rgba(255, 255, 255, 0.035);
+      }
+
+      .story-statement small {
+        font-family: var(--mono);
+
+        font-size: 0.55rem;
+
+        letter-spacing: 0.15em;
+
+        text-transform: uppercase;
+
+        color: var(--gold-light);
+      }
+
+      .story-statement h3 {
+        margin-top: 75px;
+
+        font-family: var(--display);
+
+        font-size: 2rem;
+
+        line-height: 1.15;
+
+        font-weight: 500;
+
+        position: relative;
+
+        z-index: 2;
+      }
+
+      .story-statement p {
+        margin-top: 22px;
+
+        color: #d5c9b7;
+
+        font-size: 0.77rem;
+
+        line-height: 1.9;
+
+        position: relative;
+
+        z-index: 2;
+      }
+
+      .story-text {
+        padding: 45px;
+
+        background: var(--paper-light);
+
+        border: 1px solid var(--line);
+      }
+
+      .story-text p {
+        color: var(--ink-soft);
+
+        font-size: 0.84rem;
+
+        line-height: 2;
+
+        margin-bottom: 18px;
+      }
+
+      .story-text strong {
+        color: var(--brown-dark);
+      }
+
+      /* =========================================================
+           STORY FLOW
+        ========================================================= */
+
+      .story-flow {
+        margin-top: 65px;
+
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 18px;
+      }
+
+      .story-card {
+        padding: 35px 25px;
+
+        border: 1px solid var(--line);
+
+        background: rgba(255, 255, 255, 0.16);
+
+        transition: 0.3s;
+
+        position: relative;
+      }
+
+      .story-card:hover {
+        transform: translateY(-7px);
+
+        border-color: var(--brown);
+
+        box-shadow: 0 15px 30px rgba(45, 30, 20, 0.08);
+      }
+
+      .story-card-number {
+        font-family: var(--display);
+
+        font-size: 2.5rem;
+
+        color: rgba(116, 59, 50, 0.17);
+      }
+
+      .story-card h3 {
+        margin-top: 20px;
+
+        font-family: var(--display);
+
+        font-size: 1.05rem;
+
+        font-weight: 500;
+      }
+
+      .story-card p {
+        margin-top: 13px;
+
+        color: var(--ink-soft);
+
+        font-size: 0.72rem;
+
+        line-height: 1.85;
+      }
+
+      /* =========================================================
+           CHARACTERS
+        ========================================================= */
+
+      .characters {
+        padding: 115px 7%;
+
+        background: rgba(80, 56, 36, 0.045);
+
+        border-top: 1px solid var(--line);
+
+        border-bottom: 1px solid var(--line);
+      }
+
+      .characters-inner {
+        max-width: 1250px;
+
+        margin: auto;
+      }
+
+      .character-grid {
+        margin-top: 60px;
+
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 18px;
+      }
+
+      .character-card {
+        min-height: 250px;
+
+        padding: 30px;
+
+        background: var(--paper-light);
+
+        border: 1px solid var(--line);
+
+        position: relative;
+
+        overflow: hidden;
+
+        transition: 0.3s;
+      }
+
+      .character-card:hover {
+        transform: translateY(-5px);
+
+        box-shadow: 0 14px 28px rgba(40, 28, 18, 0.08);
+      }
+
+      .character-card::after {
+        content: "";
+
+        position: absolute;
+
+        right: -35px;
+
+        bottom: -60px;
+
+        width: 130px;
+
+        height: 130px;
+
+        border: 1px solid rgba(98, 74, 53, 0.12);
+
+        transform: rotate(45deg);
+      }
+
+      .character-card small {
+        font-family: var(--mono);
+
+        font-size: 0.52rem;
+
+        letter-spacing: 0.15em;
+
+        text-transform: uppercase;
+
+        color: var(--red);
+      }
+
+      .character-card h3 {
+        margin-top: 25px;
+
+        font-family: var(--display);
+
+        font-size: 1.25rem;
+
+        font-weight: 500;
+      }
+
+      .character-card p {
+        margin-top: 13px;
+
+        color: var(--ink-soft);
+
+        font-size: 0.72rem;
+
+        line-height: 1.8;
+      }
+
+      /* =========================================================
+           LOST CHAPTER HERO
+        ========================================================= */
+
+      .lost-chapter {
+        padding: 125px 7%;
+
+        background: var(--brown-dark);
+
+        color: var(--paper-light);
+
+        position: relative;
+
+        overflow: hidden;
+      }
+
+      .lost-chapter::before {
+        content: "LOST";
+
+        position: absolute;
+
+        right: -50px;
+
+        top: 5%;
+
+        font-family: var(--display);
+
+        font-size: 12rem;
+
+        color: rgba(255, 255, 255, 0.025);
+
+        transform: rotate(-90deg);
+      }
+
+      .lost-inner {
+        max-width: 1250px;
+
+        margin: auto;
+
+        position: relative;
+
+        z-index: 2;
+      }
+
+      .lost-chapter .section-label {
+        color: var(--gold-light);
+      }
+
+      .lost-chapter .section-label::before {
+        background: var(--gold-light);
+      }
+
+      .lost-title {
+        font-family: var(--display);
+
+        font-size: clamp(2.5rem, 5vw, 5.3rem);
+
+        font-weight: 500;
+
+        line-height: 1.02;
+      }
+
+      .lost-title em {
+        display: block;
+
+        margin-top: 12px;
+
+        font-family: var(--serif);
+
+        font-size: clamp(1.4rem, 2.5vw, 2.3rem);
+
+        font-weight: 400;
+
+        color: var(--gold-light);
+      }
+
+      .lost-intro {
+        max-width: 760px;
+
+        margin-top: 25px;
+
+        color: #d6caba;
+
+        font-size: 0.88rem;
+
+        line-height: 1.9;
+      }
+
+      /* =========================================================
+           LOST CHAPTER INFO
+        ========================================================= */
+
+      .lost-info {
+        margin-top: 65px;
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 20px;
+      }
+
+      .lost-info-card {
+        padding: 40px;
+
+        border: 1px solid rgba(255, 255, 255, 0.16);
+
+        background: rgba(255, 255, 255, 0.025);
+      }
+
+      .lost-info-card h3 {
+        font-family: var(--display);
+
+        font-size: 1.2rem;
+
+        font-weight: 500;
+
+        color: var(--paper-light);
+      }
+
+      .lost-info-card p {
+        margin-top: 18px;
+
+        color: #cfc2af;
+
+        font-size: 0.76rem;
+
+        line-height: 1.9;
+      }
+
+      /* =========================================================
+           ELIAS AND SALOME STORY
+        ========================================================= */
+
+      .lost-story {
+        margin-top: 80px;
+      }
+
+      .lost-story-heading {
+        display: flex;
+
+        align-items: center;
+
+        gap: 18px;
+
+        margin-bottom: 45px;
+      }
+
+      .lost-story-heading span {
+        font-family: var(--mono);
+
+        font-size: 0.58rem;
+
+        letter-spacing: 0.15em;
+
+        text-transform: uppercase;
+
+        color: var(--gold-light);
+      }
+
+      .lost-story-heading::after {
+        content: "";
+
+        width: 100px;
+
+        height: 1px;
+
+        background: rgba(201, 168, 110, 0.45);
+      }
+
+      .lost-steps {
+        display: grid;
+
+        grid-template-columns: repeat(5, 1fr);
+
+        border: 1px solid rgba(255, 255, 255, 0.15);
+      }
+
+      .lost-step {
+        min-height: 330px;
+
+        padding: 30px 20px;
+
+        border-right: 1px solid rgba(255, 255, 255, 0.15);
+
+        transition: 0.3s;
+      }
+
+      .lost-step:last-child {
+        border-right: none;
+      }
+
+      .lost-step:hover {
+        background: rgba(255, 255, 255, 0.035);
+
+        transform: translateY(-4px);
+      }
+
+      .lost-step-number {
+        font-family: var(--display);
+
+        font-size: 2.5rem;
+
+        color: rgba(201, 168, 110, 0.35);
+      }
+
+      .lost-step h3 {
+        margin-top: 35px;
+
+        font-family: var(--display);
+
+        font-size: 0.95rem;
+
+        line-height: 1.4;
+
+        font-weight: 500;
+      }
+
+      .lost-step p {
+        margin-top: 15px;
+
+        color: #c8bba9;
+
+        font-size: 0.69rem;
+
+        line-height: 1.85;
+      }
+
+      /* =========================================================
+           WHY REMOVED
+        ========================================================= */
+
+      .removed {
+        max-width: 1250px;
+
+        margin: auto;
+
+        padding: 115px 7%;
+      }
+
+      .removed-layout {
+        margin-top: 60px;
+
+        display: grid;
+
+        grid-template-columns:
+          0.85fr
+          1.15fr;
+
+        gap: 25px;
+
+        align-items: stretch;
+      }
+
+      .removed-big {
+        padding: 50px;
+
+        background: var(--red);
+
+        color: var(--paper-light);
+
+        position: relative;
+
+        overflow: hidden;
+      }
+
+      .removed-big::after {
+        content: "?";
+
+        position: absolute;
+
+        right: -10px;
+
+        bottom: -90px;
+
+        font-family: var(--display);
+
+        font-size: 15rem;
+
+        color: rgba(255, 255, 255, 0.06);
+      }
+
+      .removed-big small {
+        font-family: var(--mono);
+
+        font-size: 0.55rem;
+
+        letter-spacing: 0.15em;
+
+        text-transform: uppercase;
+
+        color: #e0c9b8;
+      }
+
+      .removed-big h3 {
+        margin-top: 100px;
+
+        font-family: var(--display);
+
+        font-size: 2.4rem;
+
+        font-weight: 500;
+
+        line-height: 1.05;
+
+        position: relative;
+
+        z-index: 2;
+      }
+
+      .removed-content {
+        padding: 45px;
+
+        border: 1px solid var(--line);
+
+        background: var(--paper-light);
+      }
+
+      .removed-content p {
+        color: var(--ink-soft);
+
+        font-size: 0.8rem;
+
+        line-height: 1.9;
+
+        margin-bottom: 18px;
+      }
+
+      .removed-content ul {
+        margin-top: 25px;
+
+        list-style: none;
+      }
+
+      .removed-content li {
+        padding: 17px 0;
+
+        border-bottom: 1px solid var(--line);
+
+        display: flex;
+
+        gap: 13px;
+
+        color: var(--ink-soft);
+
+        font-size: 0.73rem;
+
+        line-height: 1.7;
+      }
+
+      .removed-content li i {
+        color: var(--red);
+
+        margin-top: 3px;
+      }
+
+      /* =========================================================
+           ENDING
+        ========================================================= */
+
+      .ending {
+        padding: 110px 7%;
+
+        text-align: center;
+
+        border-top: 1px solid var(--line);
+
+        background: rgba(80, 56, 36, 0.04);
+      }
+
+      .ending-inner {
+        max-width: 850px;
+
+        margin: auto;
+      }
+
+      .ending h2 {
+        font-family: var(--display);
+
+        font-size: clamp(2rem, 4vw, 4rem);
+
+        font-weight: 500;
+
+        line-height: 1.1;
+      }
+
+      .ending p {
+        max-width: 700px;
+
+        margin: 25px auto 0;
+
+        color: var(--ink-soft);
+
+        font-size: 0.84rem;
+
+        line-height: 1.9;
+      }
+
+      .ending-actions {
+        margin-top: 40px;
+
+        display: flex;
+
+        justify-content: center;
+
+        gap: 12px;
+
+        flex-wrap: wrap;
+      }
+
+      /* =========================================================
+           FOOTER
+        ========================================================= */
+
+      footer {
+        padding: 25px 7%;
+
+        border-top: 1px solid var(--line);
+
+        display: flex;
+
+        justify-content: space-between;
+
+        gap: 20px;
+
+        font-family: var(--mono);
+
+        font-size: 0.53rem;
+
+        letter-spacing: 0.1em;
+
+        text-transform: uppercase;
+
+        color: var(--brown);
+      }
+
+      /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+      @media (max-width: 950px) {
+        .nav-links {
+          display: none;
+        }
+
+        .hero-inner {
+          grid-template-columns: 1fr;
+
+          gap: 70px;
+        }
+
+        .story-summary {
+          grid-template-columns: 1fr;
+        }
+
+        .story-flow {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .character-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .lost-info {
+          grid-template-columns: 1fr;
+        }
+
+        .lost-steps {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .lost-step:nth-child(2),
+        .lost-step:nth-child(4) {
+          border-right: none;
+        }
+
+        .lost-step {
+          border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .removed-layout {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .hero {
+          padding: 120px 6% 75px;
+        }
+
+        .hero h1 {
+          font-size: 3rem;
+        }
+
+        .section {
+          padding: 80px 6%;
+        }
+
+        .story-flow {
+          grid-template-columns: 1fr;
+        }
+
+        .character-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .lost-steps {
+          grid-template-columns: 1fr;
+        }
+
+        .lost-step {
+          border-right: none;
+        }
+
+        .lost-step:nth-child(2),
+        .lost-step:nth-child(4) {
+          border-right: none;
+        }
+
+        footer {
+          flex-direction: column;
+
+          text-align: center;
+        }
+      }
+
+      html {
+        font-size: 18px;
+      }
+
+      body .nav-links a,
+      body .btn,
+      body .section-label,
+      body .chapter-label span,
+      body footer {
+        font-size: 0.72rem;
+      }
+
+      body .hero-text,
+      body .book-center p,
+      body .section-intro,
+      body .story-statement p,
+      body .story-text p,
+      body .story-card p,
+      body .character-card p,
+      body .lost-intro,
+      body .lost-info-card p,
+      body .lost-step p,
+      body .removed-content p,
+      body .removed-content li,
+      body .ending p {
+        font-size: 1rem;
+      }
+
+      .classroom-toggle {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        z-index: 1000;
+        width: 54px;
+        height: 54px;
+        border: 2px solid var(--gold-light);
+        border-radius: 50%;
+        background: var(--brown-dark);
+        color: var(--paper-light);
+        box-shadow: 0 6px 20px rgba(38, 26, 17, 0.28);
+        font-family: var(--serif);
+        font-size: 1.15rem;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      .classroom-toggle:hover,
+      .classroom-toggle[aria-pressed="true"] {
+        background: var(--red);
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid var(--gold);
+        outline-offset: 4px;
+      }
+
+      body.classroom-mode .hero-text,
+      body.classroom-mode .book-center p,
+      body.classroom-mode .section-intro,
+      body.classroom-mode .story-statement p,
+      body.classroom-mode .story-text p,
+      body.classroom-mode .story-card p,
+      body.classroom-mode .character-card p,
+      body.classroom-mode .lost-intro,
+      body.classroom-mode .lost-info-card p,
+      body.classroom-mode .lost-step p,
+      body.classroom-mode .removed-content p,
+      body.classroom-mode .removed-content li,
+      body.classroom-mode .ending p {
+        font-size: 1.25rem;
+        line-height: 1.75;
+      }
+
+      body.classroom-mode .nav-links a,
+      body.classroom-mode .btn,
+      body.classroom-mode .section-label,
+      body.classroom-mode .chapter-label span,
+      body.classroom-mode footer {
+        font-size: 0.86rem;
+      }
+
+      @media (max-width: 600px) {
+        .classroom-toggle {
+          right: 14px;
+          bottom: 14px;
+          width: 48px;
+          height: 48px;
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================= -->
+
+    <nav class="navbar">
+      <a href="index.html" class="brand">
+        Life &amp; Works of
+        <span>Rizal</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html"> Home </a>
+
+        <a href="#summary"> Summary </a>
+
+        <a href="#characters"> Characters </a>
+
+        <a href="#lost"> Lost Chapter </a>
+
+        <a href="#why-removed"> Why Removed </a>
+      </div>
+    </nav>
+
+    <button
+      class="classroom-toggle"
+      id="classroomToggle"
+      type="button"
+      aria-pressed="false"
+      aria-label="Enable larger text"
+      title="Toggle larger text"
+    >
+      A+
+    </button>
+
+    <!-- =========================================================
+         HERO
+    ========================================================= -->
+
+    <header class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="chapter-label">
+            <div class="chapter-number">II</div>
+
+            <span> Part II · The Story </span>
+          </div>
+
+          <h1>
+            A novel that
+            <em>revealed a society.</em>
+
+            <span> Noli Me Tangere </span>
+          </h1>
+
+          <p class="hero-text">
+            <em>Noli Me Tangere</em> follows Crisóstomo Ibarra, a young Filipino
+            who returns from Europe with hopes of improving his country through
+            education. His return, however, brings him face-to-face with
+            injustice, discrimination, abuse, and corruption.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#summary" class="btn btn-primary">
+              Read the Story
+
+              <i class="bi bi-arrow-down"></i>
+            </a>
+
+            <a href="part1.html" class="btn btn-outline">
+              <i class="bi bi-arrow-left"></i>
+
+              Part I
+            </a>
+          </div>
+        </div>
+
+        <!-- BOOK -->
+
+        <div class="book-stage">
+          <div class="book-shadow"></div>
+
+          <div class="book">
+            <div class="book-inner">
+              <div class="book-top">
+                <span> Chapter VII </span>
+
+                <span> Part II </span>
+              </div>
+
+              <div class="book-center">
+                <small> The First Novel </small>
+
+                <h2>
+                  Noli
+
+                  <span> Me Tangere </span>
+                </h2>
+
+                <div class="book-divider"></div>
+
+                <p>
+                  A story of Crisóstomo Ibarra, María Clara, Elias, and the
+                  society they lived in.
+                </p>
+              </div>
+
+              <div class="book-bottom">José Rizal · 1887</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- =========================================================
+         SUMMARY
+    ========================================================= -->
+
+    <section class="section" id="summary">
+      <div class="section-label">The Story</div>
+
+      <h2 class="section-title">
+        What is
+        <em>Noli Me Tangere</em>
+        about?
+      </h2>
+
+      <p class="section-intro">
+        The novel presents the struggles and injustices experienced by Filipinos
+        during Spanish colonial rule through the lives and conflicts of its
+        characters.
+      </p>
+
+      <div class="story-summary">
+        <div class="story-statement">
+          <small> Central figure </small>
+
+          <h3>Crisóstomo Ibarra</h3>
+
+          <p>
+            A young Filipino who returns home after studying in Europe and hopes
+            to contribute to his country by improving education.
+          </p>
+        </div>
+
+        <div class="story-text">
+          <p>
+            <strong>Crisóstomo Ibarra</strong> returns to the Philippines after
+            studying in Europe. He wants to help his country, particularly
+            through education.
+          </p>
+
+          <p>
+            However, his plans are challenged by the realities of colonial
+            society. He encounters discrimination, abusive friars, corruption,
+            and other forms of injustice.
+          </p>
+
+          <p>
+            His story is connected with the lives of
+            <strong>María Clara</strong> and <strong>Elias</strong>, whose own
+            experiences reveal different sides of the society Rizal wanted his
+            readers to see.
+          </p>
+
+          <p>
+            <strong>After the story:</strong> María Clara enters the Santa Clara
+            convent despite Padre Damaso's pleading. Padre Damaso is found dead
+            in his new parish, Capitan Tiago becomes an opium addict, and Doña
+            Victorina keeps harassing her husband.
+          </p>
+
+          <div
+            class="highlight"
+            style="
+              border-left: 2px solid var(--red);
+              padding-left: 20px;
+              font-style: italic;
+              line-height: 1.8;
+            "
+          >
+            The novel does more than tell a love story. It exposes the
+            conditions and injustices experienced by Filipinos under colonial
+            rule.
+          </div>
+        </div>
+      </div>
+
+      <!-- STORY FLOW -->
+
+      <div class="story-flow">
+        <div class="story-card">
+          <div class="story-card-number">01</div>
+
+          <h3>Return</h3>
+
+          <p>
+            After seven years in Europe, Ibarra returns and is welcomed with a
+            party by Capitan Tiago, María Clara's father. Padre Damaso shows
+            coldness and rudeness, to the surprise of the guests.
+          </p>
+        </div>
+
+        <div class="story-card">
+          <div class="story-card-number">02</div>
+
+          <h3>The Truth About His Father</h3>
+
+          <p>
+            Lt. Guevarra tells Ibarra that Don Rafael died in prison after
+            accidentally pushing a tax collector who was hitting a boy. His body
+            was buried in a Chinese cemetery, then ordered removed and thrown
+            into the river.
+          </p>
+        </div>
+
+        <div class="story-card">
+          <div class="story-card-number">03</div>
+
+          <h3>Sisa and Pilosopo Tasyo</h3>
+
+          <p>
+            Ibarra meets Pilosopo Tasyo, whose ideas were ahead of his time. The
+            saddest story is Sisa's: a once-rich girl made poor by a gambler
+            husband, who loses her sons Crispin and Basilio and goes insane.
+          </p>
+        </div>
+
+        <div class="story-card">
+          <div class="story-card-number">04</div>
+          <h3>The Picnic</h3>
+          <p>
+            Ibarra, María Clara, her friends Sinang, Neneng, Victoria, and Iday,
+            and Capitan Tiago go on a picnic with the young boatman Elias. Elias
+            nearly dies fighting a crocodile, and Ibarra jumps in to save him.
+          </p>
+        </div>
+        <div class="story-card">
+          <div class="story-card-number">05</div>
+          <h3>Plot Against Ibarra</h3>
+          <p>
+            Ibarra plans a school in San Diego. At the laying of the
+            cornerstone, Elias warns him of a plot, and he is pushed away from a
+            collapsing derrick just in time.
+          </p>
+        </div>
+
+        <div class="story-card">
+          <div class="story-card-number">06</div>
+
+          <h3>Conflict with Damaso</h3>
+
+          <p>
+            When Padre Damaso repeatedly insults his father's memory at a
+            dinner, Ibarra loses control and attacks him with a knife. He is
+            excommunicated and his engagement with María Clara is broken.
+          </p>
+        </div>
+
+        <div class="story-card">
+          <div class="story-card-number">07</div>
+          <h3>Elias's Story</h3>
+          <p>
+            Elias tells Ibarra about his family's tragedies. When Ibarra is
+            falsely accused of an attack on the guardia civil barracks, Elias
+            burns the evidence and helps him escape.
+          </p>
+        </div>
+        <div class="story-card">
+          <div class="story-card-number">08</div>
+          <h3>María Clara's Secret</h3>
+          <p>
+            María Clara tells Ibarra that Padre Salvi blackmailed her into
+            giving up his letters to protect her mother's reputation. She also
+            reveals that her real father is Padre Damaso.
+          </p>
+        </div>
+        <div class="story-card">
+          <div class="story-card-number">09</div>
+          <h3>Escape and Epilogue</h3>
+          <p>
+            Elias is shot while diverting the guardia civil from Ibarra's banca
+            on the Pasig River. He dies in the forest, urging Basilio to bury
+            him and his mother's body. The epilogue shows what became of the
+            others.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         CHARACTERS
+    ========================================================= -->
+
+    <section class="characters" id="characters">
+      <div class="characters-inner">
+        <div class="section-label">The People</div>
+
+        <h2 class="section-title">The characters behind the story</h2>
+
+        <p class="section-intro">
+          The novel's social message becomes clearer through the different
+          experiences of its characters.
+        </p>
+
+        <div class="character-grid">
+          <div class="character-card">
+            <small> Protagonist </small>
+
+            <h3>Crisóstomo Ibarra</h3>
+
+            <p>
+              A young Filipino who returns from Europe and hopes to improve his
+              country through education.
+            </p>
+          </div>
+
+          <div class="character-card">
+            <small> Ibarra's beloved </small>
+
+            <h3>María Clara</h3>
+
+            <p>
+              Ibarra's beloved, whose life is also affected by the social and
+              religious structures surrounding her.
+            </p>
+          </div>
+
+          <div class="character-card">
+            <small> Voice of injustice </small>
+
+            <h3>Elias</h3>
+
+            <p>
+              A character who experiences injustice and represents another
+              perspective on the suffering within society.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         LOST CHAPTER
+    ========================================================= -->
+
+    <section class="lost-chapter" id="lost">
+      <div class="lost-inner">
+        <div class="section-label">The Lost Chapter</div>
+
+        <h2 class="lost-title">
+          Elias and Salome
+
+          <em> The chapter that did not appear in the printed novel. </em>
+        </h2>
+
+        <p class="lost-intro">
+          “Elias and Salome” was part of Rizal's original manuscript and was
+          intended as Chapter 25. Rizal removed it before the novel was printed,
+          so it does not appear in the published version of
+          <em>Noli Me Tangere</em>.
+        </p>
+
+        <!-- BASIC INFO -->
+
+        <div class="lost-info">
+          <div class="lost-info-card">
+            <h3>What was it about?</h3>
+
+            <p>
+              The chapter focuses on Elias and Salome, the woman he loves. It
+              reveals a more personal side of Elias and shows his desire for a
+              peaceful life despite the difficult circumstances surrounding him.
+            </p>
+          </div>
+
+          <div class="lost-info-card">
+            <h3>Why is it important?</h3>
+
+            <p>
+              The chapter allows readers to see Elias not only as someone
+              connected to injustice, but also as a person who wants love,
+              safety, and happiness.
+            </p>
+          </div>
+        </div>
+
+        <!-- PLOT -->
+
+        <div class="lost-story">
+          <div class="lost-story-heading">
+            <span> Five moments </span>
+          </div>
+
+          <div class="lost-steps">
+            <!-- 1 -->
+
+            <div class="lost-step">
+              <div class="lost-step-number">01</div>
+
+              <h3>Elias and Salome reunite</h3>
+
+              <p>
+                Elias returns to his home, where Salome is waiting for him.
+                Their reunion shows the love and affection they have for one
+                another.
+              </p>
+            </div>
+
+            <!-- 2 -->
+
+            <div class="lost-step">
+              <div class="lost-step-number">02</div>
+
+              <h3>Salome asks him to stay</h3>
+
+              <p>
+                Salome wants Elias to leave his dangerous life behind so that
+                they can live together peacefully. She tells him that Mindoro
+                would be an ideal place to live peacefully.
+              </p>
+            </div>
+
+            <!-- 3 -->
+
+            <div class="lost-step">
+              <div class="lost-step-number">03</div>
+
+              <h3>Elias hesitates</h3>
+
+              <p>
+                Elias worries that his enemies could discover him and put Salome
+                in danger.
+              </p>
+            </div>
+
+            <!-- 4 -->
+
+            <div class="lost-step">
+              <div class="lost-step-number">04</div>
+
+              <h3>Salome offers him a place</h3>
+
+              <p>
+                Salome offers Elias a place to stay, showing her willingness to
+                care for him despite the risks.
+              </p>
+            </div>
+
+            <!-- 5 -->
+
+            <div class="lost-step">
+              <div class="lost-step-number">05</div>
+
+              <h3>Elias leaves</h3>
+
+              <p>
+                Elias chooses to continue his dangerous journey rather than
+                settle down with Salome.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         WHY REMOVED
+    ========================================================= -->
+
+    <section class="removed" id="why-removed">
+      <div class="section-label">The Missing Pages</div>
+
+      <h2 class="section-title">Why did Rizal remove the chapter?</h2>
+
+      <p class="section-intro">
+        The removal of the chapter was connected to the practical difficulties
+        Rizal faced while preparing the novel for publication.
+      </p>
+
+      <div class="removed-layout">
+        <div class="removed-big">
+          <small> A difficult decision </small>
+
+          <h3>Fewer pages. Lower printing cost.</h3>
+        </div>
+
+        <div class="removed-content">
+          <p>
+            Rizal had limited funds and was concerned that his money would not
+            be enough to cover the printing costs of the novel.
+          </p>
+
+          <p>
+            Because of this, he removed the chapter and some lines from the
+            manuscript to reduce the number of pages and save money.
+          </p>
+
+          <ul>
+            <li>
+              <i class="bi bi-bookmark"></i>
+
+              <span> “Elias and Salome” was removed before printing. </span>
+            </li>
+
+            <li>
+              <i class="bi bi-bookmark"></i>
+
+              <span>
+                Rizal later felt sorry for eliminating this part of Elias's
+                story.
+              </span>
+            </li>
+
+            <li>
+              <i class="bi bi-bookmark"></i>
+
+              <span>
+                According to the supplied material, Rizal viewed Elias as an
+                ideal person to lead a revolution rather than Simoun.
+              </span>
+            </li>
+
+            <li>
+              <i class="bi bi-bookmark"></i>
+
+              <span>
+                Rizal also thought he might not have enough time to write a
+                sequel.
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ENDING
+    ========================================================= -->
+
+    <section class="ending">
+      <div class="ending-inner">
+        <div class="section-label" style="justify-content: center">
+          End of Part II
+        </div>
+
+        <h2>The story was only the beginning.</h2>
+
+        <p>
+          <em>Noli Me Tangere</em> does not only tell the story of individual
+          characters. Their experiences also reveal larger problems in society —
+          ideas that lead us to the next part of the presentation: how these
+          characters and themes can still be represented in the present society.
+        </p>
+
+        <div class="ending-actions">
+          <a href="part1.html" class="btn btn-outline">
+            <i class="bi bi-arrow-left"></i>
+
+            Part I
+          </a>
+
+          <a href="part3.html" class="btn btn-primary">
+            Continue to Part III
+
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
+    <footer>
+      <span> Chapter VII · Part II </span>
+
+      <span> Noli Me Tangere </span>
+
+      <span> Group 1 · 3ITB </span>
+    </footer>
+    <script>
+      const classroomToggle = document.getElementById("classroomToggle");
+
+      classroomToggle.addEventListener("click", () => {
+        const isEnabled = document.body.classList.toggle("classroom-mode");
+        classroomToggle.setAttribute("aria-pressed", String(isEnabled));
+        classroomToggle.setAttribute(
+          "aria-label",
+          isEnabled
+            ? "Disable larger text"
+            : "Enable larger text",
+        );
+      });
+    </script>
+  </body>
+</html>

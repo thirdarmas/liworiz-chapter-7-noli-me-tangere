@@ -1,0 +1,2372 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Part III | Noli Me Tangere — Characters & Society</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <style>
+      :root {
+        --paper: #e9dfc9;
+        --paper-light: #f7f0e1;
+        --paper-dark: #cdbd9e;
+
+        --ink: #211b16;
+        --ink-soft: #574a3e;
+
+        --brown: #624a35;
+        --brown-dark: #38281e;
+
+        --red: #743b32;
+        --red-dark: #542923;
+
+        --gold: #a8834b;
+        --gold-light: #c9a86e;
+
+        --line: rgba(62, 44, 30, 0.25);
+
+        --serif: "Libre Baskerville", Georgia, serif;
+        --display: "Cinzel", Georgia, serif;
+        --mono: "DM Mono", monospace;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        font-size: 18px;
+      }
+
+      body {
+        color: var(--ink);
+
+        background:
+          radial-gradient(
+            circle at 10% 15%,
+            rgba(255, 255, 255, 0.3),
+            transparent 25%
+          ),
+          radial-gradient(
+            circle at 90% 85%,
+            rgba(70, 45, 25, 0.07),
+            transparent 30%
+          ),
+          var(--paper);
+
+        font-family: var(--serif);
+
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+
+        position: fixed;
+
+        inset: 0;
+
+        pointer-events: none;
+
+        z-index: 999;
+
+        opacity: 0.13;
+
+        background-image: repeating-linear-gradient(
+          0deg,
+          rgba(80, 54, 34, 0.03) 0px,
+          rgba(80, 54, 34, 0.03) 1px,
+          transparent 1px,
+          transparent 4px
+        );
+      }
+
+      /* =========================================================
+         NAVIGATION
+      ========================================================= */
+
+      .navbar {
+        position: fixed;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        width: 100%;
+
+        padding: 18px 6%;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        background: rgba(233, 223, 201, 0.95);
+
+        backdrop-filter: blur(8px);
+
+        border-bottom: 1px solid var(--line);
+      }
+
+      .brand {
+        text-decoration: none;
+
+        color: var(--ink);
+
+        font-family: var(--display);
+
+        font-size: 0.76rem;
+
+        letter-spacing: 0.15em;
+
+        text-transform: uppercase;
+      }
+
+      .brand span {
+        color: var(--red);
+      }
+
+      .nav-links {
+        display: flex;
+
+        gap: 25px;
+      }
+
+      .nav-links a {
+        position: relative;
+
+        color: var(--ink-soft);
+
+        text-decoration: none;
+
+        font-family: var(--mono);
+
+        font-size: 0.72rem;
+
+        letter-spacing: 0.1em;
+
+        text-transform: uppercase;
+      }
+
+      .nav-links a::after {
+        content: "";
+
+        position: absolute;
+
+        left: 0;
+
+        bottom: -7px;
+
+        width: 0;
+
+        height: 1px;
+
+        background: var(--red);
+
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* =========================================================
+         HERO
+      ========================================================= */
+
+      .hero {
+        min-height: 100vh;
+
+        padding: 145px 7% 90px;
+
+        display: flex;
+
+        align-items: center;
+
+        position: relative;
+
+        overflow: hidden;
+      }
+
+      .hero::after {
+        content: "III";
+
+        position: absolute;
+
+        right: -20px;
+
+        top: 3%;
+
+        font-family: var(--display);
+
+        font-size: min(38vw, 500px);
+
+        color: rgba(85, 60, 39, 0.035);
+
+        line-height: 1;
+
+        pointer-events: none;
+      }
+
+      .hero-inner {
+        width: 100%;
+
+        max-width: 1250px;
+
+        margin: auto;
+
+        position: relative;
+
+        z-index: 2;
+      }
+
+      .chapter-label {
+        display: flex;
+
+        align-items: center;
+
+        gap: 14px;
+
+        margin-bottom: 30px;
+      }
+
+      .chapter-number {
+        width: 45px;
+
+        height: 45px;
+
+        display: grid;
+
+        place-items: center;
+
+        border: 1px solid var(--brown);
+
+        font-family: var(--display);
+
+        font-size: 0.8rem;
+
+        color: var(--brown);
+      }
+
+      .chapter-label span {
+        font-family: var(--mono);
+
+        font-size: 0.72rem;
+
+        letter-spacing: 0.18em;
+
+        text-transform: uppercase;
+
+        color: var(--brown);
+      }
+
+      .hero h1 {
+        max-width: 1000px;
+
+        font-family: var(--display);
+
+        font-size: clamp(3rem, 7vw, 7rem);
+
+        font-weight: 500;
+
+        line-height: 0.94;
+
+        letter-spacing: -0.04em;
+      }
+
+      .hero h1 em {
+        display: block;
+
+        margin-top: 18px;
+
+        color: var(--red);
+
+        font-family: var(--serif);
+
+        font-size: clamp(1.6rem, 3.5vw, 3.1rem);
+
+        line-height: 1.3;
+
+        font-weight: 400;
+      }
+
+      .hero-description {
+        max-width: 800px;
+
+        margin-top: 32px;
+
+        color: var(--ink-soft);
+
+        font-size: 1rem;
+
+        line-height: 1.95;
+      }
+
+      .hero-description em {
+        color: var(--red);
+      }
+
+      .hero-note {
+        margin-top: 40px;
+
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+        padding: 15px 20px;
+
+        border: 1px solid var(--line);
+
+        background: rgba(255, 255, 255, 0.18);
+
+        font-family: var(--mono);
+
+        font-size: 0.72rem;
+
+        letter-spacing: 0.08em;
+
+        text-transform: uppercase;
+
+        color: var(--brown);
+      }
+
+      /* =========================================================
+         GENERAL SECTIONS
+      ========================================================= */
+
+      .section-label {
+        display: flex;
+
+        align-items: center;
+
+        gap: 14px;
+
+        color: var(--red);
+
+        font-family: var(--mono);
+
+        font-size: 0.72rem;
+
+        letter-spacing: 0.18em;
+
+        text-transform: uppercase;
+      }
+
+      .section-label::before {
+        content: "";
+
+        width: 40px;
+
+        height: 1px;
+
+        background: var(--red);
+      }
+
+      .section-title {
+        margin-top: 17px;
+
+        font-family: var(--display);
+
+        font-size: clamp(2.2rem, 4.5vw, 4.5rem);
+
+        font-weight: 500;
+
+        line-height: 1.05;
+      }
+
+      .section-intro {
+        max-width: 850px;
+
+        margin-top: 22px;
+
+        color: var(--ink-soft);
+
+        font-size: 1rem;
+
+        line-height: 1.9;
+      }
+
+      /* =========================================================
+         CHARACTERS
+      ========================================================= */
+
+      .characters {
+        max-width: 1250px;
+
+        margin: auto;
+
+        padding: 115px 7%;
+      }
+
+      .character-list {
+        margin-top: 65px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 24px;
+      }
+
+      .character {
+        display: grid;
+
+        grid-template-columns: 80px 1fr 1fr;
+
+        gap: 30px;
+
+        padding: 38px;
+
+        background: var(--paper-light);
+
+        border: 1px solid var(--line);
+
+        transition: 0.35s;
+
+        position: relative;
+
+        overflow: hidden;
+      }
+
+      .character::before {
+        content: "";
+
+        position: absolute;
+
+        left: 0;
+
+        top: 0;
+
+        width: 4px;
+
+        height: 100%;
+
+        background: var(--red);
+
+        opacity: 0.75;
+      }
+
+      .character:hover {
+        border-color: var(--brown);
+
+        transform: translateX(6px);
+
+        box-shadow: 0 14px 30px rgba(45, 30, 20, 0.08);
+      }
+
+      .character-number {
+        font-family: var(--display);
+
+        font-size: 2.8rem;
+
+        color: rgba(116, 59, 50, 0.22);
+      }
+
+      .character-name small {
+        display: block;
+
+        margin-bottom: 12px;
+
+        color: var(--red);
+
+        font-family: var(--mono);
+
+        font-size: 0.72rem;
+
+        letter-spacing: 0.13em;
+
+        text-transform: uppercase;
+      }
+
+      .character-name h3 {
+        font-family: var(--display);
+
+        font-size: 1.5rem;
+
+        font-weight: 500;
+
+        color: var(--brown-dark);
+      }
+
+      .character-name .subtitle {
+        margin-top: 7px;
+
+        color: var(--red);
+
+        font-size: 0.88rem;
+
+        font-style: italic;
+      }
+
+      .character-name p {
+        margin-top: 17px;
+
+        color: var(--ink-soft);
+
+        font-size: 0.94rem;
+
+        line-height: 1.85;
+      }
+
+      .info-block {
+        margin-top: 20px;
+
+        padding-top: 18px;
+
+        border-top: 1px solid var(--line);
+      }
+
+      .info-block h4 {
+        margin-bottom: 10px;
+
+        color: var(--brown);
+
+        font-family: var(--display);
+
+        font-size: 0.9rem;
+
+        font-weight: 500;
+      }
+
+      .info-block ul {
+        padding-left: 18px;
+      }
+
+      .info-block li {
+        margin-bottom: 7px;
+
+        color: var(--ink-soft);
+
+        font-size: 0.83rem;
+
+        line-height: 1.6;
+      }
+
+      .representation {
+        padding-left: 30px;
+
+        border-left: 1px solid var(--line);
+      }
+
+      .representation small {
+        color: var(--brown);
+
+        font-family: var(--mono);
+
+        font-size: 0.72rem;
+
+        letter-spacing: 0.13em;
+
+        text-transform: uppercase;
+      }
+
+      .representation h4 {
+        margin-top: 14px;
+
+        color: var(--red);
+
+        font-family: var(--display);
+
+        font-size: 1.15rem;
+
+        font-weight: 500;
+      }
+
+      .representation p {
+        margin-top: 13px;
+
+        color: var(--ink-soft);
+
+        font-size: 0.92rem;
+
+        line-height: 1.85;
+      }
+
+      /* =========================================================
+         TRANSITION
+      ========================================================= */
+
+      .bridge {
+        padding: 120px 7%;
+
+        background: var(--brown-dark);
+
+        color: var(--paper-light);
+
+        text-align: center;
+
+        position: relative;
+
+        overflow: hidden;
+      }
+
+      .bridge::before {
+        content: "1887";
+
+        position: absolute;
+
+        left: -30px;
+
+        top: -90px;
+
+        font-family: var(--display);
+
+        font-size: 17rem;
+
+        color: rgba(255, 255, 255, 0.025);
+      }
+
+      .bridge::after {
+        content: "2026";
+
+        position: absolute;
+
+        right: -40px;
+
+        bottom: -100px;
+
+        font-family: var(--display);
+
+        font-size: 17rem;
+
+        color: rgba(255, 255, 255, 0.025);
+      }
+
+      .bridge-inner {
+        max-width: 900px;
+
+        margin: auto;
+
+        position: relative;
+
+        z-index: 2;
+      }
+
+      .bridge-label {
+        font-family: var(--mono);
+
+        font-size: 0.72rem;
+
+        letter-spacing: 0.18em;
+
+        text-transform: uppercase;
+
+        color: var(--gold-light);
+      }
+
+      .bridge h2 {
+        margin-top: 25px;
+
+        font-family: var(--display);
+
+        font-size: clamp(2.3rem, 5vw, 5rem);
+
+        font-weight: 500;
+
+        line-height: 1.05;
+      }
+
+      .bridge h2 em {
+        display: block;
+
+        margin-top: 8px;
+
+        font-family: var(--serif);
+
+        color: var(--gold-light);
+
+        font-size: clamp(1.4rem, 2.7vw, 2.5rem);
+
+        font-weight: 400;
+      }
+
+      .bridge p {
+        margin-top: 25px;
+
+        color: #cfc2af;
+
+        font-size: 0.95rem;
+
+        line-height: 1.9;
+      }
+
+      /* =========================================================
+         THEMES
+      ========================================================= */
+
+      .themes {
+        padding: 115px 7%;
+
+        background: rgba(80, 56, 36, 0.045);
+
+        border-top: 1px solid var(--line);
+
+        border-bottom: 1px solid var(--line);
+      }
+
+      .themes-inner {
+        max-width: 1250px;
+
+        margin: auto;
+      }
+
+      .theme-grid {
+        margin-top: 60px;
+
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 20px;
+      }
+
+      .theme-card {
+        min-height: 310px;
+
+        padding: 38px;
+
+        position: relative;
+
+        overflow: hidden;
+
+        background: var(--paper-light);
+
+        border: 1px solid var(--line);
+
+        transition: 0.35s;
+      }
+
+      .theme-card:hover {
+        transform: translateY(-7px);
+
+        border-color: var(--brown);
+
+        box-shadow: 0 18px 35px rgba(45, 30, 20, 0.09);
+      }
+
+      .theme-card::after {
+        content: "";
+
+        position: absolute;
+
+        right: -40px;
+
+        bottom: -70px;
+
+        width: 180px;
+
+        height: 180px;
+
+        border: 1px solid rgba(98, 74, 53, 0.11);
+
+        transform: rotate(45deg);
+      }
+
+      .theme-number {
+        font-family: var(--display);
+
+        font-size: 3rem;
+
+        color: rgba(116, 59, 50, 0.16);
+      }
+
+      .theme-card h3 {
+        margin-top: 30px;
+
+        font-family: var(--display);
+
+        font-size: 1.3rem;
+
+        font-weight: 500;
+      }
+
+      .theme-card p {
+        max-width: 560px;
+
+        margin-top: 15px;
+
+        color: var(--ink-soft);
+
+        font-size: 0.94rem;
+
+        line-height: 1.9;
+      }
+
+      .modern-link {
+        margin-top: 22px;
+
+        padding-top: 16px;
+
+        border-top: 1px solid var(--line);
+
+        font-family: var(--mono);
+
+        font-size: 0.72rem;
+
+        letter-spacing: 0.08em;
+
+        text-transform: uppercase;
+
+        color: var(--red);
+      }
+
+      /* =========================================================
+         PRESENT DAY
+      ========================================================= */
+
+      .present {
+        padding: 115px 7%;
+
+        background: rgba(80, 56, 36, 0.045);
+
+        border-bottom: 1px solid var(--line);
+      }
+
+      .present-inner {
+        max-width: 1250px;
+
+        margin: auto;
+      }
+
+      .comparison {
+        margin-top: 60px;
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        border: 1px solid var(--line);
+      }
+
+      .comparison-column {
+        padding: 40px;
+      }
+
+      .comparison-column:first-child {
+        background: rgba(98, 74, 53, 0.06);
+
+        border-right: 1px solid var(--line);
+      }
+
+      .comparison-column h3 {
+        font-family: var(--display);
+
+        font-size: 1.3rem;
+
+        font-weight: 500;
+      }
+
+      .comparison-column h3 span {
+        display: block;
+
+        margin-top: 7px;
+
+        font-family: var(--mono);
+
+        font-size: 0.72rem;
+
+        letter-spacing: 0.12em;
+
+        text-transform: uppercase;
+
+        color: var(--red);
+      }
+
+      .comparison-list {
+        margin-top: 30px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 15px;
+      }
+
+      .comparison-item {
+        display: flex;
+
+        gap: 15px;
+
+        padding-bottom: 15px;
+
+        border-bottom: 1px solid var(--line);
+
+        color: var(--ink-soft);
+
+        font-size: 0.92rem;
+
+        line-height: 1.8;
+      }
+
+      .comparison-item i {
+        color: var(--red);
+
+        margin-top: 3px;
+
+        flex-shrink: 0;
+      }
+
+      /* =========================================================
+         MESSAGE
+      ========================================================= */
+
+      .message {
+        max-width: 1250px;
+
+        margin: auto;
+
+        padding: 115px 7%;
+      }
+
+      .message-box {
+        padding: 65px;
+
+        background: var(--red);
+
+        color: var(--paper-light);
+
+        text-align: center;
+
+        position: relative;
+
+        overflow: hidden;
+      }
+
+      .message-box::before {
+        content: "N";
+
+        position: absolute;
+
+        left: -40px;
+
+        bottom: -150px;
+
+        font-family: var(--display);
+
+        font-size: 23rem;
+
+        color: rgba(255, 255, 255, 0.045);
+      }
+
+      .message-box > * {
+        position: relative;
+
+        z-index: 2;
+      }
+
+      .message-box small {
+        font-family: var(--mono);
+
+        font-size: 0.72rem;
+
+        letter-spacing: 0.17em;
+
+        text-transform: uppercase;
+
+        color: #e1cfc0;
+      }
+
+      .message-box h2 {
+        margin-top: 25px;
+
+        font-family: var(--display);
+
+        font-size: clamp(2rem, 4vw, 4rem);
+
+        font-weight: 500;
+
+        line-height: 1.1;
+      }
+
+      .message-box p {
+        max-width: 750px;
+
+        margin: 25px auto 0;
+
+        color: #e1d2c4;
+
+        font-size: 0.94rem;
+
+        line-height: 1.9;
+      }
+
+      /* =========================================================
+         ENDING
+      ========================================================= */
+
+      .ending {
+        padding: 100px 7%;
+
+        text-align: center;
+
+        border-top: 1px solid var(--line);
+      }
+
+      .ending-inner {
+        max-width: 850px;
+
+        margin: auto;
+      }
+
+      .ending h2 {
+        font-family: var(--display);
+
+        font-size: clamp(2rem, 4vw, 4rem);
+
+        font-weight: 500;
+
+        line-height: 1.1;
+      }
+
+      .ending p {
+        margin-top: 22px;
+
+        color: var(--ink-soft);
+
+        font-size: 0.94rem;
+
+        line-height: 1.9;
+      }
+
+      .actions {
+        margin-top: 35px;
+
+        display: flex;
+
+        justify-content: center;
+
+        gap: 12px;
+
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 10px;
+
+        padding: 14px 20px;
+
+        text-decoration: none;
+
+        font-family: var(--mono);
+
+        font-size: 0.72rem;
+
+        letter-spacing: 0.1em;
+
+        text-transform: uppercase;
+
+        transition: 0.3s;
+      }
+
+      .btn-primary {
+        color: var(--paper-light);
+
+        background: var(--brown-dark);
+
+        border: 1px solid var(--brown-dark);
+      }
+
+      .btn-primary:hover {
+        background: var(--red);
+
+        border-color: var(--red);
+
+        transform: translateY(-3px);
+      }
+
+      .btn-outline {
+        color: var(--brown);
+
+        border: 1px solid var(--brown);
+      }
+
+      .btn-outline:hover {
+        color: var(--paper-light);
+
+        background: var(--brown);
+
+        transform: translateY(-3px);
+      }
+
+      /* =========================================================
+         FOOTER
+      ========================================================= */
+
+      footer {
+        padding: 25px 7%;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        gap: 20px;
+
+        border-top: 1px solid var(--line);
+
+        color: var(--brown);
+
+        font-family: var(--mono);
+
+        font-size: 0.72rem;
+
+        letter-spacing: 0.1em;
+
+        text-transform: uppercase;
+      }
+
+      body .hero-description,
+      body .section-intro,
+      body .character-name p,
+      body .info-block li,
+      body .representation p,
+      body .bridge p,
+      body .theme-card p,
+      body .comparison-item,
+      body .message-box p,
+      body .ending p {
+        font-size: 1rem;
+      }
+
+      .classroom-toggle {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        z-index: 1000;
+        width: 54px;
+        height: 54px;
+        border: 2px solid var(--gold-light);
+        border-radius: 50%;
+        background: var(--brown-dark);
+        color: var(--paper-light);
+        box-shadow: 0 6px 20px rgba(38, 26, 17, 0.28);
+        font-family: var(--serif);
+        font-size: 1.15rem;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      .classroom-toggle:hover,
+      .classroom-toggle[aria-pressed="true"] {
+        background: var(--red);
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid var(--gold);
+        outline-offset: 4px;
+      }
+
+      body.classroom-mode .hero-description,
+      body.classroom-mode .section-intro,
+      body.classroom-mode .character-name p,
+      body.classroom-mode .info-block li,
+      body.classroom-mode .representation p,
+      body.classroom-mode .bridge p,
+      body.classroom-mode .theme-card p,
+      body.classroom-mode .comparison-item,
+      body.classroom-mode .message-box p,
+      body.classroom-mode .ending p {
+        font-size: 1.25rem;
+        line-height: 1.75;
+      }
+
+      body.classroom-mode .chapter-label span,
+      body.classroom-mode .nav-links a,
+      body.classroom-mode .hero-note,
+      body.classroom-mode .section-label,
+      body.classroom-mode .character-name small,
+      body.classroom-mode .representation small,
+      body.classroom-mode .modern-link,
+      body.classroom-mode .comparison-column h3 span,
+      body.classroom-mode .message-box small,
+      body.classroom-mode .btn,
+      body.classroom-mode footer {
+        font-size: 0.86rem;
+      }
+
+      @media (max-width: 600px) {
+        .classroom-toggle {
+          right: 14px;
+          bottom: 14px;
+          width: 48px;
+          height: 48px;
+          font-size: 1rem;
+        }
+      }
+
+      /* =========================================================
+         RESPONSIVE
+      ========================================================= */
+
+      @media (max-width: 900px) {
+        .nav-links {
+          display: none;
+        }
+
+        .theme-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .character {
+          grid-template-columns: 70px 1fr;
+        }
+
+        .representation {
+          grid-column: 2;
+
+          padding-left: 0;
+
+          padding-top: 25px;
+
+          border-left: none;
+
+          border-top: 1px solid var(--line);
+        }
+
+        .comparison {
+          grid-template-columns: 1fr;
+        }
+
+        .comparison-column:first-child {
+          border-right: none;
+
+          border-bottom: 1px solid var(--line);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .hero {
+          padding-top: 120px;
+        }
+
+        .comparison-column {
+          min-width: 0;
+          padding: 30px 22px;
+        }
+
+        .character {
+          grid-template-columns: 1fr;
+
+          padding: 28px;
+        }
+
+        .character-number {
+          font-size: 2rem;
+        }
+
+        .representation {
+          grid-column: 1;
+        }
+
+        .message-box {
+          padding: 40px 25px;
+        }
+
+        footer {
+          flex-direction: column;
+
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================= -->
+
+    <nav class="navbar">
+      <a href="index.html" class="brand">
+        Life &amp; Works of
+        <span>Rizal</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="part1.html">Part I</a>
+        <a href="part2.html">Part II</a>
+        <a href="part4.html">Part IV</a>
+        <a href="#characters">Characters</a>
+        <a href="#themes">Themes</a>
+        <a href="#present">Today</a>
+      </div>
+    </nav>
+
+    <button
+      class="classroom-toggle"
+      id="classroomToggle"
+      type="button"
+      aria-pressed="false"
+      aria-label="Enable larger text"
+      title="Toggle larger text"
+    >
+      A+
+    </button>
+
+    <!-- =========================================================
+         HERO
+    ========================================================= -->
+
+    <header class="hero">
+      <div class="hero-inner">
+        <div class="chapter-label">
+          <div class="chapter-number">III</div>
+
+          <span>Part III · Characters &amp; Society</span>
+        </div>
+
+        <h1>
+          Meet the characters
+          <em>behind Rizal's social message.</em>
+        </h1>
+
+        <p class="hero-description">
+          Before looking at the bigger themes of
+          <em>Noli Me Tangere</em>, let us first understand the people who bring
+          those ideas to life. Each character has a different background,
+          personality, struggle, and role in society.
+        </p>
+
+        <div class="hero-note">
+          <i class="bi bi-arrow-down"></i>
+
+          Characters → Themes → Relevance Today
+        </div>
+      </div>
+    </header>
+
+    <!-- =========================================================
+         CHARACTERS
+    ========================================================= -->
+
+    <section class="characters" id="characters">
+      <div class="section-label">First: The Characters</div>
+
+      <h2 class="section-title">Who are they?</h2>
+
+      <p class="section-intro">
+        The characters of <em>Noli Me Tangere</em> come from different social
+        positions and experiences. By looking at their backgrounds and
+        personalities, we can better understand the different problems Rizal
+        presented in the novel.
+      </p>
+
+      <div class="character-list">
+        <!-- =====================================================
+             IBARRA
+        ===================================================== -->
+
+        <article class="character">
+          <div class="character-number">01</div>
+
+          <div class="character-name">
+            <small>The Reformist</small>
+
+            <h3>Crisóstomo Ibarra</h3>
+
+            <div class="subtitle">Juan Crisóstomo Ibarra y Magsalin</div>
+
+            <p>
+              Ibarra is the wealthy young protagonist of the novel who returns
+              to the Philippines after studying in Europe. He comes home hoping
+              to continue his father's vision and improve his community.
+            </p>
+
+            <div class="info-block">
+              <h4>Brief Background</h4>
+
+              <ul>
+                <li>Son of Don Rafael Ibarra.</li>
+                <li>Studied in Europe for several years.</li>
+                <li>
+                  Returned to the Philippines after completing his studies.
+                </li>
+                <li>Planned to establish a school in San Diego.</li>
+                <li>Was engaged to María Clara.</li>
+                <li>Faced opposition from Padre Dámaso and Padre Salvi.</li>
+                <li>His experiences eventually changed his view of society.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="representation">
+            <small>Personality &amp; Representation</small>
+
+            <h4>Education, idealism, and peaceful reform</h4>
+
+            <p>
+              Ibarra is intelligent, educated, idealistic, ambitious,
+              compassionate, determined, and reform-minded. At first, he
+              believes that education and peaceful reform can improve society.
+            </p>
+
+            <p>
+              In today's society, he can represent students, professionals,
+              teachers, young leaders, and other educated Filipinos who want to
+              use their knowledge to create positive change.
+            </p>
+
+            <p>
+              His desire to build a school also shows the importance of
+              education. At the same time, his experiences show that good
+              intentions and education may not always be enough when a system is
+              controlled by people with greater power.
+            </p>
+          </div>
+        </article>
+
+        <!-- =====================================================
+             MARIA CLARA
+        ===================================================== -->
+
+        <article class="character">
+          <div class="character-number">02</div>
+
+          <div class="character-name">
+            <small>The Beloved</small>
+
+            <h3>María Clara</h3>
+
+            <div class="subtitle">Ibarra's fiancée</div>
+
+            <p>
+              María Clara is Ibarra's childhood sweetheart and fiancée. She was
+              raised in a wealthy and influential family and is closely
+              connected to the religious and social elite of San Diego.
+            </p>
+
+            <div class="info-block">
+              <h4>Brief Background</h4>
+
+              <ul>
+                <li>Daughter of Kapitán Tiago and Doña Pia Alba.</li>
+                <li>Ibarra's childhood sweetheart and fiancée.</li>
+                <li>Raised in a wealthy and influential family.</li>
+                <li>
+                  Her relationship with Ibarra is affected by powerful figures.
+                </li>
+                <li>
+                  Padre Salvi uses information about her mother to pressure her.
+                </li>
+                <li>
+                  It is later revealed that Padre Dámaso is her biological
+                  father.
+                </li>
+                <li>
+                  Her circumstances eventually lead her to the Santa Clara
+                  convent.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="representation">
+            <small>Personality &amp; Representation</small>
+
+            <h4>Social expectations and personal freedom</h4>
+
+            <p>
+              María Clara is loving, gentle, compassionate, respectful,
+              religious, obedient, and emotional. However, she is often
+              pressured by the expectations of her family and society.
+            </p>
+
+            <p>
+              She can represent people, especially women, whose personal
+              decisions are strongly influenced by family expectations,
+              traditional ideas, social status, and judgment from others.
+            </p>
+
+            <p>
+              Her story can also be connected to issues involving personal
+              freedom, gender expectations, family pressure, and social
+              judgment.
+            </p>
+          </div>
+        </article>
+
+        <!-- =====================================================
+             ELIAS
+        ===================================================== -->
+
+        <article class="character">
+          <div class="character-number">03</div>
+
+          <div class="character-name">
+            <small>The Voice of Suffering</small>
+
+            <h3>Elías</h3>
+
+            <div class="subtitle">The fugitive boatman</div>
+
+            <p>
+              Elias is a mysterious boatman who becomes one of Ibarra's closest
+              and most trusted friends. Unlike Ibarra, he has a closer
+              connection to people who experience suffering and inequality.
+            </p>
+
+            <div class="info-block">
+              <h4>Brief Background</h4>
+
+              <ul>
+                <li>
+                  Comes from a family with a history of suffering and injustice.
+                </li>
+                <li>Experiences abuse, accusations, and discrimination.</li>
+                <li>Helps Ibarra when he is being pursued.</li>
+                <li>Repeatedly risks his own safety to help others.</li>
+                <li>Sacrifices himself while helping Ibarra and Basilio.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="representation">
+            <small>Personality &amp; Representation</small>
+
+            <h4>Marginalized voices and social change</h4>
+
+            <p>
+              Elias is brave, selfless, compassionate, loyal, courageous,
+              patriotic, and sacrificial. He is deeply concerned about the
+              suffering of others.
+            </p>
+
+            <p>
+              In today's society, Elias can represent marginalized people and
+              individuals who speak against injustice even when they have less
+              power, wealth, or social influence.
+            </p>
+
+            <p>
+              He can also be connected to advocates, activists, and individuals
+              who fight for deeper social change.
+            </p>
+          </div>
+        </article>
+
+        <!-- =====================================================
+             PADRE DAMASO
+        ===================================================== -->
+
+        <article class="character">
+          <div class="character-number">04</div>
+
+          <div class="character-name">
+            <small>The Powerful Friar</small>
+
+            <h3>Padre Dámaso</h3>
+
+            <div class="subtitle">Dámaso Verdolagas</div>
+
+            <p>
+              Padre Dámaso is a powerful Franciscan friar who has significant
+              influence over the people of San Diego. He has a long history of
+              conflict with Don Rafael Ibarra and strongly dislikes Crisóstomo.
+            </p>
+
+            <div class="info-block">
+              <h4>Brief Background</h4>
+
+              <ul>
+                <li>A powerful Franciscan friar.</li>
+                <li>Has significant influence in San Diego.</li>
+                <li>Has a long history of conflict with Don Rafael Ibarra.</li>
+                <li>Repeatedly insults and humiliates Crisóstomo Ibarra.</li>
+                <li>Influences several important events in the story.</li>
+                <li>Later revealed to be María Clara's biological father.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="representation">
+            <small>Personality &amp; Representation</small>
+
+            <h4>Abuse of authority and privilege</h4>
+
+            <p>
+              Padre Dámaso is arrogant, proud, aggressive, abusive, judgmental,
+              powerful, manipulative, and conscious of his social position.
+            </p>
+
+            <p>
+              He represents the abuse of authority and privilege. In today's
+              society, he can be connected to powerful individuals who use their
+              position to intimidate, control, or unfairly treat others.
+            </p>
+
+            <p>
+              His character raises questions about power, privilege, influence,
+              and accountability.
+            </p>
+          </div>
+        </article>
+
+        <!-- =====================================================
+             PADRE SALVI
+        ===================================================== -->
+
+        <article class="character">
+          <div class="character-number">05</div>
+
+          <div class="character-name">
+            <small>Hidden Power &amp; Manipulation</small>
+
+            <h3>Padre Salvi</h3>
+
+            <div class="subtitle">Bernardo Salvi</div>
+
+            <p>
+              Padre Salvi is an influential friar in San Diego. Unlike the more
+              openly aggressive Dámaso, Salvi appears quiet and reserved, but he
+              secretly uses his influence to control situations around him.
+            </p>
+
+            <div class="info-block">
+              <h4>Brief Background</h4>
+
+              <ul>
+                <li>Another influential friar in San Diego.</li>
+                <li>More quiet and reserved compared with Padre Dámaso.</li>
+                <li>Develops an interest in María Clara.</li>
+                <li>
+                  Uses information about her mother's past to pressure her.
+                </li>
+                <li>Manipulates situations involving Ibarra.</li>
+                <li>His influence continues to affect María Clara's life.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="representation">
+            <small>Personality &amp; Representation</small>
+
+            <h4>Manipulation behind a respectable image</h4>
+
+            <p>
+              Padre Salvi is quiet, manipulative, strategic, jealous, secretive,
+              hypocritical, patient, and controlling.
+            </p>
+
+            <p>
+              He represents hidden manipulation and abuse of influence. Unlike
+              obvious forms of abuse, manipulation can happen quietly through
+              secrets, threats, pressure, or personal information.
+            </p>
+
+            <p>
+              His character reminds us that abuse of authority is not always
+              loud or aggressive. Sometimes, it can happen behind a respectable
+              appearance.
+            </p>
+          </div>
+        </article>
+
+        <!-- =====================================================
+             KAPITAN TIAGO
+        ===================================================== -->
+
+        <article class="character">
+          <div class="character-number">06</div>
+
+          <div class="character-name">
+            <small>The Influential Filipino</small>
+
+            <h3>Kapitán Tiago</h3>
+
+            <div class="subtitle">Don Santiago de los Santos</div>
+
+            <p>
+              Kapitán Tiago is a wealthy and influential Filipino businessman
+              whose social position is closely connected to the colonial
+              authorities and religious elite.
+            </p>
+
+            <div class="info-block">
+              <h4>Brief Background</h4>
+
+              <ul>
+                <li>Lived between Binondo in Manila and San Diego.</li>
+                <li>Did not receive formal education.</li>
+                <li>Worked under a Dominican priest.</li>
+                <li>
+                  Built connections with the Church and Spanish authorities.
+                </li>
+                <li>Became a wealthy Filipino businessman.</li>
+                <li>Became gobernadorcillo, or town leader.</li>
+                <li>
+                  Married Doña Pia Alba, who died giving birth to María Clara.
+                </li>
+                <li>Was close to Padre Dámaso and Padre Salvi.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="representation">
+            <small>Personality &amp; Representation</small>
+
+            <h4>Social status and conformity</h4>
+
+            <p>
+              Kapitán Tiago is submissive, obedient, status-conscious, selfish,
+              and hypocritical. His religious devotion is also connected to his
+              desire to maintain favor with powerful friars.
+            </p>
+
+            <p>
+              In today's society, he can represent wealthy or influential people
+              who cooperate with powerful individuals or institutions to
+              maintain their social position.
+            </p>
+
+            <p>
+              He also represents people who compromise their own values and
+              principles in exchange for approval, protection, or status.
+            </p>
+          </div>
+        </article>
+
+        <!-- =====================================================
+             PILOSOPO TASYO
+        ===================================================== -->
+
+        <article class="character">
+          <div class="character-number">07</div>
+
+          <div class="character-name">
+            <small>The Independent Thinker</small>
+
+            <h3>Pilosopo Tasyo</h3>
+
+            <div class="subtitle">Don Anastasio</div>
+
+            <p>
+              Pilosopo Tasyo is an intelligent and educated Filipino whose ideas
+              are often considered strange or crazy by the people around him.
+            </p>
+
+            <div class="info-block">
+              <h4>Brief Background</h4>
+
+              <ul>
+                <li>Came from a wealthy family.</li>
+                <li>Studied in college but did not finish.</li>
+                <li>His mother wanted him to live according to her wishes.</li>
+                <li>Known for his deep thoughts and ideas.</li>
+                <li>Often considered "crazy" because of his unusual ideas.</li>
+                <li>Recognized problems caused by the abuse of power.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="representation">
+            <small>Personality &amp; Representation</small>
+
+            <h4>Critical thinking and speaking the truth</h4>
+
+            <p>
+              Pilosopo Tasyo is intelligent, patriotic, and independent-minded.
+              He is not afraid to look at society differently from other people.
+            </p>
+
+            <p>
+              He can represent teachers, researchers, journalists, students, and
+              other people who use knowledge to question society and expose
+              injustice or corruption.
+            </p>
+
+            <p>
+              His character also reminds us that people with different
+              perspectives are not necessarily wrong. Sometimes, new ideas are
+              misunderstood simply because they are different.
+            </p>
+          </div>
+        </article>
+
+        <!-- =====================================================
+             SISA
+        ===================================================== -->
+
+        <article class="character">
+          <div class="character-number">08</div>
+
+          <div class="character-name">
+            <small>The Mother</small>
+
+            <h3>Sisa</h3>
+
+            <div class="subtitle">A mother caught in suffering</div>
+
+            <p>
+              Sisa is the mother of Crispín and Basilio. Her story shows the
+              suffering of an ordinary mother whose family is affected by
+              poverty, abuse, and injustice.
+            </p>
+
+            <div class="info-block">
+              <h4>Brief Background</h4>
+
+              <ul>
+                <li>Mother of Crispín and Basilio.</li>
+                <li>Has a cruel and abusive husband.</li>
+                <li>Deeply loves and cares for her children.</li>
+                <li>Suffers greatly after Crispín disappears.</li>
+                <li>Becomes desperate to find her children.</li>
+                <li>
+                  Loses her sanity after overwhelming grief and suffering.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="representation">
+            <small>Personality &amp; Representation</small>
+
+            <h4>Vulnerable families and mothers</h4>
+
+            <p>
+              Sisa is loving, self-sacrificing, patient, vulnerable, and
+              helpless in the face of the problems surrounding her family.
+            </p>
+
+            <p>
+              She can represent mothers who experience domestic violence,
+              poverty, and social injustice while trying to protect their
+              children.
+            </p>
+
+            <p>
+              Beyond mothers, Sisa can also represent vulnerable people who
+              suffer greatly when society and its institutions fail to protect
+              them.
+            </p>
+          </div>
+        </article>
+
+        <!-- =====================================================
+             BASILIO
+        ===================================================== -->
+
+        <article class="character">
+          <div class="character-number">9</div>
+
+          <div class="character-name">
+            <small>Hope for the Future</small>
+
+            <h3>Basilio</h3>
+
+            <div class="subtitle">Sisa's older son</div>
+
+            <p>
+              Basilio is the older son of Sisa and the older brother of Crispín.
+              Like his brother, he experiences poverty, fear, and suffering
+              caused by people and institutions with greater power.
+            </p>
+
+            <div class="info-block">
+              <h4>Brief Background</h4>
+
+              <ul>
+                <li>Older son of Sisa.</li>
+                <li>Older brother of Crispín.</li>
+                <li>Works as a sacristan alongside Crispín.</li>
+                <li>Experiences poverty, fear, and suffering.</li>
+                <li>Is punished by people connected to the church.</li>
+                <li>Often tries to escape dangerous situations.</li>
+                <li>Discovers that his mother is missing.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="representation">
+            <small>Personality &amp; Representation</small>
+
+            <h4>Resilience and the hope of young people</h4>
+
+            <p>
+              Basilio's experiences show a young person forced to deal with
+              hardship at an early age.
+            </p>
+
+            <p>
+              He can represent children and young people who experience poverty,
+              family problems, and difficult circumstances but still have the
+              possibility of building a better future.
+            </p>
+
+            <p>
+              His character reminds us why young people need protection,
+              education, opportunities, and support instead of being trapped by
+              the circumstances they were born into.
+            </p>
+          </div>
+        </article>
+
+        <!-- =====================================================
+             DONA VICTORINA
+        ===================================================== -->
+
+        <article class="character">
+          <div class="character-number">10</div>
+
+          <div class="character-name">
+            <small>Colonial Mentality</small>
+
+            <h3>Doña Victorina</h3>
+
+            <div class="subtitle">Victorina de los Reyes de Espadaña</div>
+
+            <p>
+              Doña Victorina is a woman obsessed with appearing Spanish. She
+              looks down on other Filipinos and believes that Spanish identity
+              makes her socially superior.
+            </p>
+
+            <div class="info-block">
+              <h4>Brief Background</h4>
+
+              <ul>
+                <li>Obsessed with appearing Spanish.</li>
+                <li>Married to Don Tiburcio de Espadaña.</li>
+                <li>Her husband pretends to be a doctor.</li>
+                <li>Looks down on other Filipinos.</li>
+                <li>
+                  Considers herself superior because of her Spanish image.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="representation">
+            <small>Personality &amp; Representation</small>
+
+            <h4>Colonial mentality and identity</h4>
+
+            <p>
+              Doña Victorina is status-conscious, arrogant, pretentious, and
+              insecure.
+            </p>
+
+            <p>
+              She represents people who reject their own identity and culture
+              because they believe another culture is superior.
+            </p>
+
+            <p>
+              Her character is strongly connected to colonial mentality. She
+              reminds us that a person's worth should not depend on how closely
+              they imitate another culture, but on their own character, values,
+              and actions.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         TRANSITION TO THEMES
+    ========================================================= -->
+
+    <section class="bridge" aria-label="Transition to central themes">
+      <div class="bridge-inner">
+        <div class="bridge-label">From Characters → Central Themes</div>
+
+        <h2>
+          Different lives.
+          <em>One bigger picture.</em>
+        </h2>
+
+        <p>
+          From Ibarra's desire for reform to Elias's sacrifice, from Sisa's
+          suffering to Doña Victorina's colonial mentality, each character
+          reveals a different problem within society. When we put their stories
+          together, we begin to see the larger message of
+          <em>Noli Me Tangere</em>.
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         CENTRAL THEMES
+    ========================================================= -->
+
+    <section class="themes" id="themes">
+      <div class="themes-inner">
+        <div class="section-label">Second: Central Themes</div>
+
+        <h2 class="section-title">What is Rizal trying to show?</h2>
+
+        <p class="section-intro">
+          The characters may have different stories, but their experiences
+          connect to several larger ideas. These themes help us understand the
+          social problems Rizal placed under the spotlight.
+        </p>
+
+        <div class="theme-grid">
+          <article class="theme-card">
+            <div class="theme-number">01</div>
+
+            <h3>Injustice</h3>
+
+            <p>
+              The novel portrays the struggles and injustices experienced by
+              Filipinos during Spanish colonial rule. The experiences of
+              characters such as Elias, Sisa, and Crispín show how unfair
+              systems can deeply affect ordinary people.
+            </p>
+
+            <div class="modern-link">
+              Fairness · Equal treatment · Human dignity
+            </div>
+          </article>
+
+          <article class="theme-card">
+            <div class="theme-number">02</div>
+
+            <h3>Abuse of Power</h3>
+
+            <p>
+              Noli Me Tangere shows how people in positions of authority can
+              influence or control the lives of ordinary people. Characters such
+              as Padre Dámaso and Padre Salvi demonstrate different forms of
+              power and influence.
+            </p>
+
+            <div class="modern-link">Power · Privilege · Accountability</div>
+          </article>
+
+          <article class="theme-card">
+            <div class="theme-number">03</div>
+
+            <h3>Education</h3>
+
+            <p>
+              Ibarra's desire to establish a school reflects the importance of
+              education in his vision for improvement. Education is presented
+              not simply as personal achievement, but as something that can
+              contribute to the development of society.
+            </p>
+
+            <div class="modern-link">Knowledge · Opportunity · Development</div>
+          </article>
+
+          <article class="theme-card">
+            <div class="theme-number">04</div>
+
+            <h3>Social Change</h3>
+
+            <p>
+              The characters respond to their society in different ways. Some
+              seek peaceful reform, some question the existing system, while
+              others suffer because they have little power. Together, their
+              stories encourage readers to recognize social problems instead of
+              simply accepting them.
+            </p>
+
+            <div class="modern-link">Reform · Awareness · Action</div>
+          </article>
+
+          <article class="theme-card">
+            <div class="theme-number">05</div>
+
+            <h3>Sacrifice</h3>
+
+            <p>
+              Sacrifice can be seen in characters who put the welfare of others
+              before their own comfort and safety. Elias is one of the clearest
+              examples, as he repeatedly risks himself to help others.
+            </p>
+
+            <div class="modern-link">Service · Courage · Responsibility</div>
+          </article>
+
+          <article class="theme-card">
+            <div class="theme-number">06</div>
+
+            <h3>Social &amp; Family Pressure</h3>
+
+            <p>
+              María Clara's story shows how personal choices can be affected by
+              family expectations, social status, religion, and the people
+              around her. This theme remains understandable today because many
+              people still experience pressure regarding relationships,
+              education, careers, identity, and personal decisions.
+            </p>
+
+            <div class="modern-link">
+              Family · Expectations · Personal freedom
+            </div>
+          </article>
+
+          <article class="theme-card">
+            <div class="theme-number">07</div>
+
+            <h3>Love for the Country</h3>
+
+            <p>
+              Rizal dedicated <em>Noli Me Tangere</em> to the Philippines, his
+              fatherland. The novel presents the suffering of Filipinos and
+              encourages readers to recognize the problems affecting their
+              society. Love for one's country is therefore connected not only to
+              pride, but also to caring about its people and problems.
+            </p>
+
+            <div class="modern-link">Patriotism · Responsibility · Service</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         TRANSITION TO PRESENT
+    ========================================================= -->
+
+    <section class="bridge" aria-label="Transition to relevance today">
+      <div class="bridge-inner">
+        <div class="bridge-label">From Themes → Present Society</div>
+
+        <h2>
+          1887 is not 2026.
+          <em>But some questions remain.</em>
+        </h2>
+
+        <p>
+          The Philippines today is very different from the society Rizal lived
+          in. However, the problems explored in the novel give us a way to
+          reflect on fairness, power, education, inequality, identity, and our
+          responsibility toward others.
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         RELEVANCE TODAY
+    ========================================================= -->
+
+    <section class="present" id="present">
+      <div class="present-inner">
+        <div class="section-label">Third: Relevance Today</div>
+
+        <h2 class="section-title">Why does <em>Noli</em> still matter?</h2>
+
+        <p class="section-intro">
+          We should not assume that the Philippines today is exactly the same as
+          it was during Rizal's time. Instead, the novel gives us ideas that we
+          can use to examine problems that may still appear in different forms.
+        </p>
+
+        <div class="comparison">
+          <div class="comparison-column">
+            <h3>
+              Rizal's
+              <span>19th Century Context</span>
+            </h3>
+
+            <div class="comparison-list">
+              <div class="comparison-item">
+                <i class="bi bi-book"></i>
+
+                <span>
+                  Filipinos experienced discrimination and social inequality
+                  under colonial rule.
+                </span>
+              </div>
+
+              <div class="comparison-item">
+                <i class="bi bi-shield-exclamation"></i>
+
+                <span>
+                  Powerful individuals and institutions could influence the
+                  lives of ordinary people.
+                </span>
+              </div>
+
+              <div class="comparison-item">
+                <i class="bi bi-mortarboard"></i>
+
+                <span>
+                  Education was presented as an important path toward personal
+                  and social improvement.
+                </span>
+              </div>
+
+              <div class="comparison-item">
+                <i class="bi bi-people"></i>
+
+                <span>
+                  Characters experienced society differently depending on their
+                  social position and power.
+                </span>
+              </div>
+
+              <div class="comparison-item">
+                <i class="bi bi-person-heart"></i>
+
+                <span>
+                  Families and individuals could suffer when they had little
+                  power to challenge the system around them.
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="comparison-column">
+            <h3>
+              Our
+              <span>Present-Day Perspective</span>
+            </h3>
+
+            <div class="comparison-list">
+              <div class="comparison-item">
+                <i class="bi bi-arrow-right"></i>
+
+                <span>
+                  We can still discuss fairness, discrimination, equal
+                  treatment, and human dignity.
+                </span>
+              </div>
+
+              <div class="comparison-item">
+                <i class="bi bi-arrow-right"></i>
+
+                <span>
+                  Questions about accountability and the responsible use of
+                  power remain relevant.
+                </span>
+              </div>
+
+              <div class="comparison-item">
+                <i class="bi bi-arrow-right"></i>
+
+                <span>
+                  Education continues to be connected with opportunity and
+                  personal development.
+                </span>
+              </div>
+
+              <div class="comparison-item">
+                <i class="bi bi-arrow-right"></i>
+
+                <span>
+                  People continue to experience different realities depending on
+                  their social and economic circumstances.
+                </span>
+              </div>
+
+              <div class="comparison-item">
+                <i class="bi bi-arrow-right"></i>
+
+                <span>
+                  We can use the lessons of the novel to become more aware of
+                  injustice and the experiences of vulnerable people.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         FINAL MESSAGE
+    ========================================================= -->
+
+    <section class="message">
+      <div class="message-box">
+        <small> The bigger message </small>
+
+        <h2>
+          The characters are different.
+          <br />
+          The problems are connected.
+        </h2>
+
+        <p>
+          Through the lives of Ibarra, María Clara, Elias, Padre Dámaso, Padre
+          Salvi, Kapitán Tiago, Pilosopo Tasyo, Sisa, Crispín, Basilio, and Doña
+          Victorina, Rizal presented different sides of Filipino society. Their
+          stories help us understand the novel's larger concerns about
+          injustice, power, education, social change, sacrifice, identity, and
+          responsibility.
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ENDING
+    ========================================================= -->
+
+    <section class="ending">
+      <div class="ending-inner">
+        <div class="section-label" style="justify-content: center">
+          End of Part III
+        </div>
+
+        <h2>From the pages to the world.</h2>
+
+        <p>
+          We have now looked at the characters, the central themes, and their
+          possible relevance to society today. From here, we can move to Rizal's
+          journey through Europe after the publication of
+          <em>Noli Me Tangere</em> and his eventual return to the Philippines.
+        </p>
+
+        <div class="actions">
+          <a href="part2.html" class="btn btn-outline">
+            <i class="bi bi-arrow-left"></i>
+            Part II
+          </a>
+
+          <a href="part4.html" class="btn btn-primary">
+            Continue to Part IV
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
+    <footer>
+      <span> Chapter VII · Part III </span>
+
+      <span> Noli Me Tangere </span>
+
+      <span> Group 1 · 3ITB </span>
+    </footer>
+    <script>
+      const classroomToggle = document.getElementById("classroomToggle");
+
+      classroomToggle.addEventListener("click", () => {
+        const isEnabled = document.body.classList.toggle("classroom-mode");
+        classroomToggle.setAttribute("aria-pressed", String(isEnabled));
+        classroomToggle.setAttribute(
+          "aria-label",
+          isEnabled ? "Disable larger text" : "Enable larger text",
+        );
+      });
+    </script>
+  </body>
+</html>

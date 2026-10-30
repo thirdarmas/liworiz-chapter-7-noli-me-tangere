@@ -1,0 +1,2193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Part I | Background — Noli Me Tangere</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Mono:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <style>
+      /* =========================================================
+           ROOT
+        ========================================================= */
+
+      :root {
+        --paper: #e9dfc9;
+        --paper-light: #f6efdf;
+        --paper-dark: #cdbd9e;
+
+        --ink: #211b16;
+        --ink-soft: #574a3e;
+
+        --brown: #624a35;
+        --brown-dark: #38281e;
+
+        --red: #743b32;
+
+        --gold: #a8834b;
+        --gold-light: #c9a86e;
+
+        --line: rgba(62, 44, 30, 0.25);
+
+        --serif: "Libre Baskerville", Georgia, serif;
+        --display: "Cinzel", Georgia, serif;
+        --mono: "DM Mono", monospace;
+      }
+
+      /* =========================================================
+           RESET
+        ========================================================= */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100vh;
+
+        color: var(--ink);
+
+        font-family: var(--serif);
+
+        background:
+          radial-gradient(
+            circle at 15% 15%,
+            rgba(255, 255, 255, 0.28),
+            transparent 25%
+          ),
+          radial-gradient(
+            circle at 85% 80%,
+            rgba(100, 70, 40, 0.08),
+            transparent 30%
+          ),
+          linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.03)),
+          var(--paper);
+
+        overflow-x: hidden;
+      }
+
+      /* paper grain */
+
+      body::before {
+        content: "";
+
+        position: fixed;
+
+        inset: 0;
+
+        pointer-events: none;
+
+        opacity: 0.18;
+
+        background-image: repeating-linear-gradient(
+          0deg,
+          rgba(80, 54, 34, 0.025) 0px,
+          rgba(80, 54, 34, 0.025) 1px,
+          transparent 1px,
+          transparent 4px
+        );
+
+        z-index: 999;
+      }
+
+      /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+      .navbar {
+        position: fixed;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+
+        z-index: 100;
+
+        padding: 18px 6%;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        background: rgba(233, 223, 201, 0.94);
+
+        backdrop-filter: blur(8px);
+
+        border-bottom: 1px solid var(--line);
+      }
+
+      .brand {
+        text-decoration: none;
+
+        color: var(--ink);
+
+        font-family: var(--display);
+
+        font-size: 0.78rem;
+
+        letter-spacing: 0.15em;
+
+        text-transform: uppercase;
+      }
+
+      .brand span {
+        color: var(--red);
+      }
+
+      .nav-links {
+        display: flex;
+
+        gap: 25px;
+
+        align-items: center;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+
+        color: var(--ink-soft);
+
+        font-family: var(--mono);
+
+        font-size: 0.62rem;
+
+        letter-spacing: 0.1em;
+
+        text-transform: uppercase;
+
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+
+        position: absolute;
+
+        left: 0;
+
+        bottom: -7px;
+
+        width: 0;
+
+        height: 1px;
+
+        background: var(--red);
+
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* =========================================================
+           HERO
+        ========================================================= */
+
+      .hero {
+        min-height: 100vh;
+
+        padding: 145px 7% 90px;
+
+        display: flex;
+
+        align-items: center;
+
+        position: relative;
+
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "I";
+
+        position: absolute;
+
+        right: 4%;
+
+        top: 2%;
+
+        font-family: var(--display);
+
+        font-size: min(48vw, 600px);
+
+        line-height: 1;
+
+        color: rgba(85, 60, 39, 0.035);
+
+        pointer-events: none;
+      }
+
+      .hero-inner {
+        width: 100%;
+
+        max-width: 1250px;
+
+        margin: auto;
+
+        display: grid;
+
+        grid-template-columns:
+          1.15fr
+          0.85fr;
+
+        gap: 80px;
+
+        align-items: center;
+
+        position: relative;
+
+        z-index: 2;
+      }
+
+      /* =========================================================
+           HERO LEFT
+        ========================================================= */
+
+      .chapter-label {
+        display: flex;
+
+        align-items: center;
+
+        gap: 14px;
+
+        margin-bottom: 28px;
+      }
+
+      .chapter-number {
+        width: 44px;
+
+        height: 44px;
+
+        border: 1px solid var(--brown);
+
+        display: grid;
+
+        place-items: center;
+
+        font-family: var(--display);
+
+        color: var(--brown);
+
+        font-size: 0.82rem;
+      }
+
+      .chapter-label span:last-child {
+        font-family: var(--mono);
+
+        font-size: 0.62rem;
+
+        letter-spacing: 0.18em;
+
+        text-transform: uppercase;
+
+        color: var(--brown);
+      }
+
+      .hero h1 {
+        font-family: var(--display);
+
+        font-weight: 500;
+
+        font-size: clamp(3rem, 6.8vw, 7rem);
+
+        line-height: 0.95;
+
+        letter-spacing: -0.035em;
+      }
+
+      .hero h1 em {
+        display: block;
+
+        margin-top: 20px;
+
+        color: var(--red);
+
+        font-family: var(--serif);
+
+        font-size: clamp(1.6rem, 3vw, 3rem);
+
+        font-weight: 400;
+
+        line-height: 1.3;
+      }
+
+      .hero-description {
+        max-width: 690px;
+
+        margin-top: 32px;
+
+        color: var(--ink-soft);
+
+        font-size: 0.94rem;
+
+        line-height: 1.9;
+      }
+
+      .hero-actions {
+        display: flex;
+
+        gap: 13px;
+
+        flex-wrap: wrap;
+
+        margin-top: 35px;
+      }
+
+      .btn {
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 10px;
+
+        padding: 14px 20px;
+
+        text-decoration: none;
+
+        font-family: var(--mono);
+
+        font-size: 0.62rem;
+
+        letter-spacing: 0.1em;
+
+        text-transform: uppercase;
+
+        transition: 0.3s;
+      }
+
+      .btn-primary {
+        color: var(--paper-light);
+
+        background: var(--brown-dark);
+
+        border: 1px solid var(--brown-dark);
+      }
+
+      .btn-primary:hover {
+        background: var(--red);
+
+        border-color: var(--red);
+
+        transform: translateY(-3px);
+      }
+
+      .btn-outline {
+        color: var(--brown);
+
+        border: 1px solid var(--brown);
+      }
+
+      .btn-outline:hover {
+        color: var(--paper-light);
+
+        background: var(--brown);
+
+        transform: translateY(-3px);
+      }
+
+      /* =========================================================
+           HERO MANUSCRIPT
+        ========================================================= */
+
+      .manuscript-wrapper {
+        position: relative;
+
+        width: min(100%, 420px);
+
+        margin: auto;
+      }
+
+      .manuscript-shadow {
+        position: absolute;
+
+        width: 90%;
+
+        height: 100%;
+
+        left: 9%;
+
+        top: 6%;
+
+        background: rgba(45, 30, 20, 0.15);
+
+        filter: blur(5px);
+
+        transform: rotate(4deg);
+      }
+
+      .manuscript {
+        position: relative;
+
+        padding: 45px 35px;
+
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.12), rgba(0, 0, 0, 0.025)),
+          var(--paper-light);
+
+        border: 1px solid rgba(62, 44, 30, 0.38);
+
+        box-shadow: 0 25px 55px rgba(38, 26, 17, 0.18);
+
+        transform: rotate(-2deg);
+
+        transition: 0.5s ease;
+      }
+
+      .manuscript:hover {
+        transform: rotate(0deg) translateY(-8px);
+      }
+
+      .corner {
+        position: absolute;
+
+        width: 25px;
+
+        height: 25px;
+
+        border-color: var(--gold);
+
+        opacity: 0.7;
+      }
+
+      .corner.top-left {
+        top: 12px;
+        left: 12px;
+
+        border-top: 1px solid;
+        border-left: 1px solid;
+      }
+
+      .corner.bottom-right {
+        right: 12px;
+        bottom: 12px;
+
+        border-right: 1px solid;
+        border-bottom: 1px solid;
+      }
+
+      .manuscript-header {
+        display: flex;
+
+        justify-content: space-between;
+
+        padding-bottom: 17px;
+
+        border-bottom: 1px solid var(--line);
+
+        font-family: var(--mono);
+
+        font-size: 0.55rem;
+
+        letter-spacing: 0.12em;
+
+        text-transform: uppercase;
+
+        color: var(--brown);
+      }
+
+      .manuscript-body {
+        padding: 55px 0;
+      }
+
+      .manuscript-body small {
+        font-family: var(--mono);
+
+        font-size: 0.58rem;
+
+        letter-spacing: 0.18em;
+
+        text-transform: uppercase;
+
+        color: var(--red);
+      }
+
+      .manuscript-body h2 {
+        margin-top: 17px;
+
+        font-family: var(--display);
+
+        font-weight: 500;
+
+        font-size: 2.7rem;
+
+        line-height: 1.1;
+      }
+
+      .manuscript-body h2 em {
+        display: block;
+
+        margin-top: 8px;
+
+        font-family: var(--serif);
+
+        font-size: 1.65rem;
+      }
+
+      .manuscript-line {
+        width: 70px;
+
+        height: 1px;
+
+        background: var(--gold);
+
+        margin: 27px 0;
+      }
+
+      .manuscript-body p {
+        color: var(--ink-soft);
+
+        font-size: 0.78rem;
+
+        line-height: 1.8;
+      }
+
+      .manuscript-footer {
+        display: flex;
+
+        justify-content: space-between;
+
+        padding-top: 17px;
+
+        border-top: 1px solid var(--line);
+
+        font-family: var(--mono);
+
+        font-size: 0.53rem;
+
+        letter-spacing: 0.1em;
+
+        text-transform: uppercase;
+
+        color: var(--brown);
+      }
+
+      /* =========================================================
+           SECTION
+        ========================================================= */
+
+      .section {
+        max-width: 1250px;
+
+        margin: auto;
+
+        padding: 115px 7%;
+      }
+
+      .section-label {
+        display: flex;
+
+        align-items: center;
+
+        gap: 14px;
+
+        margin-bottom: 18px;
+
+        font-family: var(--mono);
+
+        font-size: 0.61rem;
+
+        letter-spacing: 0.18em;
+
+        text-transform: uppercase;
+
+        color: var(--red);
+      }
+
+      .section-label::before {
+        content: "";
+
+        width: 40px;
+
+        height: 1px;
+
+        background: var(--red);
+      }
+
+      .section-title {
+        font-family: var(--display);
+
+        font-weight: 500;
+
+        font-size: clamp(2.2rem, 4.5vw, 4.5rem);
+
+        line-height: 1.05;
+      }
+
+      .section-intro {
+        max-width: 730px;
+
+        margin-top: 22px;
+
+        color: var(--ink-soft);
+
+        font-size: 0.92rem;
+
+        line-height: 1.9;
+      }
+
+      /* =========================================================
+           INSPIRATION
+        ========================================================= */
+
+      .inspiration {
+        margin-top: 65px;
+
+        display: grid;
+
+        grid-template-columns:
+          0.9fr
+          1.1fr;
+
+        gap: 25px;
+      }
+
+      .inspiration-book {
+        min-height: 390px;
+
+        padding: 45px;
+
+        background: var(--brown-dark);
+
+        color: var(--paper-light);
+
+        position: relative;
+
+        overflow: hidden;
+      }
+
+      .inspiration-book::before {
+        content: "UT";
+
+        position: absolute;
+
+        right: -20px;
+
+        bottom: -70px;
+
+        font-family: var(--display);
+
+        font-size: 13rem;
+
+        color: rgba(255, 255, 255, 0.035);
+      }
+
+      .book-label {
+        font-family: var(--mono);
+
+        font-size: 0.58rem;
+
+        letter-spacing: 0.15em;
+
+        text-transform: uppercase;
+
+        color: var(--gold-light);
+      }
+
+      .inspiration-book h3 {
+        margin-top: 75px;
+
+        font-family: var(--display);
+
+        font-weight: 500;
+
+        font-size: 2.3rem;
+
+        line-height: 1.1;
+
+        position: relative;
+
+        z-index: 2;
+      }
+
+      .inspiration-book p {
+        margin-top: 20px;
+
+        font-family: var(--serif);
+
+        font-style: italic;
+
+        color: #d8ccba;
+
+        line-height: 1.8;
+
+        font-size: 0.82rem;
+
+        position: relative;
+
+        z-index: 2;
+      }
+
+      .inspiration-content {
+        padding: 45px;
+
+        border: 1px solid var(--line);
+
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .inspiration-content h3 {
+        font-family: var(--display);
+
+        font-size: 1.5rem;
+
+        font-weight: 500;
+
+        margin-bottom: 25px;
+      }
+
+      .inspiration-content p {
+        color: var(--ink-soft);
+
+        font-size: 0.85rem;
+
+        line-height: 1.9;
+
+        margin-bottom: 18px;
+      }
+
+      .highlight {
+        border-left: 2px solid var(--red);
+
+        padding-left: 20px;
+
+        margin-top: 25px;
+
+        font-family: var(--serif);
+
+        font-style: italic;
+
+        line-height: 1.8;
+
+        color: var(--brown-dark);
+      }
+
+      /* =========================================================
+           DATE CARD
+        ========================================================= */
+
+      .date-card {
+        margin-top: 28px;
+
+        display: flex;
+
+        gap: 20px;
+
+        align-items: center;
+
+        padding: 20px;
+
+        border-top: 1px solid var(--line);
+
+        border-bottom: 1px solid var(--line);
+      }
+
+      .date {
+        min-width: 75px;
+
+        font-family: var(--display);
+
+        color: var(--red);
+
+        font-size: 1.4rem;
+
+        line-height: 1.1;
+      }
+
+      .date-text {
+        font-size: 0.75rem;
+
+        line-height: 1.7;
+
+        color: var(--ink-soft);
+      }
+
+      /* =========================================================
+           WRITING JOURNEY
+        ========================================================= */
+
+      .journey {
+        margin-top: 70px;
+
+        position: relative;
+      }
+
+      .journey-line {
+        position: absolute;
+
+        top: 42px;
+
+        left: 8%;
+
+        right: 8%;
+
+        height: 1px;
+
+        background: var(--line);
+      }
+
+      .journey-grid {
+        display: grid;
+
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 18px;
+
+        position: relative;
+
+        z-index: 2;
+      }
+
+      .journey-card {
+        padding: 30px 22px;
+
+        background: var(--paper-light);
+
+        border: 1px solid var(--line);
+
+        transition: 0.3s;
+      }
+
+      .journey-card:hover {
+        transform: translateY(-7px);
+
+        border-color: var(--brown);
+
+        box-shadow: 0 15px 30px rgba(40, 28, 18, 0.09);
+      }
+
+      .journey-number {
+        width: 42px;
+
+        height: 42px;
+
+        display: grid;
+
+        place-items: center;
+
+        background: var(--brown-dark);
+
+        color: var(--paper-light);
+
+        font-family: var(--display);
+
+        font-size: 0.75rem;
+
+        margin-bottom: 30px;
+      }
+
+      .journey-card h3 {
+        font-family: var(--display);
+
+        font-size: 1rem;
+
+        font-weight: 500;
+      }
+
+      .journey-card p {
+        margin-top: 12px;
+
+        color: var(--ink-soft);
+
+        font-size: 0.72rem;
+
+        line-height: 1.8;
+      }
+
+      /* =========================================================
+           FUNDS
+        ========================================================= */
+
+      .funds-section {
+        padding: 110px 7%;
+
+        background: rgba(65, 45, 30, 0.045);
+
+        border-top: 1px solid var(--line);
+
+        border-bottom: 1px solid var(--line);
+      }
+
+      .funds-inner {
+        max-width: 1250px;
+
+        margin: auto;
+      }
+
+      .funds-grid {
+        margin-top: 60px;
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 20px;
+      }
+
+      .fund-card {
+        position: relative;
+
+        padding: 40px;
+
+        min-height: 280px;
+
+        border: 1px solid var(--line);
+
+        background: var(--paper-light);
+
+        transition: 0.3s;
+      }
+
+      .fund-card:hover {
+        transform: translateY(-6px);
+
+        box-shadow: 0 15px 35px rgba(40, 28, 18, 0.1);
+      }
+
+      .fund-number {
+        font-family: var(--display);
+
+        font-size: 3rem;
+
+        color: rgba(90, 65, 42, 0.14);
+      }
+
+      .fund-card h3 {
+        margin-top: 35px;
+
+        font-family: var(--display);
+
+        font-size: 1.3rem;
+
+        font-weight: 500;
+      }
+
+      .fund-card p {
+        margin-top: 15px;
+
+        color: var(--ink-soft);
+
+        font-size: 0.8rem;
+
+        line-height: 1.8;
+      }
+
+      .money {
+        display: inline-block;
+
+        margin-top: 20px;
+
+        padding: 8px 12px;
+
+        border: 1px solid var(--gold);
+
+        color: var(--brown);
+
+        font-family: var(--mono);
+
+        font-size: 0.62rem;
+
+        letter-spacing: 0.08em;
+      }
+
+      /* =========================================================
+           BERLIN INCIDENT
+        ========================================================= */
+
+      .berlin-section {
+        padding: 120px 7%;
+
+        background: var(--brown-dark);
+
+        color: var(--paper-light);
+
+        position: relative;
+
+        overflow: hidden;
+      }
+
+      .berlin-section::before {
+        content: "BERLIN";
+
+        position: absolute;
+
+        right: -50px;
+
+        top: 10%;
+
+        font-family: var(--display);
+
+        font-size: 10rem;
+
+        color: rgba(255, 255, 255, 0.025);
+
+        transform: rotate(-90deg);
+
+        pointer-events: none;
+      }
+
+      .berlin-inner {
+        max-width: 1250px;
+
+        margin: auto;
+
+        position: relative;
+
+        z-index: 2;
+      }
+
+      .berlin-section .section-label {
+        color: var(--gold-light);
+      }
+
+      .berlin-section .section-label::before {
+        background: var(--gold-light);
+      }
+
+      .berlin-title {
+        font-family: var(--display);
+
+        font-size: clamp(2.4rem, 5vw, 5rem);
+
+        font-weight: 500;
+
+        line-height: 1.05;
+      }
+
+      .berlin-intro {
+        max-width: 720px;
+
+        margin-top: 25px;
+
+        color: #d7cbb9;
+
+        font-size: 0.88rem;
+
+        line-height: 1.9;
+      }
+
+      /* incident timeline */
+
+      .incident-timeline {
+        margin-top: 70px;
+
+        display: grid;
+
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 1px;
+
+        border: 1px solid rgba(255, 255, 255, 0.16);
+      }
+
+      .incident-step {
+        min-height: 290px;
+
+        padding: 30px 23px;
+
+        border-right: 1px solid rgba(255, 255, 255, 0.16);
+
+        transition: 0.3s;
+      }
+
+      .incident-step:last-child {
+        border-right: none;
+      }
+
+      .incident-step:hover {
+        background: rgba(255, 255, 255, 0.035);
+      }
+
+      .incident-icon {
+        font-size: 1.4rem;
+
+        color: var(--gold-light);
+
+        margin-bottom: 30px;
+      }
+
+      .incident-step h3 {
+        font-family: var(--display);
+
+        font-size: 0.95rem;
+
+        font-weight: 500;
+
+        line-height: 1.4;
+      }
+
+      .incident-step p {
+        margin-top: 15px;
+
+        color: #c9bcaa;
+
+        font-size: 0.72rem;
+
+        line-height: 1.8;
+      }
+
+      /* =========================================================
+           PUBLICATION
+        ========================================================= */
+
+      .publication {
+        padding: 120px 7%;
+      }
+
+      .publication-inner {
+        max-width: 1250px;
+
+        margin: auto;
+      }
+
+      .publication-layout {
+        margin-top: 60px;
+
+        display: grid;
+
+        grid-template-columns:
+          1.1fr
+          0.9fr;
+
+        gap: 25px;
+      }
+
+      .publication-main {
+        padding: 45px;
+
+        border: 1px solid var(--line);
+
+        background: var(--paper-light);
+      }
+
+      .publication-date {
+        font-family: var(--display);
+
+        font-size: 4.3rem;
+
+        color: var(--red);
+
+        line-height: 1;
+      }
+
+      .publication-main h3 {
+        margin-top: 22px;
+
+        font-family: var(--display);
+
+        font-weight: 500;
+
+        font-size: 1.7rem;
+      }
+
+      .publication-main p {
+        margin-top: 18px;
+
+        color: var(--ink-soft);
+
+        font-size: 0.82rem;
+
+        line-height: 1.9;
+      }
+
+      .publication-side {
+        padding: 45px;
+
+        background: var(--brown);
+
+        color: var(--paper-light);
+      }
+
+      .publication-side h3 {
+        font-family: var(--display);
+
+        font-size: 1.3rem;
+
+        font-weight: 500;
+
+        margin-bottom: 25px;
+      }
+
+      .recipient {
+        padding: 14px 0;
+
+        border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+
+        display: flex;
+
+        gap: 12px;
+
+        align-items: flex-start;
+      }
+
+      .recipient i {
+        color: var(--gold-light);
+
+        margin-top: 3px;
+      }
+
+      .recipient span {
+        font-size: 0.73rem;
+
+        line-height: 1.6;
+
+        color: #dfd3c1;
+      }
+
+      /* dedication */
+
+      .dedication {
+        margin-top: 25px;
+
+        padding: 45px;
+
+        border: 1px solid var(--line);
+
+        text-align: center;
+
+        position: relative;
+      }
+
+      .dedication::before {
+        content: "“";
+
+        position: absolute;
+
+        top: 5px;
+
+        left: 25px;
+
+        font-family: Georgia, serif;
+
+        font-size: 5rem;
+
+        color: rgba(116, 59, 50, 0.15);
+      }
+
+      .dedication p {
+        max-width: 850px;
+
+        margin: auto;
+
+        font-family: var(--serif);
+
+        font-style: italic;
+
+        font-size: 1rem;
+
+        line-height: 2;
+
+        color: var(--brown-dark);
+      }
+
+      .dedication small {
+        display: block;
+
+        margin-top: 25px;
+
+        font-family: var(--mono);
+
+        font-size: 0.56rem;
+
+        letter-spacing: 0.1em;
+
+        text-transform: uppercase;
+
+        color: var(--red);
+      }
+
+      /* =========================================================
+           QUICK RECAP
+        ========================================================= */
+
+      .recap {
+        padding: 100px 7%;
+
+        background: rgba(80, 56, 36, 0.04);
+
+        border-top: 1px solid var(--line);
+      }
+
+      .recap-inner {
+        max-width: 1100px;
+
+        margin: auto;
+      }
+
+      .recap-grid {
+        margin-top: 50px;
+
+        display: grid;
+
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 15px;
+      }
+
+      .recap-card {
+        padding: 30px 20px;
+
+        border: 1px solid var(--line);
+
+        background: var(--paper-light);
+
+        text-align: center;
+      }
+
+      .recap-card i {
+        font-size: 1.3rem;
+
+        color: var(--red);
+      }
+
+      .recap-card h3 {
+        margin-top: 18px;
+
+        font-family: var(--display);
+
+        font-size: 0.9rem;
+
+        font-weight: 500;
+      }
+
+      .recap-card p {
+        margin-top: 10px;
+
+        color: var(--ink-soft);
+
+        font-size: 0.68rem;
+
+        line-height: 1.7;
+      }
+
+      /* =========================================================
+           FOOTER
+        ========================================================= */
+
+      footer {
+        padding: 25px 7%;
+
+        border-top: 1px solid var(--line);
+
+        display: flex;
+
+        justify-content: space-between;
+
+        gap: 20px;
+
+        font-family: var(--mono);
+
+        font-size: 0.55rem;
+
+        letter-spacing: 0.1em;
+
+        text-transform: uppercase;
+
+        color: var(--brown);
+      }
+
+      /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+      @media (max-width: 950px) {
+        .nav-links {
+          display: none;
+        }
+
+        .hero-inner {
+          grid-template-columns: 1fr;
+
+          gap: 70px;
+        }
+
+        .manuscript-wrapper {
+          width: min(100%, 470px);
+        }
+
+        .inspiration {
+          grid-template-columns: 1fr;
+        }
+
+        .journey-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .journey-line {
+          display: none;
+        }
+
+        .incident-timeline {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .incident-step:nth-child(2) {
+          border-right: none;
+        }
+
+        .incident-step {
+          border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+        }
+
+        .publication-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .recap-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .hero {
+          padding: 120px 6% 70px;
+        }
+
+        .hero h1 {
+          font-size: 3rem;
+        }
+
+        .section {
+          padding: 80px 6%;
+        }
+
+        .journey-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .funds-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .incident-timeline {
+          grid-template-columns: 1fr;
+        }
+
+        .incident-step {
+          border-right: none;
+        }
+
+        .publication-date {
+          font-size: 3rem;
+        }
+
+        .recap-grid {
+          grid-template-columns: 1fr;
+        }
+
+        footer {
+          flex-direction: column;
+
+          text-align: center;
+        }
+      }
+
+      html {
+        font-size: 18px;
+      }
+
+      body .nav-links a,
+      body .btn,
+      body .section-label,
+      body .chapter-label span,
+      body footer {
+        font-size: 0.72rem;
+      }
+
+      body .hero-description,
+      body .manuscript-body p,
+      body .section-intro,
+      body .inspiration-book p,
+      body .inspiration-content p,
+      body .journey-card p,
+      body .fund-card p,
+      body .berlin-intro,
+      body .incident-step p,
+      body .publication-main p,
+      body .dedication p,
+      body .recap-card p {
+        font-size: 1rem;
+      }
+
+      .classroom-toggle {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        z-index: 1000;
+        width: 54px;
+        height: 54px;
+        border: 2px solid var(--gold-light);
+        border-radius: 50%;
+        background: var(--brown-dark);
+        color: var(--paper-light);
+        box-shadow: 0 6px 20px rgba(38, 26, 17, 0.28);
+        font-family: var(--serif);
+        font-size: 1.15rem;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      .classroom-toggle:hover,
+      .classroom-toggle[aria-pressed="true"] {
+        background: var(--red);
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid var(--gold);
+        outline-offset: 4px;
+      }
+
+      body.classroom-mode .hero-description,
+      body.classroom-mode .manuscript-body p,
+      body.classroom-mode .section-intro,
+      body.classroom-mode .inspiration-book p,
+      body.classroom-mode .inspiration-content p,
+      body.classroom-mode .journey-card p,
+      body.classroom-mode .fund-card p,
+      body.classroom-mode .berlin-intro,
+      body.classroom-mode .incident-step p,
+      body.classroom-mode .publication-main p,
+      body.classroom-mode .dedication p,
+      body.classroom-mode .recap-card p {
+        font-size: 1.25rem;
+        line-height: 1.75;
+      }
+
+      body.classroom-mode .nav-links a,
+      body.classroom-mode .btn,
+      body.classroom-mode .section-label,
+      body.classroom-mode .chapter-label span,
+      body.classroom-mode footer {
+        font-size: 0.86rem;
+      }
+
+      @media (max-width: 600px) {
+        .classroom-toggle {
+          right: 14px;
+          bottom: 14px;
+          width: 48px;
+          height: 48px;
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================= -->
+
+    <nav class="navbar">
+      <a href="index.html" class="brand">
+        Life &amp; Works of <span>Rizal</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html"> Home </a>
+
+        <a href="#inspiration"> Inspiration </a>
+
+        <a href="#funds"> Funding </a>
+
+        <a href="#berlin"> Berlin </a>
+
+        <a href="#publication"> Publication </a>
+      </div>
+    </nav>
+
+    <button
+      class="classroom-toggle"
+      id="classroomToggle"
+      type="button"
+      aria-pressed="false"
+      aria-label="Enable larger text"
+      title="Toggle larger text"
+    >
+      A+
+    </button>
+
+    <!-- =========================================================
+         HERO
+    ========================================================= -->
+
+    <header class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="chapter-label">
+            <div class="chapter-number">I</div>
+
+            <span> Part I · Background </span>
+          </div>
+
+          <h1>
+            Before the
+            <em>novel was born.</em>
+
+            <span> Noli Me Tangere </span>
+          </h1>
+
+          <p class="hero-description">
+            Before <em>Noli Me Tangere</em> reached its readers, Rizal had to
+            write, revise, fund, and finally publish the novel while living in
+            Europe. This part follows the story behind its creation.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#inspiration" class="btn btn-primary">
+              Begin the Story
+
+              <i class="bi bi-arrow-down"></i>
+            </a>
+
+            <a href="index.html" class="btn btn-outline">
+              <i class="bi bi-arrow-left"></i>
+
+              Back to Chapter
+            </a>
+          </div>
+        </div>
+
+        <!-- MANUSCRIPT -->
+
+        <div class="manuscript-wrapper">
+          <div class="manuscript-shadow"></div>
+
+          <div class="manuscript">
+            <div class="corner top-left"></div>
+
+            <div class="corner bottom-right"></div>
+
+            <div class="manuscript-header">
+              <span> Historical Record </span>
+
+              <span> 1887 </span>
+            </div>
+
+            <div class="manuscript-body">
+              <small> Chapter VII · Part I </small>
+
+              <h2>
+                Noli
+
+                <em> Me Tangere </em>
+              </h2>
+
+              <div class="manuscript-line"></div>
+
+              <p>
+                The story behind Rizal's first novel: its inspiration, writing
+                journey, funding, Berlin experience, and publication.
+              </p>
+            </div>
+
+            <div class="manuscript-footer">
+              <span> José Rizal </span>
+
+              <span> Berlin </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- =========================================================
+         SECTION 1 — WHY
+    ========================================================= -->
+
+    <section class="section" id="inspiration">
+      <div class="section-label">The Beginning</div>
+
+      <h2 class="section-title">Why did Rizal write the novel?</h2>
+
+      <p class="section-intro">
+        The creation of <em>Noli Me Tangere</em> was influenced by Rizal's
+        desire to portray the suffering and oppression experienced by Filipinos
+        under Spanish colonial rule.
+      </p>
+
+      <div class="inspiration">
+        <!-- BOOK -->
+
+        <div class="inspiration-book">
+          <div class="book-label">An important inspiration</div>
+
+          <h3>Uncle Tom's Cabin</h3>
+
+          <p>Harriet Beecher Stowe</p>
+        </div>
+
+        <!-- EXPLANATION -->
+
+        <div class="inspiration-content">
+          <h3>A story that moved Rizal</h3>
+
+          <p>
+            <em>Uncle Tom's Cabin</em>, written by Harriet Beecher Stowe, dealt
+            with the trials and hardships experienced by enslaved Black people.
+          </p>
+
+          <p>
+            The suffering presented in the novel awakened Rizal's sympathy for
+            people who were oppressed and afflicted.
+          </p>
+
+          <div class="highlight">
+            Rizal was inspired to use literature to portray the suffering
+            experienced by Filipinos under Spanish colonial rule.
+          </div>
+        </div>
+      </div>
+
+      <!-- 1884 -->
+
+      <div class="date-card">
+        <div class="date">
+          Jan<br />
+          02<br />
+          1884
+        </div>
+
+        <div class="date-text">
+          A meeting was held at the house of the Paterno brothers where the idea
+          of writing novels about the Philippines was discussed. The enthusiasm
+          was strong, although they initially thought they were not yet ready
+          for such endeavors and were too young.
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         WRITING JOURNEY
+    ========================================================= -->
+
+    <section class="section">
+      <div class="section-label">The Manuscript</div>
+
+      <h2 class="section-title">From Madrid to Berlin</h2>
+
+      <p class="section-intro">
+        Rizal did not write the entire novel in one place. He began writing in
+        Madrid, continued in France and Germany, and made the final revision in
+        Berlin.
+      </p>
+
+      <div class="journey">
+        <div class="journey-line"></div>
+
+        <div class="journey-grid">
+          <div class="journey-card">
+            <div class="journey-number">I</div>
+
+            <h3>Madrid</h3>
+
+            <p>Rizal began writing the novel while in Madrid, Spain.</p>
+          </div>
+
+          <div class="journey-card">
+            <div class="journey-number">II</div>
+
+            <h3>France</h3>
+
+            <p>He continued working on the manuscript while in France.</p>
+          </div>
+
+          <div class="journey-card">
+            <div class="journey-number">III</div>
+
+            <h3>Germany</h3>
+
+            <p>Rizal continued developing the novel while in Germany.</p>
+          </div>
+
+          <div class="journey-card">
+            <div class="journey-number">IV</div>
+
+            <h3>Berlin</h3>
+
+            <p>He made the final revision of the manuscript in Berlin.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="date-card">
+        <div class="date">
+          Feb<br />
+          21<br />
+          1887
+        </div>
+
+        <div class="date-text">The date when Rizal finished the novel.</div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         FUNDING
+    ========================================================= -->
+
+    <section class="funds-section" id="funds">
+      <div class="funds-inner">
+        <div class="section-label">The Struggle to Print</div>
+
+        <h2 class="section-title">
+          The novel was written. But could it be printed?
+        </h2>
+
+        <p class="section-intro">
+          Finishing the manuscript did not mean the journey was over. Rizal
+          still needed money to have the novel printed.
+        </p>
+
+        <div class="funds-grid">
+          <!-- FERNANDO CANON -->
+
+          <div class="fund-card">
+            <div class="fund-number">01</div>
+
+            <h3>Fernando Canon</h3>
+
+            <p>
+              In December 1886, Rizal was worried about the novel because he
+              could not afford its printing. He shared his problem with Fernando
+              Canon and even mentioned that he had almost thrown the manuscript
+              into the fire.
+            </p>
+          </div>
+
+          <!-- MAXIMO VIOLA -->
+
+          <div class="fund-card">
+            <div class="fund-number">02</div>
+
+            <h3>Maximo Viola</h3>
+
+            <p>
+              Maximo Viola helped Rizal by lending him money so that the novel
+              could finally be printed.
+            </p>
+
+            <span class="money"> ₱300 · 2,000 copies </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         BERLIN INCIDENT
+    ========================================================= -->
+
+    <section class="berlin-section" id="berlin">
+      <div class="berlin-inner">
+        <div class="section-label">The Berlin Incident</div>
+
+        <h2 class="berlin-title">Was Rizal a spy?</h2>
+
+        <p class="berlin-intro">
+          While in Berlin, Rizal encountered a misunderstanding that placed him
+          under suspicion. His movements around rural villages led authorities
+          to suspect that he might be a French spy.
+        </p>
+
+        <div class="incident-timeline">
+          <!-- STEP 1 -->
+
+          <div class="incident-step">
+            <div class="incident-icon">
+              <i class="bi bi-eye"></i>
+            </div>
+
+            <h3>Suspicion</h3>
+
+            <p>
+              The Chief of Police received an intelligence report that Rizal was
+              regularly visiting rural villages and was suspected of acting as a
+              French spy.
+            </p>
+          </div>
+
+          <!-- STEP 2 -->
+
+          <div class="incident-step">
+            <div class="incident-icon">
+              <i class="bi bi-passport"></i>
+            </div>
+
+            <h3>The Passport Problem</h3>
+
+            <p>
+              Rizal was asked to show his passport, but he did not have one. He
+              became concerned that he could be deported.
+            </p>
+          </div>
+
+          <!-- STEP 3 -->
+
+          <div class="incident-step">
+            <div class="incident-icon">
+              <i class="bi bi-building"></i>
+            </div>
+
+            <h3>The Four-Day Period</h3>
+
+            <p>
+              Rizal attempted to obtain a passport from the Spanish embassy, but
+              they failed to issue one. He was given four days to present
+              himself to the Chief of Police.
+            </p>
+          </div>
+
+          <!-- STEP 4 -->
+
+          <div class="incident-step">
+            <div class="incident-icon">
+              <i class="bi bi-chat-quote"></i>
+            </div>
+
+            <h3>Rizal Explains</h3>
+
+            <p>
+              Rizal explained in fluent German that he was a Filipino doctor
+              whose interest was local culture and ethnology, not espionage.
+            </p>
+          </div>
+        </div>
+
+        <!-- RESULT -->
+
+        <div
+          class="highlight"
+          style="margin-top: 50px; color: #e0d4c2; border-color: #c9a86e"
+        >
+          His honesty and sincerity persuaded the Chief of Police to change his
+          mind and allow him to remain in Germany.
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         PUBLICATION
+    ========================================================= -->
+
+    <section class="publication" id="publication">
+      <div class="publication-inner">
+        <div class="section-label">The Book</div>
+
+        <h2 class="section-title">From manuscript to printed novel</h2>
+
+        <p class="section-intro">
+          After the manuscript was completed and proofreading was done,
+          <em>Noli Me Tangere</em>
+          finally reached print.
+        </p>
+
+        <div class="publication-layout">
+          <!-- MAIN -->
+
+          <div class="publication-main">
+            <div class="publication-date">1887</div>
+
+            <h3>Noli Me Tangere is published</h3>
+
+            <p>
+              Rizal and Maximo Viola worked together in proofreading the novel
+              before its publication.
+            </p>
+
+            <p>
+              <strong>March 21, 1887</strong>
+              was the publication date of the novel.
+            </p>
+
+            <p>
+              The novel was printed by
+              <em>Berliner Buchdruckerei- Aktiengesellschaft</em>.
+            </p>
+          </div>
+
+          <!-- RECIPIENTS -->
+
+          <div class="publication-side">
+            <h3>Among the first recipients</h3>
+
+            <div class="recipient">
+              <i class="bi bi-person"></i>
+
+              <span> Dr. Ferdinand Blumentritt </span>
+            </div>
+
+            <div class="recipient">
+              <i class="bi bi-person"></i>
+
+              <span> Dr. Antonio Ma. Regidor </span>
+            </div>
+
+            <div class="recipient">
+              <i class="bi bi-person"></i>
+
+              <span> Graciano López Jaena </span>
+            </div>
+
+            <div class="recipient">
+              <i class="bi bi-person"></i>
+
+              <span> Mariano Ponce </span>
+            </div>
+
+            <div class="recipient">
+              <i class="bi bi-person"></i>
+
+              <span> Félix Resurrección Hidalgo </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- DEDICATION -->
+
+        <div class="dedication">
+          <p>
+            To my dear friend, Maximo Viola, and the first to read and
+            appreciate my work.
+          </p>
+
+          <small> José Rizal · Berlin · March 29, 1887 </small>
+        </div>
+
+        <div></div>
+
+        <div class="inspiration-content" style="margin-top: 35px">
+          <h3>The Title</h3>
+
+          <p>
+            José Rizal explained that the title <em>Noli Me Tangere</em> means
+            “Touch Me Not.” He derived this phrase from the Bible, specifically
+            from the scene on the first Easter Sunday when Mary Magdalene
+            visited the Holy Sepulcher. To her, our Lord Jesus said:
+          </p>
+
+          <div class="highlight" style="">
+            Touch me not; I am not yet ascended to my Father, but go to my
+            brethren, and say unto them, I ascend unto my Father; and to my God
+            and your God.” (John 20:13–17)
+          </div>
+        </div>
+
+        <!-- FATHERLAND -->
+
+        <div class="date-card" style="margin-top: 45px">
+          <div class="date">PH</div>
+
+          <div class="date-text">
+            Rizal dedicated the novel to the Philippines, his fatherland. He
+            stated that the facts presented in the novel were true and had
+            happened, and that he could prove them.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         QUICK RECAP
+    ========================================================= -->
+
+    <section class="recap">
+      <div class="recap-inner">
+        <div class="section-label">Part I Recap</div>
+
+        <h2 class="section-title">Remember the journey</h2>
+
+        <div class="recap-grid">
+          <div class="recap-card">
+            <i class="bi bi-lightbulb"></i>
+
+            <h3>Inspiration</h3>
+
+            <p>Uncle Tom's Cabin and Rizal's concern for the oppressed.</p>
+          </div>
+
+          <div class="recap-card">
+            <i class="bi bi-pen"></i>
+
+            <h3>Writing</h3>
+
+            <p>Madrid → France → Germany → final revision in Berlin.</p>
+          </div>
+
+          <div class="recap-card">
+            <i class="bi bi-cash-stack"></i>
+
+            <h3>Funding</h3>
+
+            <p>Maximo Viola provided financial assistance for printing.</p>
+          </div>
+
+          <div class="recap-card">
+            <i class="bi bi-book"></i>
+
+            <h3>Publication</h3>
+
+            <p>The completed novel finally reached its readers in 1887.</p>
+          </div>
+        </div>
+
+        <!-- NEXT PART -->
+
+        <div style="text-align: center; margin-top: 70px">
+          <a href="part2.html" class="btn btn-primary">
+            Continue to Part II
+
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
+    <footer>
+      <span> Chapter VII · Part I </span>
+
+      <span> Noli Me Tangere </span>
+
+      <span> Group 1 · 3ITB </span>
+    </footer>
+    <script>
+      const classroomToggle = document.getElementById("classroomToggle");
+
+      classroomToggle.addEventListener("click", () => {
+        const isEnabled = document.body.classList.toggle("classroom-mode");
+        classroomToggle.setAttribute("aria-pressed", String(isEnabled));
+        classroomToggle.setAttribute(
+          "aria-label",
+          isEnabled ? "Disable larger text" : "Enable larger text",
+        );
+      });
+    </script>
+  </body>
+</html>
